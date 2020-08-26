@@ -1,0 +1,43 @@
+version: "3.7"
+
+services:
+
+  php-apache:
+    image: webdevops/php-apache
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PHP_DISPLAY_ERRORS=On
+    volumes:
+      - "../annonces:/app"
+
+    depends_on:
+      - mariadb
+      - phpmyadmin
+
+  mariadb:
+    image: mariadb:10.4
+    restart: always
+    volumes:
+      - mariadb-vol:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mariadb
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    volumes:
+      - pma-vol:/var/lib/mysql
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mariadb
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb-vol:
+  pma-vol:
