@@ -1,7 +1,7 @@
 {
 	"autoload" : {
 		"psr-4" : {
-			"annonces\\" : "application/class/"
+			"App\\" : "application/class/"
 		}
 	},
 
