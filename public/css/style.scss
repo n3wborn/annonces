@@ -1,8 +1,31 @@
+/*CSS RESET*/
+html,body,,main, div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i, dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,embed,
+figure,figcaption,footer,header,hgroup,
+menu,nav,output,section,summary,
+time,mark,audio,video {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:1rem;
+	vertical-align:baseline;
+}
+
 /* VARIABLES */
 $indigoDye: #70ABAF;
 $coffee : #916953;
 $magnolia : #F8F1FF;
 $bistre : #846C5B;
+$gumMetal : #202C3C;
+
+
 
 nav{
     background-color: $indigoDye;
@@ -36,4 +59,9 @@ nav{
         background-color: #202C3C;
         color: $magnolia;
     }
+}
+
+main{
+    background-color: $magnolia;
+   
 }
