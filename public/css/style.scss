@@ -25,6 +25,10 @@ $magnolia : #F8F1FF;
 $bistre : #846C5B;
 $gumMetal : #202C3C;
 
+body{
+    background-color: $magnolia;
+
+}
 
 
 nav{
@@ -61,7 +65,10 @@ nav{
     }
 }
 
-main{
-    background-color: $magnolia;
-   
-}
+
+   main{
+       .card{
+           border: 1px solid $gumMetal;
+           border-radius: .55rem;
+       }
+   }
