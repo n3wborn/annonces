@@ -1,6 +1,39 @@
 /* VARIABLES */
 $indigoDye: #70ABAF;
+$coffee : #916953;
+$magnolia : #F8F1FF;
+$bistre : #846C5B;
 
 nav{
     background-color: $indigoDye;
+
+    .form-control{
+        height: calc(1.5em + 1.2rem + 2px);
+        border-radius: 1.25rem;
+    }
+
+    .btn{
+        border-radius: 1.25rem;
+        padding: 0.575rem 3.75rem;
+    }
+    
+    .btn-primary{
+        background-color: $coffee;
+        border-color: $coffee;
+    }
+
+    .btn-primary:hover{
+        background-color: $magnolia;
+        border-color: $coffee;
+        color : $coffee;
+    }
+
+}
+
+.input-group-prepend{
+
+    .btn{
+        background-color: #202C3C;
+        color: $magnolia;
+    }
 }
