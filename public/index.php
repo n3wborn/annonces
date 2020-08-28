@@ -2,9 +2,15 @@
 
 // Lien vers l'autoload
 require_once '../vendor/autoload.php';
+
+// Definition de path de base
 define("BASE_PATH", "");
-define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . "8080" . BASE_PATH) ;
-//define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . "$_SERVER['REMOTE_PORT']" . BASE_PATH) ;
+
+// Definition de l'URI
+define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . BASE_PATH) ;
+
+
+// Nouvelle instance d'Altorouteur
 $router = new AltoRouter();
 
 // Chargement de la page d'accueil
