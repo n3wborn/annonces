@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {# favicon #}
-    <link rel="icon" href="public/assets/logo.ico" />
+    <link rel="icon" href="{{ basepath }}/assets/logo.ico" />
     {# Bootstrap #}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/style.css"></link>
+    <link rel="stylesheet" href="{{ basepath }}/css/style.css"></link>
     {% block title %}<title></title>{% endblock title %}
 </head>
 
@@ -30,7 +30,7 @@
     </footer>
     {% endblock footer %}
 
-   
+
     {% block javascript %}
 
     {% endblock javascript %}
