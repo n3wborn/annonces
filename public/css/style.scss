@@ -24,6 +24,7 @@ $coffee : #916953;
 $magnolia : #F8F1FF;
 $bistre : #846C5B;
 $gumMetal : #202C3C;
+$redBanner :#9f1226;
 
 body{
     background-color: $magnolia;
@@ -101,5 +102,27 @@ nav{
         border: 5px solid #fff;
         background: #9f1226;
       }
+
+      #myBtn {
+        display: none; 
+        position: fixed;
+        bottom: 20px; 
+        right: 100px; 
+        z-index: 99; 
+        border: none; 
+        outline: none; 
+        background-color: $coffee; 
+        color: white; 
+        cursor: pointer; 
+        padding: 15px;
+        border-radius: 50%; 
+        font-size: 18px; 
+      }
+      
+      #myBtn:hover {
+        box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);
+        -moz-box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);
+        -webkit-box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);  
+}
 
     }
