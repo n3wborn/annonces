@@ -24,9 +24,9 @@
 - Texte de l'annonce
 - Captcha
 
-3. Lorsque la personne poste son annonce, elle reçois un mail dans lequel il y a un lien demandant de confimer la publication de l'annonce.
+3. Lorsque la personne poste son annonce, elle reçoit un mail (chiffré) dans lequel il y a un lien (unique) demandant de confimer la publication de l'annonce.
 
-Dans ce même courriel, il doit y avoir un lien permettant de modifier l'annonce.
+Dans ce même courriel, il doit y avoir un lien (unique) permettant de modifier l'annonce.
 
 Une fois confirmé alors l'annonce est publié sur la page d'annonce et l'utilisateur recoit un courriel lui permettant supprimer l'annonce. 
 
@@ -50,6 +50,24 @@ Lorsque l'annonce est mise en ligne il ne doit plus être possible de la modifer
 - Tâche cron qui supprime les annonces qui sont en attente de publication à n+2 jours de la date de création
 - Tâche cron qui supprime les annonces qui sont publiées à n+15 jours de la date de création.
 - Envoyer un mail à la personne de la suppression de son annonce 
+
+
+## Details Supplémentaires
+
+Lorsque l’on clique sur une annonce (pour la visualiser plus précisément) celle doit afficher un lien permettant de la télécharger au format pdf.
+
+Pour cela  veuillez utiliser l’une des librairies suivante :
+
+- [fpdf](http://www.fpdf.org)
+- [tcpdf](https://tcpdf.org/)
+- [dompdf](https://github.com/dompdf/dompdf)
+- [mpdf](https://mpdf.github.io/)
+
+
+Pour l’envoi de courriel vous pouvez utiliser la fonction mail() de PHP, mais pour un résultat optimum préférer l’une des librairie PHP suivante :
+
+- [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+- [swiftmailer](https://swiftmailer.symfony.com/docs/introduction.html)
 
 
 ## Technos
