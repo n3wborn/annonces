@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {# favicon #}
-  <link rel="icon" href="public/assets/logo.ico" />
+  <link rel="icon" href="{{ basepath }}/assets/logo.ico" />
   {# Bootstrap #}
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="public/css/style.css"></link>
+  <link rel="stylesheet" href="{{ basepath }}/css/style.css"></link>
   <title>{% block title %}Sites de petites annonces{% endblock title %}</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
     <nav >
       <div class="navbar navbar-light">
         <a class="navbar-brand d-flex" href="#">
-          <img src="public/assets/logo.png"  width="250" height="125" class=" align-top" alt="" loading="lazy">
+          <img src="{{ basepath }}/assets/logo.png"  width="250" height="125" class=" align-top" alt="" loading="lazy">
         </a>
 
         <div class="input-group mb-3 mx-auto col-md-7">
@@ -48,9 +48,9 @@
     <div class="card-deck">
         <div class="row row-cols-1 row-cols-md-3">
             <div class="col mb-4">
-              <div class="card h-100 test">
+              <div class="card h-100">
                 <span href="#" class="recommendation">A partir de 700€ !</span>
-                <img src="public/assets/canada.jpg" class="card-img-top" alt="...">
+                <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title text-center">Voyage au Canada !</h5>
                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>

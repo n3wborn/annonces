@@ -1,40 +1,30 @@
 <?php
 
-
-// test
-//echo "dans public/index.php !";
-
-
-
-
-
-
-/* TWIG */
-/* Variables */
-
-$test1 = "TEST 1 OK";
-$test2 = "TEST 2 OK";
-
-/* Conf */
+// Lien vers l'autoload
 require_once '../vendor/autoload.php';
+define("BASE_PATH", "");
+define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . "8080" . BASE_PATH) ;
+//define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . "$_SERVER['REMOTE_PORT']" . BASE_PATH) ;
+$router = new AltoRouter();
 
-$loader = new \Twig\Loader\FilesystemLoader('../application/templates');
-$twig = new \Twig\Environment($loader, [
-    'cache' => false,
-]);
+// Chargement de la page d'accueil
+$router->map( 'GET', '/', function() {
+	\App\Homepage::homepage();
+});
+
+// Chargement de la page /user (exemple pour les prochaines pages)
+$router->map( 'GET', '/user', function( ) {
+	\App\Homepage::user();
+});
 
 
-/* Templates */
-$template = $twig->load('index.html');
-echo $template->render([
-	'test1' => $test1,
-	'test2' => $test2
-]);
+// On verifie si ça match
+$match = $router->match();
 
-/**
-	* place {{ test1 }} et {{ test2 }}
-	* dans ton template index.html
-	* pour vérifier que c'est ok
-	* Là tu as tout ce qu'il faut pour appeler tes templates
-	* et recupérer des variables php dans tes templates
-	*/
+// Action si match est true/false
+if( is_array($match) && is_callable( $match['target'] ) ) {
+	call_user_func_array( $match['target'], $match['params'] );
+} else {
+	// no route was matched
+	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+}
