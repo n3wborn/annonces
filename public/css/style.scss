@@ -120,7 +120,9 @@ nav{
       }
       
       #myBtn:hover {
-        background-color: #555; /* Add a dark-grey background on hover */
-      }
+        box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);
+        -moz-box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);
+        -webkit-box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);  
+}
 
     }
