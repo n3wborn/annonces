@@ -11,9 +11,9 @@
 
 ## Cycle pour poster une annonce
 
-1. Sur la page listant les annonces afficher un lien permettant de publier une annonce	
+1. Sur la page listant les annonces afficher un lien permettant de publier une annonce  
 
-2. Lorsque la personne arrive sur le formulaire permettant de poster une annonce elle devra saisir	:
+2. Lorsque la personne arrive sur le formulaire permettant de poster une annonce elle devra saisir  :
 
 - Adresse mail
 - Nom
@@ -24,9 +24,9 @@
 - Texte de l'annonce
 - Captcha
 
-3. Lorsque la personne poste son annonce, elle reçoit un mail (chiffré) dans lequel il y a un lien (unique) demandant de confimer la publication de l'annonce.
+3. Lorsque la personne poste son annonce, elle reçoit un mail dans lequel il y a un lien (unique et aléatoire) demandant de confimer la publication de l'annonce.
 
-Dans ce même courriel, il doit y avoir un lien (unique) permettant de modifier l'annonce.
+Dans ce même courriel, il doit y avoir un lien (unique et aléatoire) permettant de modifier l'annonce.
 
 Une fois confirmé alors l'annonce est publié sur la page d'annonce et l'utilisateur recoit un courriel lui permettant supprimer l'annonce. 
 
@@ -83,7 +83,18 @@ Pour l’envoi de courriel vous pouvez utiliser la fonction mail() de PHP, mais 
 
 **On ne veut pas de pattern MVC**, on reste en programmation objet POO simple
 
-**Chiffrer les accès de validation et modification**
+
+Les Liens uniques et aléatoire doivent être sous la forme :
+
+```
+http://supprimer/($email)-($id)
+```
+
+ou
+
+```
+http://supprimer/(sha1($email)-($id))
+```
 
 
 ## Delais
