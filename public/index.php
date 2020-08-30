@@ -9,19 +9,29 @@ define("BASE_PATH", "");
 // Definition de l'URI
 define("SERVER_URI", $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . BASE_PATH) ;
 
-
 // Nouvelle instance d'Altorouteur
 $router = new AltoRouter();
 
+
+
 // Chargement de la page d'accueil
-$router->map( 'GET', '/', function() {
-	\App\Homepage::homepage();
-});
+$router->map( 'GET', '/', function() {\App\Homepage::homepage();});
 
 // Chargement de la page /user (exemple pour les prochaines pages)
-$router->map( 'GET', '/user', function( ) {
-	\App\Homepage::user();
-});
+$router->map( 'GET', '/user', function() {\App\Homepage::user();});
+
+// Chargement de la page /test
+$router->map( 'GET', '/test', function() {\App\Homepage::testpage();});
+
+// Chargement de la page nouvelle-annonce WIP
+$router->map( 'GET', '/nouvelle-annonce', function() {\App\Homepage::nouvelle_annonce();});
+
+// Chargement de la page modifer-annonce WIP
+$router->map( 'GET', '/modifier-annonce', function() {\App\Homepage::modifier_annonce();});
+
+// Chargement de la page supprimer-annonce WIP
+$router->map( 'GET', '/supprimer-annonce', function() {\App\Homepage::supprimer_annonce();});
+
 
 
 // On verifie si ça match
