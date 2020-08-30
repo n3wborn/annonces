@@ -9,7 +9,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - "./:/app"
+      - "./:/app:z"
     environment:
       - PMA_ARBITRARY=1
       - PHP_DISPLAY_ERRORS=On
@@ -21,7 +21,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - mariadb-vol:/var/lib/mysql
+      - mariadb-vol:/var/lib/mysql:z
     environment:
       - MYSQL_ROOT_PASSWORD=mariadb
     restart: always
@@ -33,7 +33,7 @@ services:
     ports:
       - 8081:80
     volumes:
-      - pma-vol:/var/lib/mysql
+      - pma-vol:/var/lib/mysql:z
     environment:
       - PMA_ARBITRARY=1
       - MYSQL_USERNAME=root
