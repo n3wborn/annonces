@@ -4,40 +4,43 @@ services:
 
   php-apache:
     image: webdevops/php-apache
-    restart: always
+    links:
+      - "mariadb"
     ports:
       - 8080:80
+    volumes:
+      - "./:/app"
     environment:
       - PMA_ARBITRARY=1
       - PHP_DISPLAY_ERRORS=On
       - WEB_DOCUMENT_ROOT=/app/public
-    volumes:
-      - "../annonces:/app"
-
-    depends_on:
-      - mariadb
-      - phpmyadmin
+    restart: always
 
   mariadb:
     image: mariadb:10.4
-    restart: always
+    ports:
+      - 3306:3306
     volumes:
       - mariadb-vol:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: mariadb
+      - MYSQL_ROOT_PASSWORD=mariadb
+    restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    restart: always
-    volumes:
-      - pma-vol:/var/lib/mysql
+    links:
+      - "mariadb"
     ports:
       - 8081:80
+    volumes:
+      - pma-vol:/var/lib/mysql
     environment:
       - PMA_ARBITRARY=1
-      - PMA_HOST=mariadb
-    depends_on:
-      - mariadb
+      - MYSQL_USERNAME=root
+      - MYSQL_ROOT_PASSWORD=mariadb
+    restart: always
+
+
 
 volumes:
   mariadb-vol:
