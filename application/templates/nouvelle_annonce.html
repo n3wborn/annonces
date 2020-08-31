@@ -1,12 +1,12 @@
 {% extends "base.html.twig" %}
 
-{% block title %}<title>Site de petites annonces</title>{% endblock title %}
+{% block title %}<title>Déposer une annonce</title>{% endblock title %}
 {% block header %}
   <body>
   <header>
     <nav >
       <div class="navbar navbar-light">
-        <a class="navbar-brand d-flex" href="#">
+        <a class="navbar-brand d-flex" href="index.php">
           <img src="{{ basepath }}/assets/logo.png"  width="250" height="125" class=" align-top" alt="" loading="lazy">
         </a>
 
@@ -38,7 +38,112 @@
 
   {% block content %}
     <main>
-        <pre>{{ test }}</pre>
+      <h1 class="h1">Bonjour !</h1>
+      <div class="container pt-5">
+        <div class="container-fluid">
+          {# form #}
+        <form class="form-horizontal">
+          <!--NOM-->
+            <div class="row">
+              <div class="col-md-6 p-2">
+                <label for ="inputLastName">Nom</label>
+                <input type="text" class="form-control" placeholder="First name">
+              </div>
+            </div>
+            
+            <!--PRENOM-->
+            <div class="row">
+              <div class="col-md-6 p-2">
+                <label for="inputName">Prénom</label>
+                <input type="text" class="form-control" placeholder="Last name">
+              </div>
+            </div>
+            
+            <!--GROUPE EMAIL + CATEGORIES-->
+            <div class="row">
+              <!--EMAIL-->
+            <div class="col p-2">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="1234@example.com">
+            </div>
+
+            <!--CATEGORIES-->
+            <div class="col p-2">
+              <label for="inputCat">Catégories</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choisissez...</option>
+                <option>Affaires professionnelles</option>
+                <option>Animaux</option>
+                <option>Auto-Moto</option>
+                <option>Emploi</option>
+                <option>Immobilier</option>
+                <option>Services</option>
+                <option>Vacances</option>
+                <option>Autres ...</option>
+                </select>
+            </div>           
+          </div>
+
+        <!-- GROUPE TEL + IMAGE-->
+        <div class="row">
+          <!--TEL-->
+          <div class="col-md-6 p-2">
+            <label for ="InputTel">Téléphone</label>
+            <input type="tel" class="form-control" placeholder="0X XX XX XX XX " >        
+          </div>
+
+        <!--IMAGE-->
+          <div class="form-group p-3 m-3 ">
+            <div class="value">
+              <div class="input-group js-input-file">
+                <input class="input-file" type="file" name="file_cv" id="file">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+      <!--GROUPE ADRESSE + MESSAGE-->
+        <div class="row">
+        <!--ADRESSE-->
+          <div class="col ">
+            <div class="row px-2 pb-2">
+              <label for="inputAddress">Adresse</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Rue">
+            </div>
+          <!--VILLE-->
+          <div class="row">
+            <div class="col p-2">
+              <label for="inputCity">Ville</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+
+            <!-- CP-->
+            <div class="col p-2">
+              <label for="inputZip">Code Postal</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+          </div>
+          </div>
+          <!--MESSAGE-->
+          <div class="col ">
+              <label for="comment">Texte de l'annonce</label>
+              <textarea class="form-control" rows="5" id="comment"></textarea>
+          </div> 
+        </div>
+
+        <!--reCAPTCHA-->
+        <div class="row p-2">
+          <div class="g-recaptcha" data-sitekey="6LcsqcUZAAAAAB2ybVOK-_XyJ3zbi25Yvdb2KeMq"></div>
+        </div>
+        <div class="form-row text-center">
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Déposer mon annonce</button>
+            </div>
+         </div>
+        </form>
+        </div>
+
     </main>
 
   {% endblock content %}
@@ -56,4 +161,8 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="{{ basepath }}/js/top_button.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
+
   {% endblock javascript %}
