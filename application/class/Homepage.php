@@ -33,12 +33,20 @@ class Homepage
 		$twig = new \Twig\Environment($loader, ['cache' => false]);
 		$template = $twig->load('test.html');
 
-		// Twig - variables test
-		$test = "TEST PAGE OK";
+
+		// Connection à la bdd
+		$db = new Database();
+		$db->connect();
+		var_dump($db->getPDO());
+		//$sql='SELECT * FROM annonces';
+		//$req = $conn->prepare($sql);
+
+
+
 
 		// Twig - Rendu du template et des variables
 		echo $template->render([
-			'test' => $test,
+			'datas' => $req,
 			'basepath' => SERVER_URI
 		]);
 	}
