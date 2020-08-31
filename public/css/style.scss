@@ -34,6 +34,11 @@ body{
 
 nav{
     background-color: $indigoDye;
+    -moz-box-shadow: 0px 10px 13px 0px #cfcfcf;
+    -webkit-box-shadow: 0px 10px 13px 0px #cfcfcf;
+    -o-box-shadow: 0px 10px 13px 0px #cfcfcf;
+    box-shadow: 0px 10px 13px 0px #cfcfcf;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=180, Strength=13);
 
     .form-control{
         height: calc(1.5em + 1.2rem + 2px);
@@ -56,21 +61,26 @@ nav{
         color : $coffee;
     }
 
-    -moz-box-shadow: 0px 10px 13px 0px #cfcfcf;
-    -webkit-box-shadow: 0px 10px 13px 0px #cfcfcf;
-    -o-box-shadow: 0px 10px 13px 0px #cfcfcf;
-    box-shadow: 0px 10px 13px 0px #cfcfcf;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=180, Strength=13);
-
-}
-
-.input-group-prepend{
-
-    .btn{
-        background-color: #202C3C;
-        color: $magnolia;
+    .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+        box-shadow: none;
     }
+
+    .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+        color: #fff;
+        background-color: $coffee;
+        border-color: $coffee;
+    }
+
+    .btn-primary.focus, .btn-primary:focus {
+        color: #fff;
+        background-color: $coffee;
+        border-color: $coffee;
+        box-shadow: none;
+    }
+
+
 }
+
 
 
    main{
