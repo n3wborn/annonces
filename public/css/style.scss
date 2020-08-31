@@ -22,9 +22,48 @@ time,mark,audio,video {
 $indigoDye: #70ABAF;
 $coffee : #916953;
 $magnolia : #F8F1FF;
-$bistre : #846C5B;
+$chocolate : #45322E;
 $gumMetal : #202C3C;
 $redBanner :#9f1226;
+
+@mixin button{
+    .btn{
+        border-radius: 1.25rem;
+        padding: 0.575rem 3.75rem;
+        background-color: $gumMetal;
+        color: white;
+
+    }
+    
+    .btn-primary{
+        background-color: $coffee;
+        border-color: $coffee;
+    }
+
+    .btn-primary:hover{
+        background-color: $chocolate;
+        border-color: $chocolate;
+        color : $magnolia;
+    }
+
+    .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+        box-shadow: none;
+    }
+
+    .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+        color: #fff;
+        background-color: $coffee;
+        border-color: $coffee;
+    }
+
+    .btn-primary.focus, .btn-primary:focus {
+        color: #fff;
+        background-color: $coffee;
+        border-color: $coffee;
+        box-shadow: none;
+    }
+}
+
 
 body{
     background-color: $magnolia;
@@ -45,41 +84,7 @@ nav{
         border-radius: 1.25rem;
     }
 
-    .btn{
-        border-radius: 1.25rem;
-        padding: 0.575rem 3.75rem;
-        background-color: $gumMetal;
-        color: white;
-
-    }
-    
-    .btn-primary{
-        background-color: $coffee;
-        border-color: $coffee;
-    }
-
-    .btn-primary:hover{
-        background-color: $magnolia;
-        border-color: $coffee;
-        color : $coffee;
-    }
-
-    .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
-        box-shadow: none;
-    }
-
-    .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
-        color: #fff;
-        background-color: $coffee;
-        border-color: $coffee;
-    }
-
-    .btn-primary.focus, .btn-primary:focus {
-        color: #fff;
-        background-color: $coffee;
-        border-color: $coffee;
-        box-shadow: none;
-    }
+    @include button;
 
   
 }
@@ -119,6 +124,9 @@ nav{
         border: 5px solid #fff;
         background: $redBanner;
       }
+
+      @include button;
+
 
       #myBtn {
         display: none; 
