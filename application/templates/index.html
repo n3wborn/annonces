@@ -9,7 +9,7 @@
           <img src="{{ basepath }}/assets/logo.png"  width="250" height="125" class=" align-top" alt="" loading="lazy">
         </a>
 
-        <div class="input-group mb-3 mx-auto col-md-7">
+        <div class="input-group mb-5 mx-auto col-md-7">
           <div class="input-group-prepend">
             <button class="btn btn-outline-secondary dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégories</button>
             <div class="dropdown-menu">
@@ -38,7 +38,7 @@
     <div class="container pt-5">
         <!-- Modal -->
 <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" >Aperçu de l'annonce</h5>
@@ -47,7 +47,62 @@
           </button>
         </div>
         <div class="modal-body">
-          ...
+            <!--NOM-->
+            <div class="row">
+                <div class="col-md-6 p-2">
+                    <p>Nom:</p>
+                    <p>{{ result.nom }}</p>
+                </div>
+              </div>   
+              
+              <!--PRENOM-->
+                <div class="row">
+                  <div class="col-md-6 p-2">
+                    <p>Prénom :</p>
+                    <p>{{ result.prenom }}</p>
+                  </div>
+                </div>
+                
+                <!--GROUPE EMAIL + CATEGORIES-->
+                <div class="row">
+                  <!--EMAIL-->
+                  <div class="col p-2">
+                    <p>E-mail:</p>
+                    <p>{{ result.courriel}}</p>
+                  </div>
+    
+                <!--CATEGORIES-->
+                <div class="col p-2">
+                    <p>Catégorie :</p>
+                    <p>{{ result.categorie_ID}}</p>
+                </div>           
+              </div>
+    
+            <!-- GROUPE TEL + IMAGE-->
+            <div class="row">
+              <!--TEL-->
+              <div class="col-md-6 p-2">
+                  <p>Téléphone :</p>
+                <p>{{ result.telephone }}</p>
+              </div>
+    
+            <!--IMAGE-->
+              <div class="form-group p-3 m-3 ">
+                <div class="value">
+                  <div class="input-group js-input-file"></div>
+                </div>
+              </div>
+            </div>
+    
+          
+          <!--MESSAGE-->
+            <div class="row">
+              <!--MESSAGE-->
+              <div class="col ">
+                <p>Texte de l'annonce :</p>
+                <p>{{ result.message }}</p>
+              </div> 
+            </div>
         </div>
       </div>
     </div>
@@ -55,8 +110,8 @@
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
     <div class="card-deck">
         <div class="row row-cols-1 row-cols-md-3">
-            <div class="col mb-3">
-               <div class="card  bannerHidden">
+            <div class="col mb-5">
+               <div class="card bannerHidden">
                     <span href="#" class="price">A partir de 700€ !</span>
                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="Paysage Canadien">
                     <div class="card-body">
@@ -69,7 +124,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col mb-3">
+            <div class="col mb-5">
                 <div class="card  bannerHidden">
                      <span href="#" class="price">10€</span>
                      <img src="{{ basepath }}/assets/noimage.png" class="card-img-top" alt="Pas d'image">
@@ -83,7 +138,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card  bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -97,7 +152,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                <div class="card  bannerHidden">
                     <span href="#" class="price">A partir de 700€ !</span>
                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -111,7 +166,7 @@
                     </div>
                 </div>
             </div>            
-            <div class="col mb-3">
+            <div class="col mb-5">
                <div class="card  bannerHidden">
                     <span href="#" class="price">A partir de 700€ !</span>
                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -125,7 +180,7 @@
                     </div>
                 </div>
             </div>            
-            <div class="col mb-3">
+            <div class="col mb-5">
                 <div class="card  bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -139,7 +194,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card  bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -153,7 +208,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -167,7 +222,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -181,7 +236,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -195,7 +250,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -209,7 +264,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -223,7 +278,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -237,7 +292,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -251,7 +306,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -265,7 +320,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -279,7 +334,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
@@ -293,7 +348,7 @@
                      </div>
                  </div>
              </div>            
-             <div class="col mb-3">
+             <div class="col mb-5">
                 <div class="card bannerHidden">
                      <span href="#" class="price">A partir de 700€ !</span>
                      <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
