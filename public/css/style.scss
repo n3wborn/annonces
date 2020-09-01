@@ -181,11 +181,28 @@ main{
         color: $gumMetal;
         &:hover{
             color: $gumMetal;
+            text-decoration: none;
         }
     }
-
+// MODAL
     .modal-header{
         background-color: $indigoDye;
     }
+
+    .download{
+        background-color: $magnolia;
+        -webkit-border-radius: 20px 20px 20px 20px;
+        -moz-border-radius: 20px 20px 20px 20px;
+        border-radius: 20px 20px 20px 20px;
+        border : solid 0.5px $chocolate;
+        padding: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .fa-times-circle{
+        color: $redBanner;
+    }
+    
+    
 
 }

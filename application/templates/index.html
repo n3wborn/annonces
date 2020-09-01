@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-center mt-n3 pb-4">
-        <a class="btn btn-primary btn-rounded" href="{{ basepath}}/nouvelle-annonce.php" role="button">Déposer une annonce</a>
+        <a class="btn btn-primary btn-rounded" href="{{ basepath }}/nouvelle-annonce.php" role="button">Déposer une annonce</a>
       </div>
     </nav>
   </header>
@@ -43,64 +43,31 @@
         <div class="modal-header">
           <h5 class="modal-title" >Aperçu de l'annonce</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true"><i class="far fa-times-circle fa-2x"></i></span>
           </button>
         </div>
         <div class="modal-body">
-            <!--NOM-->
-            <div class="row">
-                <div class="col-md-6 p-2">
-                    <p>Nom:</p>
-                    <p>{{ result.nom }}</p>
+            <div id="myModal">
+                <div>
+                    <div class="d-flex">
+                        <div class="text-center">
+                            <img src="https://picsum.photos/200" alt="image d'illustration" class="pb-3">
+                                <p>{{result.categorie_nom}}</p>
+                                <a href="" target="_blank" class="download"> <i class="fas fa-download"></i>Télécharger l'annonce</a>
+                        </div>
+                        <div class="ml-5 container-fluid">
+                            <p class="p-1">Nom : {{result.nom}}</p>
+                            <p class="p-1">Prénom : {{result.prenom}}</p>
+                            <p class="p-1">Adresse mail : {{ result.courriel}}</p>
+                            <p class="p-1">Téléphone : {{ result.telephone }}</p>
+                            <p class="p-1">Description de l'annonce : {{result.message}} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptatum totam architecto ut asperiores consequuntur atque, deleniti unde enim? Vero, iure. Cum facilis dolore aspernatur omnis quibusdam placeat, optio fugit?</p>
+                        </div>
+                    </div>
                 </div>
-            </div>  
-
-            <!--GROUPE PRENOM + PHOTO-->
-            <!--PRENOM-->
-             <div class="row">
-               <div class="col-md-6 p-2">
-                 <p>Prénom :</p>
-                 <p>{{ result.prenom }}</p>
-               </div>
-
-            <!--IMAGE-->
-                <div class="col p-2">
-                    <p><img src="https://picsum.photos/200"></p>
-                </div>
-             </div>
-                
-            <!--GROUPE EMAIL + CATEGORIES-->
-            <div class="row">
-            <!--EMAIL-->
-                <div class="col p-2">
-                    <p>E-mail:</p>
-                    <p>{{ result.courriel}}</p>
-                </div>
-    
-            <!--CATEGORIES-->
-                <div class="col p-2">
-                    <p>Catégorie :</p>
-                    <p>{{ result.categorie_ID}}</p>
-                </div>           
-            </div>
-    
-            <!-- GROUPE TEL + IMAGE-->
-            <div class="row">
-              <!--TEL-->
-                <div class="col-md-6 p-2">
-                    <p>Téléphone :</p>
-                    <p>{{ result.telephone }}</p>
-                </div>
-
-            <!--MESSAGE-->
-                <div class="col p-2 ">
-                    <p>Texte de l'annonce :</p>
-                    <p>{{ result.message }}</p>
-                </div>          
-            </div>
         </div>
     </div>
   </div>
+    </div>
 </div>
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
     <div class="card-deck">
