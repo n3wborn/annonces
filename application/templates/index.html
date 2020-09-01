@@ -36,6 +36,22 @@
   {% block content %}
   <main >
     <div class="container pt-5">
+        <!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" >Aperçu de l'annonce</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
     <div class="card-deck">
         <div class="row row-cols-1 row-cols-md-3">
@@ -47,7 +63,7 @@
                         <p class="card-title text-center">Voyage au Canada !</p>
                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                             <br>
-                            <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                            <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
                                <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                              </a>
                     </div>
@@ -61,7 +77,7 @@
                          <p class="card-title text-center">Promenade de chien</p>
                              <p class="card-text">Vous partez en weekend, en vacances, vous avez besoin de quelqu’un pour sortir votre chien de temps en temps pendant la journée ?</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -75,7 +91,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -89,7 +105,7 @@
                         <p class="card-title text-center">Voyage au Canada !</p>
                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                             <br>
-                            <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                            <a href="" class="black-text d-flex justify-content-end">
                                <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                              </a>
                     </div>
@@ -103,7 +119,7 @@
                         <p class="card-title text-center">Voyage au Canada !</p>
                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                             <br>
-                            <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                            <a href="" class="black-text d-flex justify-content-end">
                                <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                              </a>
                     </div>
@@ -117,7 +133,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -131,7 +147,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href=""class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -145,7 +161,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -159,7 +175,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -173,7 +189,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -187,7 +203,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -201,7 +217,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -215,7 +231,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -229,7 +245,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -243,7 +259,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -257,7 +273,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -271,7 +287,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
@@ -285,7 +301,7 @@
                          <p class="card-title text-center">Voyage au Canada !</p>
                              <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
                              <br>
-                             <a href="{{ basepath}}/modifier.php" class="black-text d-flex justify-content-end">
+                             <a href="" class="black-text d-flex justify-content-end">
                                 <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                               </a>
                      </div>
