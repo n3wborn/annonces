@@ -10,66 +10,17 @@ class Annonces extends Database
 	public function __construct()
 	{
 		parent::connect();
-
 	}
 
-  // variables de l'annonce
-  private $description;
-  private $img_url;
-  private $img_nom;
-  private $est_validee;
-  private $date_ecriture;
-  private $date_validation;
-
-  // l'utilisateur qui a fait l'annonce
-  private $id_user;
-
-  // la categorie de l'annonce
-  private $id_categorie;
-
-  /**
-    * new : ajout d'annonce
-    *
-    * INSERT
-    *
-    *   Ajouts dans la base de données -> création liens modif et delete
-    *   return l'id de l'annonce, sinon false
-    *
-    *   table user -> courriel, nom, telephone,
-    *   table categorie -> libellé
-    *   table annonces -> description, img_url, im_nom, est_validee (false),
-    *   date_ecriture, id_user, id_categorie
-    *
-    */
-
-  public function new()
-  {
-
-
-  }
-
-
-  /**
-    * modify : modification pre validation
-    *
-    * SI est_validée est FALSE ET SI url de confirmation est TRUE
-    *
-    * MODIFIE annonce $id_annonce
-    *
-    * UPDATE categorie/description/image/
-    *
-    *
-    */
-
-
-  /**
-    * delete : suppression d'une annonce
-    *
-    * DELETE annonce $id_annonce
-    *
-    */
-
-
+	private $id;
+	private $description;
+	private $img_url;
+	private $img_nom;
+	private $est_validée;
+	private $date_ecriture;
+	private $date_validation;
+	private $id_utilisateur;
+	private $id_categorie;
 
 
 	// Getter's
