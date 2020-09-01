@@ -53,60 +53,55 @@
                     <p>Nom:</p>
                     <p>{{ result.nom }}</p>
                 </div>
-              </div>   
-              
-              <!--PRENOM-->
-                <div class="row">
-                  <div class="col-md-6 p-2">
-                    <p>Prénom :</p>
-                    <p>{{ result.prenom }}</p>
-                  </div>
+            </div>  
+
+            <!--GROUPE PRENOM + PHOTO-->
+            <!--PRENOM-->
+             <div class="row">
+               <div class="col-md-6 p-2">
+                 <p>Prénom :</p>
+                 <p>{{ result.prenom }}</p>
+               </div>
+
+            <!--IMAGE-->
+                <div class="col p-2">
+                    <p><img src="https://picsum.photos/200"></p>
                 </div>
+             </div>
                 
-                <!--GROUPE EMAIL + CATEGORIES-->
-                <div class="row">
-                  <!--EMAIL-->
-                  <div class="col p-2">
+            <!--GROUPE EMAIL + CATEGORIES-->
+            <div class="row">
+            <!--EMAIL-->
+                <div class="col p-2">
                     <p>E-mail:</p>
                     <p>{{ result.courriel}}</p>
-                  </div>
+                </div>
     
-                <!--CATEGORIES-->
+            <!--CATEGORIES-->
                 <div class="col p-2">
                     <p>Catégorie :</p>
                     <p>{{ result.categorie_ID}}</p>
                 </div>           
-              </div>
+            </div>
     
             <!-- GROUPE TEL + IMAGE-->
             <div class="row">
               <!--TEL-->
-              <div class="col-md-6 p-2">
-                  <p>Téléphone :</p>
-                <p>{{ result.telephone }}</p>
-              </div>
-    
-            <!--IMAGE-->
-              <div class="form-group p-3 m-3 ">
-                <div class="value">
-                  <div class="input-group js-input-file"></div>
+                <div class="col-md-6 p-2">
+                    <p>Téléphone :</p>
+                    <p>{{ result.telephone }}</p>
                 </div>
-              </div>
-            </div>
-    
-          
-          <!--MESSAGE-->
-            <div class="row">
-              <!--MESSAGE-->
-              <div class="col ">
-                <p>Texte de l'annonce :</p>
-                <p>{{ result.message }}</p>
-              </div> 
+
+            <!--MESSAGE-->
+                <div class="col p-2 ">
+                    <p>Texte de l'annonce :</p>
+                    <p>{{ result.message }}</p>
+                </div>          
             </div>
         </div>
-      </div>
     </div>
   </div>
+</div>
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
     <div class="card-deck">
         <div class="row row-cols-1 row-cols-md-3">

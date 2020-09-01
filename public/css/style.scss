@@ -180,8 +180,12 @@ main{
         text-decoration: none;
         color: $gumMetal;
         &:hover{
-            color: $gumMetal
+            color: $gumMetal;
         }
+    }
+
+    .modal-header{
+        background-color: $indigoDye;
     }
 
 }
