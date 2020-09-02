@@ -13,12 +13,13 @@ class Database
 
 	private $pdo;
 
+
 	/**
-		* Returns a PDO object on success.
+		* connect()
+		* si une connection à la bdd existe elle est reutilisée, sinon on en créé une
 		*/
 	public function connect()
 	{
-
 		$pdo = $this->pdo;
 
 		// On se connecte uniquement si aucune connection est active
@@ -29,10 +30,12 @@ class Database
 		$this->pdo = $pdo;
 	}
 
-	// retourne la valeur de $pdo
-	public function getPDO()
-	{
-		return $this->pdo;
-	}
 
+  /**
+   * @return mixed
+   */
+  public function getPdo()
+  {
+      return $this->pdo;
+  }
 }
