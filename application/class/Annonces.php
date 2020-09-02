@@ -121,7 +121,7 @@ class Annonces extends Database
 
   // test parent Database->getPDO
 	public function myParentSays() {
-	  return $this->getPDO();
+	  return $this->getPdo();
 	}
 }
 
