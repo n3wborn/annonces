@@ -10,78 +10,36 @@ class Annonces extends Database
 	public function __construct()
 	{
 		parent::connect();
+
 	}
 
-  // variables de l'annonce
-  private $description;
-  private $img_url;
-  private $img_nom;
-  private $est_validee;
-  private $date_ecriture;
-  private $date_validation;
+    // variables de l'annonce
+    private $id_annonce;
+    private $description;
+    private $img_url;
+    private $img_nom;
+    private $est_validee;
+    private $date_ecriture;
+    private $date_validation;
 
-  // l'utilisateur qui a fait l'annonce
-  private $id_user;
-  private $courriel;
-  private $nom;
-  private $prenom;
-  private $telephone;
+    // l'utilisateur qui a fait l'annonce
+    private $id_user;
+    private $courriel;
+    private $nom;
+    private $prenom;
+    private $telephone;
 
 
-  // la categorie de l'annonce
-  private $id_categorie;
-  private $libellé;
+    // la categorie de l'annonce
+    private $id_categorie;
+    private $libellé;
 
-  /**
-    * new : ajout d'annonce
-    *
-    * INSERT
-    *
-    *   Ajouts dans la base de données -> création liens modif et delete
-    *   return l'id de l'annonce, sinon false
-    *
-    *   table user -> courriel, nom, telephone,
-    *   table categorie -> libellé
-    *   table annonces -> description, img_url, im_nom, est_validee (false),
-    *   date_ecriture, id_user, id_categorie
-    *
-    */
 
-  public function new()
+	// Getter's annonce
+
+  public function getIdAnnonce()
   {
-
-
-  }
-
-
-  /**
-    * modify : modification pre validation
-    *
-    * SI est_validée est FALSE ET SI url de confirmation est TRUE
-    *
-    * MODIFIE annonce $id_annonce
-    *
-    * UPDATE categorie/description/image/
-    *
-    *
-    */
-
-
-  /**
-    * delete : suppression d'une annonce
-    *
-    * DELETE annonce $id_annonce
-    *
-    */
-
-
-
-
-	// Getter's
-
-  public function getId()
-  {
-      return $this->id;
+      return $this->id_annonce;
   }
 
   public function getDescription()
