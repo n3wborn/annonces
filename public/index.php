@@ -21,7 +21,7 @@ $router->map( 'GET', '/', function() {\App\Homepage::homepage();});
 $router->map( 'GET', '/user', function() {\App\Homepage::user();});
 
 // Chargement de la page /test
-$router->map( 'GET', '/test', function() {\App\Homepage::testpage();});
+$router->map( 'GET|POST', '/test', function() {\App\Homepage::testpage();});
 
 // Chargement de la page nouvelle-annonce WIP
 $router->map( 'GET', '/nouvelle-annonce', function() {\App\Homepage::nouvelle_annonce();});
