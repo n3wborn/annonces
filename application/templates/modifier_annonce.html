@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}<title>Site de petites annonces</title>{% endblock title %}
+{% block title %}<title>Modifier une annonce</title>{% endblock title %}
 {% block header %}
   <body>
   <header>
@@ -37,10 +37,93 @@
 
 
   {% block content %}
-    <main>
-        <pre>{{ test }}</pre>
-    </main>
+  <main>
+      <div class="container pt-5">
+        <div class="container-fluid bk-c p-4 mb-5">
+          <p class="h1">Re-bonjour !</p>
+          <p>Vous venez de déposer une annonce, vous pouvez choisir de la laisser telle qu'elle est, ou, de la modifier via le formulaire ci-dessous :</p>
 
+          <!-- FORM -->
+        <form class="form-horizontal">
+          <!--NOM-->
+          <div class="row">
+            <div class="col-md-6 p-2">
+              <label for ="nom">Nom</label>
+              <input type="text" class="form-control" value="" placeholder="First name">
+            </div>
+          </div>
+          
+          <!--PRENOM-->
+            <div class="row">
+              <div class="col-md-6 p-2">
+                <label for="prenom">Prénom</label>
+                <input type="text" class="form-control" value ="" placeholder="Last name">
+              </div>
+            </div>
+            
+            <!--GROUPE EMAIL + CATEGORIES-->
+            <div class="row">
+              <!--EMAIL-->
+              <div class="col p-2">
+                <label for="courriel">Email</label>
+                <input type="email" class="form-control" value="" placeholder="1234@example.com">
+              </div>
+
+            <!--CATEGORIES-->
+            <div class="col p-2">
+              <label for="inputCat">Catégories</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choisissez...</option>
+                <option value ="1">Affaires professionnelles</option>
+                <option value ="2">Animaux</option>
+                <option value ="3">Auto-Moto</option>
+                <option value ="4">Emploi</option>
+                <option value ="5">Immobilier</option>
+                <option value ="6">Services</option>
+                <option value ="7">Vacances</option>
+                <option value ="-1">Autres ...</option>
+                </select>
+            </div>           
+          </div>
+
+        <!-- GROUPE TEL + IMAGE-->
+        <div class="row">
+          <!--TEL-->
+          <div class="col-md-6 p-2">
+            <label for ="telephone">Téléphone</label>
+            <input type="tel" class="form-control" value="" placeholder="0X XX XX XX XX " >        
+          </div>
+
+        <!--IMAGE-->
+          <div class="form-group p-3 m-3 ">
+            <div class="value">
+              <div class="input-group js-input-file">
+                <input class="input-file" type="file" value="" name="file_cv" id="file">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+          <!--MESSAGE-->
+          <div class=" form-group col p-1">
+              <label for="description">Texte de l'annonce</label>
+              <textarea class="form-control" rows="5" value="description" id="comment"></textarea>
+          </div> 
+          
+          <!--reCAPTCHA-->
+          <div class="row p-4">
+          <div class="g-recaptcha" data-sitekey="6LcsqcUZAAAAAB2ybVOK-_XyJ3zbi25Yvdb2KeMq"></div>
+        </div>
+        <div class="form-row text-center">
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Modifier mon annonce</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+  </main>
   {% endblock content %}
 
 
