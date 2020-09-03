@@ -114,20 +114,46 @@ class Annonces extends Database
       return $this->date_validation;
   }
 
-  public function getIdUtilisateur()
+  // Getter's utilisateur
+  public function getIdUser()
   {
-      return $this->id_utilisateur;
+      return $this->id_user;
   }
 
+  public function getCourriel()
+  {
+      return $this->courriel;
+  }
+
+  public function getNom()
+  {
+      return $this->nom;
+  }
+
+  public function getPrenom()
+  {
+      return $this->prenom;
+  }
+
+  public function getTelephone()
+  {
+      return $this->telephone;
+  }
+
+  // Getter's categorie
   public function getIdCategorie()
   {
       return $this->id_categorie;
   }
 
-  // test parent Database->getPdo
-	public function myParentSays() {
-	  return $this->getPdo();
-	}
+  public function getLibellé()
+  {
+      return $this->libellé;
+  }
 
+  // test parent Database->getPdo
+  public function myParentSays() {
+    return $this->getPdo();
+  }
 }
 
