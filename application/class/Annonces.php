@@ -10,7 +10,6 @@ class Annonces extends Database
 	public function __construct()
 	{
 		parent::connect();
-
 	}
 
   // variables de l'annonce
@@ -23,9 +22,15 @@ class Annonces extends Database
 
   // l'utilisateur qui a fait l'annonce
   private $id_user;
+  private $courriel;
+  private $nom;
+  private $prenom;
+  private $telephone;
+
 
   // la categorie de l'annonce
   private $id_categorie;
+  private $libellé;
 
   /**
     * new : ajout d'annonce
