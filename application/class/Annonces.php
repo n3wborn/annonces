@@ -124,9 +124,10 @@ class Annonces extends Database
       return $this->id_categorie;
   }
 
-  // test parent Database->getPDO
+  // test parent Database->getPdo
 	public function myParentSays() {
 	  return $this->getPdo();
 	}
+
 }
 
