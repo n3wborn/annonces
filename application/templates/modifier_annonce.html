@@ -49,7 +49,7 @@
           <div class="row">
             <div class="col-md-6 p-2">
               <label for ="nom">Nom</label>
-              <input type="text" class="form-control" value="" placeholder="First name">
+              <input type="text" class="form-control" value=" {{ datas.nom }} " placeholder="First name">
             </div>
           </div>
           
@@ -57,7 +57,7 @@
             <div class="row">
               <div class="col-md-6 p-2">
                 <label for="prenom">Prénom</label>
-                <input type="text" class="form-control" value ="" placeholder="Last name">
+                <input type="text" class="form-control" value =" {{ datas.prenom }}" placeholder="Last name">
               </div>
             </div>
             
@@ -66,14 +66,14 @@
               <!--EMAIL-->
               <div class="col p-2">
                 <label for="courriel">Email</label>
-                <input type="email" class="form-control" value="" placeholder="1234@example.com">
+                <input type="email" class="form-control" value=" {{ datas.courriel }}" placeholder="1234@example.com">
               </div>
 
             <!--CATEGORIES-->
             <div class="col p-2">
               <label for="inputCat">Catégories</label>
-              <select id="inputState" class="form-control">
-                <option selected>Choisissez...</option>
+              <select id="inputState" class="form-control" value="{{ datas.id_categorie}}">
+                <option value =" {{ datas.id_categorie }}">Choisissez...</option>
                 <option value ="1">Affaires professionnelles</option>
                 <option value ="2">Animaux</option>
                 <option value ="3">Auto-Moto</option>
@@ -91,14 +91,14 @@
           <!--TEL-->
           <div class="col-md-6 p-2">
             <label for ="telephone">Téléphone</label>
-            <input type="tel" class="form-control" value="" placeholder="0X XX XX XX XX " >        
+            <input type="tel" class="form-control" value=" {{ datas.telephone }}" placeholder="0X XX XX XX XX " >        
           </div>
 
         <!--IMAGE-->
           <div class="form-group p-3 m-3 ">
             <div class="value">
               <div class="input-group js-input-file">
-                <input class="input-file" type="file" value="" name="file_cv" id="file">
+                <input class="input-file" type="file" value="{{ datas.img_url }}" name="file_cv" id="file">
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@
           <!--MESSAGE-->
           <div class=" form-group col p-1">
               <label for="description">Texte de l'annonce</label>
-              <textarea class="form-control" rows="5" value="description" id="comment"></textarea>
+              <textarea class="form-control" rows="5" value=" {{datass.description }}" id="comment"></textarea>
           </div> 
           
           <!--reCAPTCHA-->
