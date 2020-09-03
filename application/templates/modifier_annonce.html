@@ -72,8 +72,8 @@
             <!--CATEGORIES-->
             <div class="col p-2">
               <label for="inputCat">Catégories</label>
-              <select id="inputState" class="form-control" name="categorie" value="{{ datas.id_categorie}}">
-                <option value =" {{ datas.id_categorie }}">Choisissez...</option>
+              <select class="form-control" name="categorie" value="{{ datas.id_categorie}}">
+                <option value =" {{ datas.id_categorie }}" disabled selected="{{ datas.id_categorie }}">Choisissez...</option>
                 <option value ="1">Affaires professionnelles</option>
                 <option value ="2">Animaux</option>
                 <option value ="3">Auto-Moto</option>
@@ -98,7 +98,7 @@
           <div class="form-group p-3 m-3 ">
             <div class="value">
               <div class="input-group js-input-file">
-                <input class="input-file" type="file" name="img_url" value="{{ datas.img_url }}" name="file_cv" id="file">
+                <input class="input-file" type="file" name="img_url" value="{{ datas.img_url }}" name="file_cv" >
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@
           <!--MESSAGE-->
           <div class=" form-group col p-1">
               <label for="description">Texte de l'annonce</label>
-              <textarea class="form-control" rows="5" name="description" value=" {{datas.description }}" id="comment"></textarea>
+              <textarea class="form-control" rows="5" name="description" value=" {{datas.description }}" ></textarea>
           </div> 
           
           <!--reCAPTCHA-->
