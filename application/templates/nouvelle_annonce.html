@@ -47,7 +47,7 @@
           <div class="row">
             <div class="col-md-6 p-2">
               <label for ="nom">Nom</label>
-              <input type="text" class="form-control" value="" placeholder="First name">
+              <input type="text" class="form-control" name ="nom" value="" placeholder="First name">
             </div>
           </div>
           <i class="fas fa-cart-arrow-down fa-10x absolute"></i>
@@ -57,7 +57,7 @@
             <div class="row">
               <div class="col-md-6 p-2">
                 <label for="prenom">Prénom</label>
-                <input type="text" class="form-control" value ="" placeholder="Last name">
+                <input type="text" class="form-control" name="prenom" value ="" placeholder="Last name">
               </div>
             </div>
             
@@ -66,13 +66,13 @@
               <!--EMAIL-->
               <div class="col p-2">
                 <label for="courriel">Email</label>
-                <input type="email" class="form-control" value="" placeholder="1234@example.com">
+                <input type="email" class="form-control" name ="courriel" value="" placeholder="1234@example.com">
               </div>
 
             <!--CATEGORIES-->
             <div class="col p-2">
               <label for="inputCat">Catégories</label>
-              <select id="inputState" class="form-control">
+              <select id="inputState" class="form-control" name="categorie">
                 <option selected>Choisissez...</option>
                 <option value ="1">Affaires professionnelles</option>
                 <option value ="2">Animaux</option>
@@ -91,14 +91,14 @@
           <!--TEL-->
           <div class="col-md-6 p-2">
             <label for ="telephone">Téléphone</label>
-            <input type="tel" class="form-control" value="" placeholder="0X XX XX XX XX " >        
+            <input type="tel" class="form-control" name="telephone" value="" placeholder="0X XX XX XX XX " >        
           </div>
 
         <!--IMAGE-->
           <div class="form-group p-3 m-3 ">
             <div class="value">
               <div class="input-group js-input-file">
-                <input class="input-file" type="file" value="" name="file_cv" id="file">
+                <input class="input-file" type="file" value="" name="img_url" id="file">
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@
           <!--MESSAGE-->
           <div class=" form-group col p-1">
               <label for="description">Texte de l'annonce</label>
-              <textarea class="form-control" rows="5" value="description" id="comment"></textarea>
+              <textarea class="form-control" rows="5" name="description" value="" id="comment"></textarea>
           </div> 
           
           <!--reCAPTCHA-->
