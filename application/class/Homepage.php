@@ -80,7 +80,7 @@ class Homepage
 
 		// Twig - Rendu du template et des variables
 		echo $template->render([
-			'test' => $test,
+			'datas' => $datas,
 			'basepath' => SERVER_URI
 		]);
 	}
