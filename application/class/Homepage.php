@@ -31,22 +31,20 @@ class Homepage
 	{
 		$loader = new \Twig\Loader\FilesystemLoader('../application/templates');
 		$twig = new \Twig\Environment($loader, ['cache' => false]);
-		$template = $twig->load('test.html');
+		// template à lancer pour les tests
+		//$template = $twig->load('test.html');
+		// je test la page /nouvelle-annonce
+		$template = $twig->load('nouvelle_annonce.html');
 
 
-		// Connection à la bdd
-		$db = new Database();
-		$db->connect();
-		var_dump($db->getPDO());
-		//$sql='SELECT * FROM annonces';
-		//$req = $conn->prepare($sql);
-
-
+		// tests
+		$annonce = new Annonces();
+		$res = var_dump($annonce->myParentSays());
 
 
 		// Twig - Rendu du template et des variables
 		echo $template->render([
-			'datas' => $req,
+			'test' => $res,
 			'basepath' => SERVER_URI
 		]);
 	}
