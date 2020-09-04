@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Database;
+use \PDO;
 
 class Annonces extends Database
 {
@@ -13,101 +14,43 @@ class Annonces extends Database
 
 	}
 
-    // variables de l'annonce
-    private $id_annonce;
-    private $description;
-    private $img_url;
-    private $img_nom;
-    private $est_validee;
-    private $date_ecriture;
-    private $date_validation;
-
-    // l'utilisateur qui a fait l'annonce
-    private $id_user;
-    private $courriel;
-    private $nom;
-    private $prenom;
-    private $telephone;
-
-
-    // la categorie de l'annonce
-    private $id_categorie;
-    private $libellé;
-
-
-	// Getter's annonce
-
-  public function getIdAnnonce()
+  /**
+   * GetAll retourne toutes les annonces de la bdd
+   */
+  public function GetAll()
   {
-      return $this->id_annonce;
+    $dbh = $this->getPdo();
+    $sql = 'SELECT * FROM annonces';
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
+    $res = $sth->fetchAll(PDO::FETCH_OBJ);
+    //var_dump($res);
+    return($res);
   }
 
-  public function getDescription()
+
+  /**
+   *  GetByNumbers($n, $offset)
+   *
+   * retourne les $n premiers resultats à partir de
+   * $offset
+   */
+  public function GetByNumbers($n, $offset)
   {
-      return $this->description;
+
   }
 
-  public function getImgUrl()
-  {
-      return $this->img_url;
+
+  /**
+   * GetConfirmed renvoie uniquement les annonces
+   * qui ont été validées
+   */
+  public function GetConfirmed(){
+
   }
 
-  public function getImgNom()
-  {
-      return $this->img_nom;
-  }
 
-  public function getEstValidee()
-  {
-      return $this->est_validee;
-  }
 
-  public function getDateEcriture()
-  {
-      return $this->date_ecriture;
-  }
-
-  public function getDateValidation()
-  {
-      return $this->date_validation;
-  }
-
-  // Getter's utilisateur
-  public function getIdUser()
-  {
-      return $this->id_user;
-  }
-
-  public function getCourriel()
-  {
-      return $this->courriel;
-  }
-
-  public function getNom()
-  {
-      return $this->nom;
-  }
-
-  public function getPrenom()
-  {
-      return $this->prenom;
-  }
-
-  public function getTelephone()
-  {
-      return $this->telephone;
-  }
-
-  // Getter's categorie
-  public function getIdCategorie()
-  {
-      return $this->id_categorie;
-  }
-
-  public function getLibellé()
-  {
-      return $this->libellé;
-  }
 
   // test parent Database->getPdo
   public function myParentSays() {
