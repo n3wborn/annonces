@@ -31,19 +31,6 @@ class Database
 	}
 
 
-	/**
-	 *  query() va juste servir à faire des requetes sql sur la bdd
-	 * 	il prend  un sql statement en entrée et retourne un objet PDO::FETCH_OBJ
-	 */
-	public function query($statement)
-	{
-		$this->statement = $statement;
-		$req = $this->getPdo()->query($statement);
-		$datas = $req->fetchAll(PDO::FETCH_OBJ);
-		return $datas;
-	}
-
-
   /**
    * @return mixed
    */
