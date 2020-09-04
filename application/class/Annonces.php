@@ -17,14 +17,14 @@ class Annonces extends Database
   /**
    * GetAll retourne toutes les annonces de la bdd
    */
-  public function GetAll()
+  public function GetAll() : array
   {
     $dbh = $this->getPdo();
     $sql = 'SELECT * FROM annonces';
     $sth = $dbh->prepare($sql);
     $sth->execute();
     $res = $sth->fetchAll(PDO::FETCH_OBJ);
-    //var_dump($res);
+    var_dump($res);
     return($res);
   }
 
