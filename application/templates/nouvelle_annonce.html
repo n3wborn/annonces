@@ -42,12 +42,12 @@
           <p class="h1">Bonjour !</p>
 
           <!-- FORM -->
-        <form class="form-horizontal" method="post">
+        <form name="myForm" class="form-horizontal" method="post" >
           <!--NOM-->
           <div class="row">
             <div class="col-md-6 p-2">
               <label for ="nom">Nom</label>
-              <input type="text" class="form-control" name ="nom" value="" placeholder="Nom" required>
+              <input type="text" class="form-control" name ="nom" value="" placeholder="Nom" >
             </div>
           </div>
           <i class="fas fa-cart-arrow-down fa-10x absolute"></i>
@@ -57,7 +57,7 @@
             <div class="row">
               <div class="col-md-6 p-2">
                 <label for="prenom">Prénom</label>
-                <input type="text" class="form-control" name="prenom" value ="" placeholder="Prénom" required>
+                <input type="text" class="form-control" name="prenom" value ="" placeholder="Prénom" >
               </div>
             </div>
             
@@ -66,13 +66,14 @@
               <!--EMAIL-->
               <div class="col p-2">
                 <label for="courriel">Email</label>
-                <input type="email" class="form-control" name ="courriel" value="" placeholder="1234@example.com" required>
+                <input id="courriel" type="email" class="form-control" name="courriel" value="" placeholder="1234@example.com" onkeydown="validateForm()">
+                <span id="text"></span>
               </div>
 
             <!--CATEGORIES-->
             <div class="col p-2">
               <label for="inputCat">Catégories</label>
-              <select id="inputState" class="form-control" name="categorie" required>
+              <select id="inputState" class="form-control" name="categorie" >
                 <option selected>Choisissez...</option>
                 <option value ="1">Affaires professionnelles</option>
                 <option value ="2">Animaux</option>
@@ -91,7 +92,7 @@
           <!--TEL-->
           <div class="col-md-6 p-2">
             <label for ="telephone">Téléphone</label>
-            <input type="tel" class="form-control" name="telephone" value="" placeholder="0X XX XX XX XX "  required>        
+            <input type="tel" class="form-control" name="telephone" value="" placeholder="0X XX XX XX XX "  >        
           </div>
 
         <!--IMAGE-->
@@ -108,7 +109,7 @@
           <!--MESSAGE-->
           <div class=" form-group col p-1">
               <label for="description">Texte de l'annonce</label>
-              <textarea class="form-control" rows="5" name="description" value="" id="comment" required></textarea>
+              <textarea class="form-control" rows="5" name="description" value="" id="comment" ></textarea>
           </div> 
           
           <!--reCAPTCHA-->
@@ -117,7 +118,7 @@
         </div>
         <div class="form-row text-center">
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Déposer mon annonce</button>
+              <button id="formButton" type="submit" class="btn btn-primary">Déposer mon annonce</button>
             </div>
           </div>
         </form>
@@ -141,6 +142,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="{{ basepath }}/js/top_button.js"></script>
+  <script src="{{ basepath }}/js/validate.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
     async defer>
 </script>
