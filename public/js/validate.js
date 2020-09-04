@@ -25,25 +25,30 @@ function validateForm(){
     var form = document.getElementById("myForm");
     var courriel = document.getElementById("courriel").value;
     var pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;;
+    //Si les caractères correspondent à ce qui est attendu dans un mail:
        if (courriel.match(pattern))
        {
         myForm.classList.add("valid");
         myForm.classList.remove("invalid");
+        //On valide
         text.innerHTML ="Votre adresse email est valide.";
         text.style.color ="#85C630";
         }
-        else
+        else //A l'inverse
         {
         myForm.classList.remove("valid");
         myForm.classList.add("invalid");
+        //On demande de changer ce qui est écrit
         text.innerHTML ="Veuillez saisir une adresse email valide.";
         text.style.color ="#9f1226";
        }
 
        if (courriel == "")
+       //Si c'est vide
        {
         myForm.classList.remove("valid");
         myForm.classList.remove("invalid");
+        //On demande de remplir l'email
         text.innerHTML ="Veuillez compléter ce champ.";
         text.style.color ="#9f1226";
        }
