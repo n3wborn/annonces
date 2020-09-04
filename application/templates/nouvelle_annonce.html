@@ -47,7 +47,7 @@
           <div class="row">
             <div class="col-md-6 p-2">
               <label for ="nom">Nom</label>
-              <input id="nom" type="text" class="form-control" name ="nom" value="" placeholder="Nom" >
+              <input id="nom" type="text" class="form-control" name ="nom" value="" placeholder="Nom" required>
               <span id="textNom"></span>
             </div>
           </div>
@@ -58,7 +58,7 @@
             <div class="row">
               <div class="col-md-6 p-2">
                 <label for="prenom">Prénom</label>
-                <input id="prenom" type="text" class="form-control" name="prenom" value ="" placeholder="Prénom" >
+                <input id="prenom" type="text" class="form-control" name="prenom" value ="" placeholder="Prénom" required>
                 <span id="textPrenom"></span>
 
               </div>
@@ -69,14 +69,14 @@
               <!--EMAIL-->
               <div class="col p-2">
                 <label for="courriel">Email</label>
-                <input id="courriel" type="email" class="form-control" name="courriel" value="" placeholder="1234@example.com" >
+                <input id="courriel" type="email" class="form-control" name="courriel" value="" placeholder="1234@example.com" required>
                 <span id="textEmail"></span>
               </div>
 
             <!--CATEGORIES-->
             <div class="col p-2">
               <label for="inputCat">Catégories</label>
-              <select id="categorie" class="form-control" name="categorie" >
+              <select id="categorie" class="form-control" name="categorie" required >
                 <option selected>Choisissez...</option>
                 <option value ="1">Affaires professionnelles</option>
                 <option value ="2">Animaux</option>
@@ -95,7 +95,7 @@
           <!--TEL-->
           <div class="col-md-6 p-2">
             <label for ="telephone">Téléphone</label>
-            <input id="telephone" type="tel" class="form-control" name="telephone" value="" placeholder="0X XX XX XX XX "  >
+            <input id="telephone" type="tel" class="form-control" name="telephone" value="" placeholder="0X XX XX XX XX " required>
             <span id="textTel"></span>
           </div>
 
@@ -113,7 +113,7 @@
           <!--MESSAGE-->
           <div class=" form-group col p-1">
               <label for="description">Texte de l'annonce</label>
-              <textarea class="form-control" rows="5" name="description" value="" id="description" ></textarea>
+              <textarea class="form-control" rows="5" name="description" value="" id="description" required ></textarea>
               <span id="textMess"></span>
           </div> 
           
@@ -148,6 +148,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="{{ basepath }}/js/top_button.js"></script>
   <script src="{{ basepath }}/js/validate.js"></script>
+  <script src="{{basepath}}/js/modal.js"></script>
+  <script src="{{basepath}}/js/recaptcha.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
     async defer>
 </script>
