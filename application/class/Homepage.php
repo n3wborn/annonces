@@ -41,12 +41,15 @@ class Homepage
 
 
 		// tests
-		$annonces = new Annonces();
-		$resultat = $annonces->GetAll();
+		//$annonces = new Annonces();
+		$db = new Database();
+		$resultat = $db->MaxId();
+
 
 
 		// Twig - Rendu du template et des variables
 		echo $template->render([
+			//'test' => $resultats[0]->id,
 			'test' => $resultat,
 			'basepath' => SERVER_URI
 		]);
