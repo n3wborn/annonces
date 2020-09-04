@@ -18,6 +18,7 @@ class Database
 		* connect()
 		* si une connection à la bdd existe elle est reutilisée, sinon on en créé une
 		*/
+
 	public function connect()
 	{
 		$pdo = $this->pdo;
@@ -31,9 +32,26 @@ class Database
 	}
 
 
+	/**
+	 *
+	 * MaxId() retourne l'id le plus dans $table
+	 */
+
+	public function MaxId(string $table = "annonces") : int
+	{
+		$pdo = $this->connect();
+		$sql = 'SELECT id FROM ' .$table. ' ORDER BY id DESC LIMIT 1';
+		$sth = $this->pdo->prepare($sql);
+    $sth->execute();
+    $resultats = $sth->fetch(PDO::FETCH_ASSOC);
+    return($resultats['id']);
+	}
+
+
   /**
    * @return mixed
    */
+
   public function getPdo()
   {
       return $this->pdo;
