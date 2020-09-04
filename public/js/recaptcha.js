@@ -1,5 +1,5 @@
   var onloadCallback = function() {
-    alert("grecaptcha is ready!");
+
   };
 
   window.onload = function() {
