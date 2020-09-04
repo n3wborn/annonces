@@ -32,12 +32,17 @@ class Annonces extends Database
   /**
    *  GetByNumbers($n, $offset)
    *
-   * retourne les $n premiers resultats à partir de
-   * $offset
+   * a partir de $offset, retourn $n resultats
    */
-  public function GetByNumbers($n, $offset)
+  public function GetByNumbers(int $offset = 0, int $n = 10) : array
   {
-
+    $dbh = $this->getPdo();
+    $sql = 'SELECT * FROM annonces LIMIT ' . $n .' OFFSET '. $offset .' ';
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
+    $resultats = $sth->fetchAll(PDO::FETCH_OBJ);
+    var_dump($resultats);
+    return($resultats);
   }
 
 
