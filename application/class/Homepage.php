@@ -7,6 +7,9 @@ class Homepage
 
 	public static function homepage()
 	{
+
+
+
 		// Twig - emplacement du dossier des templates
 		$loader = new \Twig\Loader\FilesystemLoader('../application/templates');
 
@@ -34,17 +37,17 @@ class Homepage
 		// template à lancer pour les tests
 		//$template = $twig->load('test.html');
 		// je test la page /nouvelle-annonce
-		$template = $twig->load('nouvelle_annonce.html');
+		$template = $twig->load('test.html');
 
 
 		// tests
-		$annonce = new Annonces();
-		$res = var_dump($annonce->myParentSays());
+		$annonces = new Annonces();
+		$resultat = $annonces->GetAll();
 
 
 		// Twig - Rendu du template et des variables
 		echo $template->render([
-			'test' => $res,
+			'test' => $resultat,
 			'basepath' => SERVER_URI
 		]);
 	}
@@ -59,6 +62,7 @@ class Homepage
 
 		// Twig - variables test
 		$test = "NOUVELLE ANNONCE OK";
+
 
 		// Twig - Rendu du template et des variables
 		echo $template->render([
