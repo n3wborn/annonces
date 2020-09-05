@@ -33,8 +33,9 @@ class Database
 
 
 	/**
-	 *
-	 * MaxId() retourne l'id le plus dans $table
+	 * @method MaxId() retourne l'id le plus haut dans la table $table
+	 * @param string (default = "annonces")
+	 * @return int
 	 */
 
 	public function MaxId(string $table = "annonces") : int
@@ -49,6 +50,7 @@ class Database
 
 
   /**
+   * @method getPdo() retourne un objet PDO (Getter)
    * @return mixed
    */
 
