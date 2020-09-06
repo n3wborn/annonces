@@ -17,16 +17,17 @@ class Annonces extends Database
 
   /**
    *  @method GetAll() retourne toutes les lignes de la table "annonces"
+   *  @return array
    */
 
-  public function GetAll()
+  public function GetAll() : array
   {
     $dbh = $this->getPdo();
     $sql = 'SELECT * FROM annonces';
     $sth = $dbh->prepare($sql);
     $sth->execute();
-    $res = $sth->fetchAll(PDO::FETCH_OBJ);
-    var_dump($res);
+    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($res);
     return($res);
   }
 
@@ -34,31 +35,34 @@ class Annonces extends Database
   /**
    *  @method GetByNumbers() : a partir de $offset, retourne $n resultats
    *  @param int $offset, int $n
+   *  @return array
    */
 
-  public function GetByNumbers(int $offset = 0, int $n = 10)
+  public function GetByNumbers(int $offset = 0, int $n = 10) : array
   {
     $dbh = $this->getPdo();
     $sql = 'SELECT * FROM annonces LIMIT ' . $n .' OFFSET '. $offset .' ';
     $sth = $dbh->prepare($sql);
     $sth->execute();
-    $resultats = $sth->fetchAll(PDO::FETCH_OBJ);
-    var_dump($resultats);
+    $resultats = $sth->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($resultats);
     return($resultats);
   }
 
 
   /**
    * @method GetConfirmed() renvoie les lignes si "est_validee = 1"
+   * @return array
    */
 
-  public function GetConfirmed(){
+  public function GetConfirmed() : array
+  {
     $dbh = $this->getPdo();
     $sql = 'SELECT * FROM annonces WHERE est_validee = 1';
     $sth = $dbh->prepare($sql);
     $sth->execute();
-    $res = $sth->fetchAll(PDO::FETCH_OBJ);
-    //var_dump($res);
+    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($res);
     return($res);
   }
 
