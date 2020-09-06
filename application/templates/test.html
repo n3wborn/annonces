@@ -38,7 +38,32 @@
 
   {% block content %}
     <main>
-        <pre>{{ test }}</pre>
+
+      <!-- TEST UNITAIRE  -->
+        <!-- <pre>{{ test }}</pre> -->
+      <!-- TEST UNITAIRE  -->
+
+
+      <!--  LOOP TEST -->
+      <!--
+        {% for result in test %}
+          <table>
+            <tr>
+              <td> {{ result.id }} </td>
+              <td> {{ result.description }} </td>
+              <td> {{ result.img_url }} </td>
+              <td> {{ result.img_nom }} </td>
+              <td> {{ result.est_validee }} </td>
+              <td> {{ result.date_ecriture }} </td>
+              <td> {{ result.date_validation }} </td>
+              <td> {{ result.id_utilisateur }} </td>
+              <td> {{ result.id_categorie }} </td>
+            </tr>
+          </table>
+        {% endfor %}
+      -->
+      <!-- LOOP TEST -->
+
     </main>
 
   {% endblock content %}
