@@ -7,18 +7,7 @@ class Homepage
 
 	public static function homepage()
 	{
-
-
-
-		// Twig - emplacement du dossier des templates
-		$loader = new \Twig\Loader\FilesystemLoader('../application/templates');
-
-		// Twig - chargement des variables d'envirronement
-		$twig = new \Twig\Environment($loader, ['cache' => false]);
-
-		// Twig - Emplacement du template à charger
-		$template = $twig->load('index.html');
-
+		$template = new Twig('index.html');
 		// Twig - variables test
 		$test = "TEST HOMEPAGE OK";
 
@@ -32,12 +21,10 @@ class Homepage
 
 	public static function testpage()
 	{
-		$loader = new \Twig\Loader\FilesystemLoader('../application/templates');
-		$twig = new \Twig\Environment($loader, ['cache' => false]);
-		// template à lancer pour les tests
-		//$template = $twig->load('test.html');
-		// je test la page /nouvelle-annonce
-		$template = $twig->load('test.html');
+		$template = new Twig('test.html');
+		// Twig - variables test
+		$test = "TEST HOMEPAGE OK";
+
 
 
 		// tests
@@ -59,9 +46,7 @@ class Homepage
 	// WIP Test static routes
 	public static function nouvelle_annonce()
 	{
-		$loader = new \Twig\Loader\FilesystemLoader('../application/templates');
-		$twig = new \Twig\Environment($loader, ['cache' => false]);
-		$template = $twig->load('nouvelle_annonce.html');
+		$template = new Twig('nouvelle_annonce.html');
 
 		// Twig - variables test
 		$test = "NOUVELLE ANNONCE OK";
@@ -78,16 +63,14 @@ class Homepage
 	// WIP Test static routes
 	public static function modifier_annonce()
 	{
-		$loader = new \Twig\Loader\FilesystemLoader('../application/templates');
-		$twig = new \Twig\Environment($loader, ['cache' => false]);
-		$template = $twig->load('modifier_annonce.html');
+		$template = new Twig('modifier_annonce.html');
 
 		// Twig - variables test
 		$test = "MODIFIER ANNONCE OK";
 
 		// Twig - Rendu du template et des variables
 		echo $template->render([
-			'datas' => $datas,
+			'datas' => $test,
 			'basepath' => SERVER_URI
 		]);
 	}
@@ -96,9 +79,7 @@ class Homepage
 	// WIP Test static routes
 	public static function supprimer_annonce()
 	{
-		$loader = new \Twig\Loader\FilesystemLoader('../application/templates');
-		$twig = new \Twig\Environment($loader, ['cache' => false]);
-		$template = $twig->load('supprimer_annonce.html');
+		$template = new Twig('supprimer_annonce.html');
 
 		// Twig - variables test
 		$test = "SUPPRIMER ANNONCE OK";
