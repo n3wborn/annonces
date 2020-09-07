@@ -8,28 +8,28 @@ use \PDO;
 class Annonces extends Database
 {
 
-	public function __construct()
-	{
-		parent::connect();
-
-	}
-
-
-  /**
-   *  @method GetAll() retourne toutes les lignes de la table "annonces"
-   *  @return array
-   */
-
-  public function GetAll() : array
+  public function __construct()
   {
-    $dbh = $this->getPdo();
-    $sql = 'SELECT * FROM annonces';
-    $sth = $dbh->prepare($sql);
-    $sth->execute();
-    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-    //print_r($res);
-    return($res);
+    parent::connect();
   }
+
+
+ /**
+ *  @method GetAll() retourne toutes les lignes de la table "annonces"
+ *  @return array
+ */
+
+ public function GetAll() : array
+ {
+  $dbh = $this->getPdo();
+  $sql = 'SELECT * FROM annonces';
+  $sth = $dbh->prepare($sql);
+  $sth->execute();
+  $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+  //print_r($res);
+  return($res);
+}
+
 
 
   /**
@@ -50,6 +50,7 @@ class Annonces extends Database
   }
 
 
+
   /**
    * @method GetConfirmed() renvoie les lignes si "est_validee = 1"
    * @return array
@@ -66,21 +67,6 @@ class Annonces extends Database
     return($res);
   }
 
-
-  /**
-   * @method InsertAnnonce()
-   * @return int|false
-   *
-   * InsertAnnonce insert une nouvelle annonce dans la table annonce.
-   * Elle retourne $id_annonce si true, false sinon
-   *
-   */
-
-  public function InsertAnnonce()
-  {
-    $dbh = $this->getPdo();
-
-  }
 
 
   /**
@@ -112,6 +98,7 @@ class Annonces extends Database
   }
 
 
+
   /**
    * @method IsUSer()
    * @param string $courriel
@@ -138,6 +125,7 @@ class Annonces extends Database
   }
 
 
+
   /**
    * @method IsCategorie()
    * @param string $categorie
@@ -147,7 +135,7 @@ class Annonces extends Database
    * Retourne l'id de la categorie correspondante si oui, 0 sinon.
    *
    */
-  public function IsCategorie(string $categorie) : int
+  public function IsCategory(string $categorie) : int
   {
     //connection à la bdd
     $dbh = $this->getPdo();
@@ -168,12 +156,13 @@ class Annonces extends Database
   }
 
 
+
   /**
-   * @method InsertCategorie()
+   * @method InsertCategory()
    * @param string $categorie
    * @return int
    *
-   * InsertCategorie() insert $categorie dans categorie.libelle
+   * InsertCategory() insert $categorie dans categorie.libelle
    * retourne l'id de la categorie, 0 sinon
    */
   public function InsertCategorie(string $categorie) : int
@@ -195,6 +184,31 @@ class Annonces extends Database
       return 0;
     }
   }
+
+
+
+  /**
+   * @method FromAnnonces_GetUserInfos()
+   * @param int $id_utilisateur
+   * @return array
+   *
+   * FromAnnonces_GetUserInfos() recupere l'id de l'annonce et les infos
+   * utilisateur pour un $id_utilisateur donné
+   */
+  public function FromAnnonces_GetUserInfos(int $id_utilisateur) : array
+  {
+    $dbh = $this->getPdo();
+    $sql = "SELECT annonces.id AS ANNONCE_ID, utilisateur.id AS USER_ID, utilisateur.courriel, utilisateur.nom, utilisateur.prenom, utilisateur.telephone FROM utilisateur INNER JOIN annonces ON annonces.id_utilisateur = utilisateur.id WHERE annonces.id_utilisateur = :id_utilisateur";
+
+    $sth = $dbh->prepare($sql);
+    $sth->bindParam(':id_utilisateur', $id_utilisateur, PDO::PARAM_INT);
+    $sth->execute();
+    // fetchAll si jamais plusieurs annonces proviennent du même utilisateur
+    $resultat = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
 
 
   /**
