@@ -42,7 +42,7 @@
           <p class="h1">Bonjour !</p>
 
           <!-- FORM -->
-        <form name="myForm" class="form-horizontal" method="post" onkeydown="validateForm()">
+        <form name="myForm" class="form-horizontal" method="post" action="/nouvelle_annonce" onkeydown="validateForm()">
           <!--NOM-->
           <div class="row">
             <div class="col-md-6 p-2">
@@ -53,7 +53,7 @@
           </div>
           <i class="fas fa-cart-arrow-down fa-10x absolute"></i>
 
-          
+
           <!--PRENOM-->
             <div class="row">
               <div class="col-md-6 p-2">
@@ -63,7 +63,7 @@
 
               </div>
             </div>
-            
+
             <!--GROUPE EMAIL + CATEGORIES-->
             <div class="row">
               <!--EMAIL-->
@@ -87,7 +87,7 @@
                 <option value ="7">Vacances</option>
                 <option value ="-1">Autres ...</option>
                 </select>
-            </div>           
+            </div>
           </div>
 
         <!-- GROUPE TEL + IMAGE-->
@@ -103,20 +103,20 @@
           <div class="form-group p-3 m-3 ">
             <div class="value">
               <div class="input-group js-input-file">
-                <input class="input-file" type="file" value="" name="img_url" id="file">
+                <input class="input-file" type="file" value="" name="img_nom" id="file">
               </div>
             </div>
           </div>
         </div>
 
-      
+
           <!--MESSAGE-->
           <div class=" form-group col p-1">
               <label for="description">Texte de l'annonce</label>
               <textarea class="form-control" rows="5" name="description" value="" id="description" required ></textarea>
               <span id="textMess"></span>
-          </div> 
-          
+          </div>
+
           <!--reCAPTCHA-->
           <div class="row p-4">
           <div class="g-recaptcha" data-sitekey="6LcsqcUZAAAAAB2ybVOK-_XyJ3zbi25Yvdb2KeMq"></div>
