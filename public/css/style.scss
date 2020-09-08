@@ -169,7 +169,6 @@ main{
         position: absolute;
         top: 332px;
         left: 1125px;
-        width: 500px;
         }
 
     .fa-cart-arrow-down{
@@ -182,8 +181,31 @@ main{
         &:hover{
             color: $gumMetal;
             text-decoration: none;
-        }
+        }      
     }
+
+    .custom-file-label::after {
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        z-index:3;
+        display:block;
+        height:calc(1.5em + .75rem);
+        padding:.375rem .75rem;
+        line-height:1.5;
+        color:#495057;
+        content:"Choisir";
+        background-color:#e9ecef;
+        border-left:inherit;
+        border-radius:0 .25rem .25rem 0
+       }
+       
+       .custom-file {
+        width: 100%;
+       }
+       
+    
 // MODAL
     .modal-header{
         background-color: $indigoDye;
@@ -216,10 +238,67 @@ main{
 
 }
 
- /* MEDIA QUERIES */
- @media only screen and (max-width: 1199.98px){
 
-    i .absolute{
-        left: 720px;
-    }
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 1440px){
+    main .absolute {
+        left: 900px;
+      }
 }
+
+
+@media only screen and (max-width: 1024px) {
+    main .absolute {
+      left: 655px;
+    }
+  
+    main .fa-10x{
+      font-size: 9em;
+    }
+  }
+
+
+  @media only screen and (max-device-width : 768px){
+  
+    main .absolute {
+        left: 460px;
+      }
+  }
+  
+  
+  
+  @media only screen and (max-device-width : 480px){
+
+    nav .btn{
+      padding:0.4em;
+    }
+  
+    i{
+      position: absolute;
+      clip: rect(1px 1px 1px 1px); /* syntaxe pour IE6 & IE7 */
+      clip: rect(1px, 1px, 1px, 1px);
+    }
+
+    .recaptcha-checkbox-border {
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        border-radius:2px;
+        background-color:#fff;
+        border:2px solid #c1c1c1;
+        font-size:1px;
+        height:18px;
+        position:absolute;
+        width:18px;
+        z-index:1;
+        bottom:0px;
+       }
+
+       .rc-anchor-normal .rc-anchor-checkbox-label {
+        width:100px;
+       }
+       
+       
+  
+    }
+  
