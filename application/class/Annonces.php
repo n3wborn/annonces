@@ -212,8 +212,7 @@ class Annonces extends Database
 
   /**
    * @method loopRowsKeyVal()
-   * @param int
-   * @return array
+   * @param int $rows
    *
    * loopRowsKeyVal() boucle à travers les reponse renvoyées par la base de données
    * et affiche les clés->valeur
