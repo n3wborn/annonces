@@ -136,7 +136,7 @@ main{
     display: none; 
     position: fixed;
     bottom: 20px; 
-    right: 100px; 
+    right: 30px; 
     z-index: 99; 
     border: none; 
     outline: none; 
@@ -168,7 +168,7 @@ main{
     .absolute {
         position: absolute;
         top: 332px;
-        left: 1150px;
+        left: 1125px;
         width: 500px;
         }
 
@@ -213,7 +213,13 @@ main{
         border-radius: 15px 15px 15px 15px;
         background-color: #f8f1ff9f;
     }
-    
-    
 
+}
+
+ /* MEDIA QUERIES */
+ @media only screen and (max-width: 1199.98px){
+
+    main > i > .absolute{
+        left: 720px;
+    }
 }
