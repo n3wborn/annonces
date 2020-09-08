@@ -264,6 +264,16 @@ main{
     main .absolute {
         left: 460px;
       }
+
+      .card-deck .card {
+        margin-left: 0;
+        margin-right:0;
+       }
+
+    //    MODAL
+    .modal-dialog {
+        max-width: 720px;
+    }
   }
   
   
@@ -297,8 +307,23 @@ main{
        .rc-anchor-normal .rc-anchor-checkbox-label {
         width:100px;
        }
+
+       a.btn {
+        width: 50%;
+        margin: auto;
+        }
        
+    //    MODAL
+    .d-flex {
+        display:flex!important;
+        flex-direction: column;
+       }
+
+       div.text-center {
+        margin-bottom: 15px;
+       }
        
-  
+
+
     }
   
