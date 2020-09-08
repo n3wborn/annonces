@@ -212,6 +212,70 @@ class Annonces extends Database
 
 
   /**
+   * @method confirm()
+   * @param int $annonce_id
+   * @return bool
+   *
+   * confirm() sert à confirmer une annonce.
+   * Il passe le champ annonces.est_validee à 1 et insert la date de validation
+   * dans annonces.date_validation.
+   * Si tout se passe comme prevu, il renvoie true, false sinon
+   */
+  public function confirm(int $annonce_id) : bool
+  {
+    $dbh = $this->getPdo();
+    $sql = "UPDATE annonces SET annonces.est_validee = 1, annonces.date_validation = :date_validation WHERE annonces.id = :annonce_id";
+    $sth = $dbh->prepare($sql);
+    $sth->bindParam(':annonce_id', $annonce_id, PDO::PARAM_INT);
+    $sth->bindValue(':date_validation', date("Y-m-d"), PDO::PARAM_STR);
+
+    if ($sth->execute()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+
+  /**
+   * @method DateConfirmed() renvoie la date a laquelle l'annonce a ete confirmee
+   * @param int $annonce_id
+   * @return string
+   */
+
+  public function DateConfirmed(int $annonce_id) : string
+  {
+    $dbh = $this->getPdo();
+    $sql = 'SELECT annonces.date_validation FROM annonces WHERE annonces.id = :annonce_id';
+    $sth = $dbh->prepare($sql);
+    $sth->bindParam(':annonce_id', $annonce_id, PDO::PARAM_INT);
+    $sth->execute();
+    $res = $sth->fetch(PDO::FETCH_ASSOC);
+    return($res['date_validation']);
+  }
+
+
+
+  /**
+   * @method loopRowsKeyVal()
+   * @param int $rows
+   *
+   * loopRowsKeyVal() boucle à travers les reponse renvoyées par la base de données
+   * et affiche les clés->valeur
+   */
+  public function loopRowsKeyVal(int $rows)
+  {
+    for ($i=0; $i < count($rows); $i++) {
+      // boucle sur clé -> valeur
+      foreach ($row[$i] as $key => $value) {
+        echo "$key -> $value" . "<br>";
+      }
+    }
+  }
+
+
+  /**
    * @method myParentSays() retourne l'objet PDO (Database private $pdo)
    * @return PDO Object
    */
