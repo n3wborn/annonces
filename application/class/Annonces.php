@@ -210,6 +210,24 @@ class Annonces extends Database
   }
 
 
+  /**
+   * @method loopRowsKeyVal()
+   * @param int
+   * @return array
+   *
+   * loopRowsKeyVal() boucle à travers les reponse renvoyées par la base de données
+   * et affiche les clés->valeur
+   */
+  public function loopRowsKeyVal(int $rows)
+  {
+    for ($i=0; $i < count($rows); $i++) {
+      // boucle sur clé -> valeur
+      foreach ($row[$i] as $key => $value) {
+        echo "$key -> $value" . "<br>";
+      }
+    }
+  }
+
 
   /**
    * @method myParentSays() retourne l'objet PDO (Database private $pdo)
