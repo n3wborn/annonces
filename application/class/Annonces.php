@@ -14,28 +14,28 @@ class Annonces extends Database
   }
 
 
- /**
- *  @method GetAll() retourne toutes les lignes de la table "annonces"
- *  @return array
- */
+  /**
+   * @method GetAll() retourne toutes les lignes de la table "annonces"
+   * @return array
+   */
 
- public function GetAll() : array
- {
-  $dbh = $this->getPdo();
-  $sql = 'SELECT * FROM annonces';
-  $sth = $dbh->prepare($sql);
-  $sth->execute();
-  $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-  //print_r($res);
-  return($res);
-}
+  public function GetAll() : array
+  {
+    $dbh = $this->getPdo();
+    $sql = 'SELECT * FROM annonces';
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
+    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($res);
+    return($res);
+  }
 
 
 
   /**
-   *  @method GetByNumbers() : a partir de $offset, retourne $n resultats
-   *  @param int $offset, int $n
-   *  @return array
+   * @method GetByNumbers() : a partir de $offset, retourne $n resultats
+   * @param int $offset, int $n
+   * @return array
    */
 
   public function GetByNumbers(int $offset = 0, int $n = 10) : array
@@ -211,7 +211,7 @@ class Annonces extends Database
 
 
 
-/**
+  /**
    * @method uuidToMail() retourne utilisateur.courriel pour un annonce.uuid donné
    * @param string $uuid
    * @return string
