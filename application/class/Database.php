@@ -6,7 +6,7 @@ use \PDO;
 class Database
 {
 
-	const DB_HOST = "75341d3dc6f6";
+	const DB_HOST = "2679d1597ade";
 	const DB_NAME = "annonces";
 	const DB_USER = "root";
 	const DB_PWD = "mariadb";
