@@ -198,7 +198,7 @@ class Annonces extends Database
   public function FromAnnonces_GetUserInfos(int $id_utilisateur) : array
   {
     $dbh = $this->getPdo();
-    $sql = "SELECT annonces.id AS ANNONCE_ID, utilisateur.id AS USER_ID, utilisateur.courriel, utilisateur.nom, utilisateur.prenom, utilisateur.telephone FROM utilisateur INNER JOIN annonces ON annonces.id_utilisateur = utilisateur.id WHERE annonces.id_utilisateur = :id_utilisateur";
+    $sql = "SELECT annonces.id AS Annonce_ID, annonces.uuid AS Annonce_UUID,  utilisateur.id AS User_Id, utilisateur.courriel, utilisateur.nom, utilisateur.prenom, utilisateur.telephone FROM utilisateur INNER JOIN annonces ON annonces.id_utilisateur = utilisateur.id WHERE annonces.id_utilisateur = :id_utilisateur";
 
     $sth = $dbh->prepare($sql);
     $sth->bindParam(':id_utilisateur', $id_utilisateur, PDO::PARAM_INT);
