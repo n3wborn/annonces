@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 09 sep. 2020 à 09:28
+-- Généré le :  mer. 09 sep. 2020 à 09:50
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.4.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `annonces`
+-- Base de données :  `annonces`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `annonces`
+-- Structure de la table `annonces`
 --
 
 DROP TABLE IF EXISTS `annonces`;
@@ -47,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `annonces` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `annonces`
+-- Déchargement des données de la table `annonces`
 --
 
 INSERT INTO `annonces` (`id`, `uuid`, `prix`, `description`, `img_url`, `img_nom`, `est_validee`, `date_ecriture`, `date_validation`, `id_utilisateur`, `id_categorie`) VALUES
@@ -63,34 +64,61 @@ INSERT INTO `annonces` (`id`, `uuid`, `prix`, `description`, `img_url`, `img_nom
 -- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Structure de la table `categorie`
+--
+
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE IF NOT EXISTS `categorie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `categorie`
+--
+
+INSERT INTO `categorie` (`id`, `libelle`) VALUES
+(1, 'Affaires professionnelles'),
+(2, 'Animaux'),
+(3, 'Auto-Moto'),
+(4, 'Emploi'),
+(5, 'Immobilier'),
+(6, 'Services'),
+(7, 'Vacances');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `courriel` varchar(255) DEFAULT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `telephone` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `courriel`, `nom`, `prenom`, `telephone`) VALUES
+(1, 'JohnDoe@domain.com', 'Doe', 'John', '06 06 06 06 06'),
+(2, 'test@domain.org', 'bidule', 'machine', '06 06 06 07 07'),
+(3, 'courriel@gmail.com', 'alachaussurenoir', 'Legrandblond', '07 07 07 07 07'),
+(4, 'mail@maildomain.com', 'noname', 'nonick', '03 44 55 99 77');
+
+--
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Indexes for table `annonces`
---
-ALTER TABLE `annonces`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uuid` (`uuid`),
-  ADD KEY `id_utilisateur` (`id_utilisateur`),
-  ADD KEY `id_categorie` (`id_categorie`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `annonces`
---
-ALTER TABLE `annonces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `annonces`
+-- Contraintes pour la table `annonces`
 --
 ALTER TABLE `annonces`
   ADD CONSTRAINT `annonces_ibfk_1` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
