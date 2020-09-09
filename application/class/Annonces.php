@@ -211,6 +211,26 @@ class Annonces extends Database
 
 
 
+/**
+   * @method uuidToMail() retourne utilisateur.courriel pour un annonce.uuid donné
+   * @param string $uuid
+   * @return string
+   */
+  public function uuidToMail(string $uuid) : string
+  {
+    $dbh = $this->getPdo();
+    $sql = "SELECT annonces.uuid, utilisateur.courriel FROM utilisateur INNER JOIN annonces ON  annonces.id_utilisateur = utilisateur.id WHERE annonces.uuid = :uuid";
+
+    $sth = $dbh->prepare($sql);
+    $sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
+    $sth->execute();
+    $resultat = $sth->fetch(PDO::FETCH_ASSOC);
+
+    return $resultat['courriel'];
+  }
+
+
+
   /**
    * @method confirm()
    * @param int $annonce_id
