@@ -14,6 +14,18 @@ class Database
   private $pdo;
 
 
+
+  /**
+   * @method __construct() va instancier Database en executer connect()
+   * @return PDO object
+   */
+	public function __construct()
+  {
+  	$this->connect();
+  }
+
+
+
   /**
    * @method connect() etablit ne connection PDO à la base de donnes
    * @return PDO object
