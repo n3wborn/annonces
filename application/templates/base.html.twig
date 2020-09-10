@@ -18,6 +18,8 @@
 
 
 <body>
+
+    {% block header %}
     <header>
         <nav >
             <div class="navbar navbar-light">
@@ -48,10 +50,11 @@
             </div>
           </nav>
     </header>
+    {% endblock header %}
 
     {% block content %}
     <main>
-<h1>eho je suis la vous mle voyez</h1>    </main>
+</main>
     {% endblock content %}
     {% block footer %}
     <footer>
