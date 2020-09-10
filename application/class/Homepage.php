@@ -2,8 +2,18 @@
 
 namespace App;
 
+use \App\Database as Database;
+use \App\Annonces as Annonces;
+
+
 class Homepage
 {
+
+
+  public function __construct()
+  {
+    parent::connect();
+  }
 
   public static function homepage()
   {
