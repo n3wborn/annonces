@@ -72,4 +72,35 @@ class Crypt
 
     return $clear_text;
   }
+
+
+
+  /**
+   * @method hashStr() renvoie le checksum de la concatenation de $str1 et $str2
+   * @param string $str1, string $str2, string $algo = "sha256"
+   * @return string
+   */
+  public function hashStr(string $str1 = '', string $str2 = '', string $algo = 'sha256') : string
+  {
+    return hash($algo, $str1 . $str2);
+  }
+
+
+
+  /**
+   * @method checkHash() verifie si  sha256($str1 + $str2) est egal à $hash
+   * @param string $str1, string $str2, string $hash, string $algo = 'sha256'
+   * @return bool
+   */
+  public function checkHash(string $str1 = '', string $str2 = '', string $hash = '', string $algo = 'sha256') : bool
+  {
+    $this->algo  = $algo;
+    $hash_ok = hash($algo, $str1 . $str2);
+    echo "$algo";
+    var_dump($hash_ok);
+    return $hash_ok === $hash;
+  }
+
+
+
 }

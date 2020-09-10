@@ -14,28 +14,28 @@ class Annonces extends Database
   }
 
 
- /**
- *  @method GetAll() retourne toutes les lignes de la table "annonces"
- *  @return array
- */
+  /**
+   * @method GetAll() retourne toutes les lignes de la table "annonces"
+   * @return array
+   */
 
- public function GetAll() : array
- {
-  $dbh = $this->getPdo();
-  $sql = 'SELECT * FROM annonces';
-  $sth = $dbh->prepare($sql);
-  $sth->execute();
-  $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-  //print_r($res);
-  return($res);
-}
+  public function GetAll() : array
+  {
+    $dbh = $this->getPdo();
+    $sql = 'SELECT * FROM annonces';
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
+    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($res);
+    return($res);
+  }
 
 
 
   /**
-   *  @method GetByNumbers() : a partir de $offset, retourne $n resultats
-   *  @param int $offset, int $n
-   *  @return array
+   * @method GetByNumbers() : a partir de $offset, retourne $n resultats
+   * @param int $offset, int $n
+   * @return array
    */
 
   public function GetByNumbers(int $offset = 0, int $n = 10) : array
@@ -198,7 +198,7 @@ class Annonces extends Database
   public function FromAnnonces_GetUserInfos(int $id_utilisateur) : array
   {
     $dbh = $this->getPdo();
-    $sql = "SELECT annonces.id AS ANNONCE_ID, utilisateur.id AS USER_ID, utilisateur.courriel, utilisateur.nom, utilisateur.prenom, utilisateur.telephone FROM utilisateur INNER JOIN annonces ON annonces.id_utilisateur = utilisateur.id WHERE annonces.id_utilisateur = :id_utilisateur";
+    $sql = "SELECT annonces.id AS Annonce_ID, annonces.uuid AS Annonce_UUID,  utilisateur.id AS User_Id, utilisateur.courriel, utilisateur.nom, utilisateur.prenom, utilisateur.telephone FROM utilisateur INNER JOIN annonces ON annonces.id_utilisateur = utilisateur.id WHERE annonces.id_utilisateur = :id_utilisateur";
 
     $sth = $dbh->prepare($sql);
     $sth->bindParam(':id_utilisateur', $id_utilisateur, PDO::PARAM_INT);
@@ -207,6 +207,26 @@ class Annonces extends Database
     $resultat = $sth->fetchAll(PDO::FETCH_ASSOC);
 
     return $resultat;
+  }
+
+
+
+  /**
+   * @method uuidToMail() retourne utilisateur.courriel pour un annonce.uuid donné
+   * @param string $uuid
+   * @return string
+   */
+  public function uuidToMail(string $uuid) : string
+  {
+    $dbh = $this->getPdo();
+    $sql = "SELECT annonces.uuid, utilisateur.courriel FROM utilisateur INNER JOIN annonces ON  annonces.id_utilisateur = utilisateur.id WHERE annonces.uuid = :uuid";
+
+    $sth = $dbh->prepare($sql);
+    $sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
+    $sth->execute();
+    $resultat = $sth->fetch(PDO::FETCH_ASSOC);
+
+    return $resultat['courriel'];
   }
 
 
