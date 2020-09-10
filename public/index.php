@@ -26,6 +26,9 @@ $router->map( 'GET|POST', '/test', function() {\App\Homepage::testpage();});
 // Chargement de la page nouvelle-annonce WIP
 $router->map( 'GET', '/nouvelle-annonce', function() {\App\Homepage::nouvelle_annonce();});
 
+// Chargement de la page qui va gerer le formulaire d'ajout
+$router->map( 'GET|POST', '/formulaire-ajout', function() {\App\Homepage::handleForm();});
+
 // Chargement de la page modifer-annonce WIP
 $router->map( 'GET', '/modifier-annonce', function() {\App\Homepage::modifier_annonce();});
 
