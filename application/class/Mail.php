@@ -12,10 +12,10 @@ use PHPMailer\PHPMailer\Exception;
 
 class Mail
 {
-    public function __construct($type, $mailto, $prenom, $nom, $motdepasse)
+    public function __construct($type, $mailto, $prenom, $nom, $pwd)
     {
         
-        $host = "http://annonces/";
+        $path = "http://annonces/";
 
         // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
@@ -35,13 +35,31 @@ class Mail
         
             //Recipients
             $mail->setFrom('dd3a76c21395d4', 'ELEPHADS');
-            $mail->addAddress($mailto, $prenom . ' ' . $nom);  
+            $mail->addAddress($mailto, $prenom . ' ' . $nom);    
             
-            //Content
-            // $mail->isHTML(true);                                  // Set email format to HTML
-            // $mail->Subject = 'Here is the subject';
-            // $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-            // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            // Content
+            $mail->isHTML(true);     // Set email format to HTML
+            
+            if ($type === 'valid') {
+                $url = $path . '/validation' . $pwd;
+                $mail->Subject = 'Confirmez votre annonce';
+                $mail->Body ='<h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"> POPY</a></h1><br><br><p>Bonjour '.$prenom.' !</p><br>
+                <p>Nous vous remercions de votre dépôt d\'annonce.</p></br><a href="'.$url .'">Cliquez sur ce lien pour confirmer votre annonce.</a>';
+            } elseif ($type === 'delete') {
+                $url = $path . '/supprimer' . $pwd;
+                $mail->Subject = 'Votre annonce a été publiée';
+                $mail->Body ='<h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"> POPY</a></h1><br><br><p>Bonjour '.$prenom.' !</p><br>
+                <p>ëtes-vosu sûr(e) de bien vouloir supprimer votre annonce ? Celle-ci ne pourra pas être récupérer ultérieurement.</p><br><a href="'.$url .'">Cliquez sur ce lien pour supprimer votre annonce.</a>';
+            } else {
+                echo 'Wrong Type Parameter';
+                return;
             }
+            
+        
+            $mail->send();
+             echo 'Le message a été envoyé';
+        } catch (Exception $e) {
+            echo "Le message n'a pas pu être envoyé. Erreur de l'expéditeur: {$mail->ErrorInfo}";
+        }
     }
 }
