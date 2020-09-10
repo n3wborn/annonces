@@ -323,6 +323,10 @@ main{
         width: 60%;
         margin: auto;
         }
+
+        main .card-img-top {
+        max-width: none;
+        }
        
     // MODAL
     .d-flex {
