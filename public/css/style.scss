@@ -140,7 +140,7 @@ main{
     z-index: 99; 
     border: none; 
     outline: none; 
-    background-color: $coffee; 
+    background-color: #91695396; 
     color: white; 
     cursor: pointer; 
     padding: 15px;
@@ -151,7 +151,8 @@ main{
 
         box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);
         -moz-box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);
-        -webkit-box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);  
+        -webkit-box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);
+        background-color: $coffee;
     }
 }
 
@@ -238,9 +239,14 @@ main{
 
 }
 
-
+// FOOTER
 .page-footer {
-    background-color: aliceblue;
+    background-color:#202c3ca4;
+}
+
+.footer-copyright{
+    background-color: $gumMetal;
+    color: $magnolia;
 }
 
 
