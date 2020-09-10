@@ -1,39 +1,6 @@
 {% extends "base.html.twig" %}
 
 {% block title %}<title>Déposer une annonce</title>{% endblock title %}
-{% block header %}
-  <body>
-  <header>
-    <nav >
-      <div class="navbar navbar-light">
-        <a class="navbar-brand d-flex" href="/">
-          <img src="{{ basepath }}/assets/logo.png"  width="250" height="125" class=" align-top" alt="" loading="lazy">
-        </a>
-
-        <div class="input-group mb-3 mx-auto col-md-7">
-          <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégories</button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Affaires pro</a>
-            <a class="dropdown-item" href="#">Animaux</a>
-            <a class="dropdown-item" href="#">Auto-Moto</a>
-            <a class="dropdown-item" href="#">Emploi</a>
-            <a class="dropdown-item" href="#">Immobilier</a>
-            <a class="dropdown-item" href="#">Services</a>
-            <a class="dropdown-item" href="#">Vacances</a>
-            <a class="dropdown-item" href="#">Autres..</a>
-          </div>
-          </div>
-          <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Que recherchez-vous ?">
-        </div>
-      </div>
-      <div class="d-flex justify-content-center mt-n3 pb-4">
-        <button type="button" class="btn btn-primary btn-rounded">Déposer une annonce</button>
-      </div>
-    </nav>
-  </header>
-  {% endblock header %}
-
 
   {% block content %}
     <main>
@@ -142,15 +109,5 @@
   {% endblock footer %}
 
   {% block javascript %}
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  <script src="{{ basepath }}/js/top_button.js"></script>
-  <script src="{{ basepath }}/js/validate.js"></script>
-  <script src="{{basepath}}/js/modal.js"></script>
-  <script src="{{basepath}}/js/recaptcha.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-    async defer>
-</script>
-
+  {{ parent()}}
   {% endblock javascript %}

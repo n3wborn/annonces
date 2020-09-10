@@ -16,7 +16,7 @@ function validateForm(){
         myForm.classList.add("valid");
         myForm.classList.remove("invalid");
         //On valide
-        textNom.innerHTML ="Votre nom est correct";
+        textNom.innerHTML ="Votre nom est correct.";
         textNom.style.color ="#85C630"
     }else        
     {
@@ -44,7 +44,7 @@ function validateForm(){
             myForm.classList.add("valid");
             myForm.classList.remove("invalid");
             //On valide
-            textPrenom.innerHTML ="Votre prénom est correct";
+            textPrenom.innerHTML ="Votre prénom est correct.";
             textPrenom.style.color ="#85C630"
         }else        
         {
