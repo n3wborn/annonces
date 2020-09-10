@@ -103,4 +103,15 @@ class Crypt
 
 
 
+  /**
+   * @method getRandStr() retourne une chaine aleatoire de longueur $n
+   * @param int
+   * @return string
+   */
+  public static function getRandStr(int $n = 36) : string
+  {
+    return bin2hex(random_bytes($n));
+  }
+
+
 }
