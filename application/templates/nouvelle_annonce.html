@@ -42,7 +42,7 @@
           <p class="h1">Bonjour !</p>
 
           <!-- FORM -->
-        <form name="myForm" class="form-horizontal" method="post" action="/handleForm" enctype="multipart/form-data" onkeydown="validateForm()">
+        <form name="myForm" class="form-horizontal" method="post" action="/formulaire-ajout" enctype="multipart/form-data" onkeydown="validateForm()">
           <!--NOM-->
           <div class="row">
             <div class="col-md-6 p-2">
@@ -102,8 +102,8 @@
         <!--IMAGE-->
           <div class="form-group p-2 mt-4 col-md-6">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFileLang" lang="fr">
-              <label class="custom-file-label" for="customFileLang">Sélectionner le fichier </label>
+              <label class="custom-file-label" for="img_nom" >Sélectionner le fichier </label>
+              <input type="file" class="custom-file-input" id="customFileLang" lang="fr" name="img_nom" value="">
             </div>
           </div>
         </div>
