@@ -97,6 +97,7 @@ main{
         box-shadow: 2px 4px 10px 2px rgba(119, 119, 119, 0.75);
         -moz-box-shadow: 2px 4px 10px 2px rgba(119, 119, 119, 0.75);
         -webkit-box-shadow: 2px 4px 10px 2px rgba(119, 119, 119, 0.75);
+
     }
 
     .card-title{
@@ -104,8 +105,10 @@ main{
     }
 
     .card-img-top{
-        max-width: 312px;
+        max-width: 330px;
         max-height: 195px;
+        padding: 0.5em;
+
     }
 
     .bannerHidden {
@@ -185,26 +188,6 @@ main{
         }      
     }
 
-    .custom-file-label::after {
-        position:absolute;
-        top:0;
-        right:0;
-        bottom:0;
-        z-index:3;
-        display:block;
-        height:calc(1.5em + .75rem);
-        padding:.375rem .75rem;
-        line-height:1.5;
-        color:#495057;
-        content:"Choisir";
-        background-color:#e9ecef;
-        border-left:inherit;
-        border-radius:0 .25rem .25rem 0
-       }
-       
-       .custom-file {
-        width: 100%;
-       }
        
     
 // MODAL
@@ -238,6 +221,56 @@ main{
     }
 
 }
+
+// FILE BUTTON
+.btn-tertiary {
+    color: #555;
+    padding: 0;
+    line-height: 40px;
+    width: 300px;
+    margin: auto;
+    display: block;
+    border-color: lighten(#555, 20%);
+   
+  }
+
+  label.btn {
+      color: $gumMetal;
+      background-color:white;
+      &:hover{
+        background-color: $magnolia;
+
+    }
+    }
+  
+  /* input file style */
+  
+  .input-file {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    + .js-labelFile {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0 10px;
+      cursor: pointer;
+      .icon:before {
+        //font-awesome
+        content: "\f093";
+      }
+      &.has-file {
+        .icon:before {
+          //font-awesome
+          content: "\f00c";
+          color: #5AAC7B;
+        }
+      }
+    }
+  }
 
 // FOOTER
 .page-footer {
@@ -342,3 +375,4 @@ main{
 
     }
   
+    
