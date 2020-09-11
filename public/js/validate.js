@@ -1,5 +1,5 @@
 function validateForm(){
-    var form = document.getElementById("myForm");
+    var myForm = document.getElementById("myForm");
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var courriel = document.getElementById("courriel").value;
@@ -10,6 +10,7 @@ function validateForm(){
     var regTel = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
 
 
+
     // NOM
     if(nom.match(regName))
     {
@@ -17,14 +18,14 @@ function validateForm(){
         myForm.classList.remove("invalid");
         //On valide
         textNom.innerHTML ="Votre nom est correct.";
-        textNom.style.color ="#85C630"
+        textNom.style.color ="#85C630";
     }else        
     {
     myForm.classList.remove("valid");
     myForm.classList.add("invalid");
     //On demande de changer ce qui est écrit
     textNom.innerHTML ="Veuillez saisir un nom valide.";
-    textNom.style.color ="c";
+    textNom.style.color ="#9f1226";
    }
    if (nom == "")
        //Si c'est vide
@@ -45,7 +46,7 @@ function validateForm(){
             myForm.classList.remove("invalid");
             //On valide
             textPrenom.innerHTML ="Votre prénom est correct.";
-            textPrenom.style.color ="#85C630"
+            textPrenom.style.color ="#85C630";
         }else        
         {
         myForm.classList.remove("valid");
@@ -138,7 +139,7 @@ function validateForm(){
 
   } 
 
-  function submitUserForm() {
+function submitUserForm() {
     var response = grecaptcha.getResponse();
     console.log(response.length);
     if(response.length == 0) {
@@ -149,7 +150,6 @@ function validateForm(){
 }
  
 function verifyCaptcha() {
-  console.log('verified captcha');
     document.getElementById('g-recaptcha-error').innerHTML = '';
 }
 
