@@ -26,7 +26,6 @@ class File extends Database
   public static function uploadFile()
   {
     if(isset($_FILES) && ($_FILES['img_nom']['size'] < 300000 && $_FILES['img_nom']['error'] === 0)) {
-      /*var_dump($_FILES['img_nom']);*/
 
       // si upload ok
       $tmp = $_FILES['img_nom']['tmp_name'];
