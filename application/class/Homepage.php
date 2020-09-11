@@ -8,7 +8,7 @@ use \App\Annonces as Annonces;
 
 class Homepage extends Annonces
 {
-
+  
 
   public function __construct()
   {
