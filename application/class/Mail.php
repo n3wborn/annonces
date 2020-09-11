@@ -7,16 +7,25 @@ namespace App;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use App\Crypt;
+use App\Annonces;
 
 
 
 class Mail
 {
-    public function __construct($type, $mailto, $prenom, $nom, $pwd)
-    {
-        
-        $path = "http://annonces/";
 
+    public function __construct($type, $mailto, $prenom, $nom)
+    {
+        $annonces = new Annonces();
+        $annonces = $annonces->sendInfo(1);
+        var_dump($annonces);
+        $path = "http://annonces/";
+        $courriel =$annonces['courriel'];
+        $uuid = $annonces['uuid'];
+        $courrielChiffre = Crypt::encrypt($courriel);
+        $uuidChiffre = Crypt::encrypt($uuid);
+        $hash = Crypt::hashStr($courrielChiffre, $uuidChiffre);
         // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
 
@@ -41,12 +50,12 @@ class Mail
             $mail->isHTML(true);     // Set email format to HTML
             
             if ($type === 'valid') {
-                $url = $path . '/validation' . $pwd;
+                $url = $path . 'confirmer-annonce' . '/' . $courriel . '/' . $uuid . '/' . $hash;
                 $mail->Subject = 'Confirmez votre annonce';
                 $mail->Body ='<h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"> POPY</a></h1><br><br><p>Bonjour '.$prenom.' !</p><br>
                 <p>Nous vous remercions de votre dépôt d\'annonce.</p></br><a href="'.$url .'">Cliquez sur ce lien pour confirmer votre annonce.</a>';
             } elseif ($type === 'delete') {
-                $url = $path . '/supprimer' . $pwd;
+                $url = $path . 'supprimer-annonce' . '/' . $courriel . '/' . $uuid . '/' . $hash;
                 $mail->Subject = 'Votre annonce a été publiée';
                 $mail->Body ='<h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"> POPY</a></h1><br><br><p>Bonjour '.$prenom.' !</p><br>
                 <p>êtes-vous sûr(e) de bien vouloir supprimer votre annonce ? Celle-ci ne pourra pas être récupérer ultérieurement.</p><br><a href="'.$url .'">Cliquez sur ce lien pour supprimer votre annonce.</a>';
