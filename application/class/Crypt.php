@@ -104,11 +104,11 @@ class Crypt
 
 
   /**
-   * @method getRandStr() retourne une chaine aleatoire de longueur $n
+   * @method getRandStr() retourne une chaine aleatoire de longueur $n bytes
    * @param int
    * @return string
    */
-  public static function getRandStr(int $n = 36) : string
+  public static function getRandStr(int $n = 18) : string
   {
     return bin2hex(random_bytes($n));
   }

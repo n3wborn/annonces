@@ -3,7 +3,9 @@
 namespace App;
 
 use App\Database;
+use App\Crypt;
 use \PDO;
+
 
 class Annonces extends Database
 {
@@ -11,6 +13,7 @@ class Annonces extends Database
   public function __construct()
   {
     parent::connect();
+
   }
 
 
@@ -293,6 +296,92 @@ class Annonces extends Database
       }
     }
   }
+
+
+
+  // gestion du formulaire
+  public function handleForm()
+  {
+
+    $dbh = $this->getPdo();
+
+    // Si le formulaire est envoyé
+    if (!empty($_POST)) {
+
+      // verifications basique
+      $nom = (empty($_POST['nom'])) ? die('Nom manquant') : trim($_POST['nom']);
+      $prenom = (empty($_POST['prenom'])) ? die('prenom manquant') : trim($_POST['prenom']);
+      $courriel = (empty($_POST['courriel'])) ? die('courriel manquant') : trim($_POST['courriel']);
+      $telephone = (empty($_POST['telephone'])) ? die('telephone manquant') : trim($_POST['telephone']);
+      $description = (empty($_POST['description'])) ? die('description manquant') : trim($_POST['description']);
+
+
+      // Gestion de l'utilisateur
+      // créé l'utilisateur si besoin et renvoie son id
+      $user_id = 0;
+      $annonce = new Annonces;
+      if ($annonce->IsUSer($courriel) === 0) {
+        $user_id = $annonce->InsertUser($courriel, $nom, $prenom, $telephone);
+      } else {
+        $user_id = $annonce->IsUSer($courriel);
+      }
+
+      // on genere l'uuid
+      $uuid = Crypt::getRandStr();
+
+      // Gestion de l'annonce
+      $sql = 'INSERT INTO annonces(`uuid`, `description`, `est_validee`, `date_ecriture`, `id_utilisateur`, `id_categorie`) VALUES(:uuid, :description, 0, :date_ecriture, :id_utilisateur, :id_categorie)';
+      $sth = $dbh->prepare($sql);
+
+
+      // bind params/values
+      $sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
+      $sth->bindParam(':description', $description ,PDO::PARAM_STR);
+      $sth->bindValue(':date_ecriture', date("Y-m-d"), PDO::PARAM_STR);
+      $sth->bindParam(':id_utilisateur', $user_id, PDO::PARAM_INT);
+      $sth->bindParam(':id_categorie', $categorie, PDO::PARAM_INT);
+
+
+      // execute the request and fetch annonce id
+      if ($sth->execute()) {
+        $id_annonce = $dbh->lastInsertId();
+        var_dump($id_annonce);
+      } else {
+        var_dump($dbh->errorInfo());
+      }
+
+
+
+      // Gestion de l'image
+      //
+      // name of the file on the client machine -> $_FILES['img_nom']['name']
+      // mime type of the file -> $_FILES['userfile']['type']
+      // size in bytes -> $_FILES['userfile']['size']
+      // tmp file -> $_FILES['userfile']['tmp_name']
+      // error code if error -> $_FILES['userfile']['error']
+
+      /*
+      foreach ($_FILES['img_nom']['error'] as $key => $error) {
+
+        // si upload ok
+        if ($error == UPLOAD_ERR_OK) {
+
+          $tmp = $_FILES['img_nom']['tmp_name'][$key];
+          $name = basename($_FILES['img_nom']['name'][$key]);
+          if (move_uploaded_file($tmp, "assets/$uuid_$name")) {
+            return "assets/$uuid_$name";
+          } else {
+            return false;
+          }
+        }
+        */
+
+
+      } // fin if (!empty($_POST))
+    } // fin handleForm
+
+
+
 
 
   /**
