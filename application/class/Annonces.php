@@ -13,6 +13,7 @@ class Annonces extends Database
   public function __construct()
   {
     parent::connect();
+
   }
 
 
@@ -299,10 +300,10 @@ class Annonces extends Database
 
 
   // gestion du formulaire
-  public static function handleForm()
+  public function handleForm()
   {
 
-    $dbh = self::getPdo();
+    $dbh = $this->getPdo();
 
     // Si le formulaire est envoyé
     if (!empty($_POST)) {
@@ -318,21 +319,22 @@ class Annonces extends Database
       // Gestion de l'utilisateur
       // créé l'utilisateur si besoin et renvoie son id
       $user_id = 0;
+      $annonce = new Annonces;
       if ($annonce->IsUSer($courriel) === 0) {
         $user_id = $annonce->InsertUser($courriel, $nom, $prenom, $telephone);
+      } else {
+        $user_id = $annonce->IsUSer($courriel);
       }
-
 
       // on genere l'uuid
       $uuid = Crypt::getRandStr();
 
-
       // Gestion de l'annonce
-      // on gere la requete, ses parametres, et l'ajout dans la table annonce
-      $sql = 'INSERT INTO annonces(uuid, description, est_validee, date_ecriture, id_utilisateur, id_categorie) VALUES(:uuid, :description, 0, :date_ecriture, :id_utilisateur, :id_categorie)';
+      $sql = 'INSERT INTO annonces(`uuid`, `description`, `est_validee`, `date_ecriture`, `id_utilisateur`, `id_categorie`) VALUES(:uuid, :description, 0, :date_ecriture, :id_utilisateur, :id_categorie)';
       $sth = $dbh->prepare($sql);
 
 
+      // bind params/values
       $sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
       $sth->bindParam(':description', $description ,PDO::PARAM_STR);
       $sth->bindValue(':date_ecriture', date("Y-m-d"), PDO::PARAM_STR);
@@ -340,10 +342,12 @@ class Annonces extends Database
       $sth->bindParam(':id_categorie', $categorie, PDO::PARAM_INT);
 
 
+      // execute the request and fetch annonce id
       if ($sth->execute()) {
-        $sth->lastInsertId();
+        $id_annonce = $dbh->lastInsertId();
+        var_dump($id_annonce);
       } else {
-        var_dump($sth->errorInfo());
+        var_dump($dbh->errorInfo());
       }
 
 
@@ -373,11 +377,9 @@ class Annonces extends Database
         */
 
 
-      }
+      } // fin if (!empty($_POST))
+    } // fin handleForm
 
-
-    }
-  }
 
 
 
