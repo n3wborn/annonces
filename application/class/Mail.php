@@ -49,7 +49,7 @@ class Mail
                 $url = $path . '/supprimer' . $pwd;
                 $mail->Subject = 'Votre annonce a été publiée';
                 $mail->Body ='<h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"> POPY</a></h1><br><br><p>Bonjour '.$prenom.' !</p><br>
-                <p>ëtes-vosu sûr(e) de bien vouloir supprimer votre annonce ? Celle-ci ne pourra pas être récupérer ultérieurement.</p><br><a href="'.$url .'">Cliquez sur ce lien pour supprimer votre annonce.</a>';
+                <p>êtes-vous sûr(e) de bien vouloir supprimer votre annonce ? Celle-ci ne pourra pas être récupérer ultérieurement.</p><br><a href="'.$url .'">Cliquez sur ce lien pour supprimer votre annonce.</a>';
             } else {
                 echo 'Wrong Type Parameter';
                 return;
