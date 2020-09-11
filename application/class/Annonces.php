@@ -331,13 +331,15 @@ class Annonces extends Database
       $uuid = Crypt::getRandStr();
 
       // gere l'upload de l'image
-      $maxID = $annonce->MaxId();
       if (isset($_FILES) && !empty($_FILES)) {
         $img_nom = File::uploadFile();
-        $img_url = "assets/" . $img_nom;
       } else {
         $img_nom = "noimage.png";
       }
+
+      // assets/nom_si_ok
+      // assets/noimage.png si pas d image
+      $img_url = "assets/" . $img_nom;
 
 
       // Gestion de l'annonce
