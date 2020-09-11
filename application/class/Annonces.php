@@ -349,7 +349,7 @@ class Annonces extends Database
       } else {
         var_dump($dbh->errorInfo());
       }
-
+ 
 
 
       // Gestion de l'image
@@ -392,5 +392,19 @@ class Annonces extends Database
   public function myParentSays() {
     return $this->getPdo();
   }
+
+
+  public function sendInfo($id)
+  {
+    $dbh = $this->getPdo();
+    $sql = 'SELECT annonces.uuid, utilisateur.courriel FROM annonces INNER JOIN utilisateur ON annonces.id_utilisateur = utilisateur.id WHERE annonces.id = :id ';
+    $sth = $dbh->prepare($sql);
+    $sth->bindParam(':id', $id, PDO::PARAM_INT);
+    $sth->execute();
+    $res = $sth->fetch(PDO::FETCH_ASSOC);
+    // var_dump($res);
+    return($res);
+  }
 }
+
 
