@@ -362,6 +362,8 @@ class Annonces extends Database
       } else {
         var_dump($dbh->errorInfo());
       }
+    }
+  }
 
 
 
