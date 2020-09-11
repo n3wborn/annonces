@@ -4,6 +4,7 @@ namespace App;
 
 use App\Database;
 use App\Crypt;
+use App\File;
 use \PDO;
 
 
@@ -329,8 +330,18 @@ class Annonces extends Database
       // on genere l'uuid
       $uuid = Crypt::getRandStr();
 
+      // gere l'upload de l'image
+      $maxID = $annonce->MaxId();
+      if (isset($_FILES) && !empty($_FILES)) {
+        $img_nom = File::uploadFile();
+        $img_url = "assets/" . $img_nom;
+      } else {
+        $img_nom = "noimage.png";
+      }
+
+
       // Gestion de l'annonce
-      $sql = 'INSERT INTO annonces(`uuid`, `description`, `est_validee`, `date_ecriture`, `id_utilisateur`, `id_categorie`) VALUES(:uuid, :description, 0, :date_ecriture, :id_utilisateur, :id_categorie)';
+      $sql = 'INSERT INTO annonces(`uuid`, `description`, `est_validee`, `date_ecriture`, `id_utilisateur`, `id_categorie`, `img_nom`, `img_url`) VALUES(:uuid, :description, 0, :date_ecriture, :id_utilisateur, :id_categorie, :img_nom, :img_url)';
       $sth = $dbh->prepare($sql);
 
 
@@ -340,47 +351,19 @@ class Annonces extends Database
       $sth->bindValue(':date_ecriture', date("Y-m-d"), PDO::PARAM_STR);
       $sth->bindParam(':id_utilisateur', $user_id, PDO::PARAM_INT);
       $sth->bindParam(':id_categorie', $categorie, PDO::PARAM_INT);
+      $sth->bindParam(':img_nom', $img_nom ,PDO::PARAM_STR);
+      $sth->bindParam(':img_url', $img_url ,PDO::PARAM_STR);
 
-
-      // execute the request and fetch annonce id
+      // execute la requete et retourne l'id de l'annonce
       if ($sth->execute()) {
         $id_annonce = $dbh->lastInsertId();
         var_dump($id_annonce);
+        return;
       } else {
         var_dump($dbh->errorInfo());
       }
-
-
-
-      // Gestion de l'image
-      //
-      // name of the file on the client machine -> $_FILES['img_nom']['name']
-      // mime type of the file -> $_FILES['userfile']['type']
-      // size in bytes -> $_FILES['userfile']['size']
-      // tmp file -> $_FILES['userfile']['tmp_name']
-      // error code if error -> $_FILES['userfile']['error']
-
-      /*
-      foreach ($_FILES['img_nom']['error'] as $key => $error) {
-
-        // si upload ok
-        if ($error == UPLOAD_ERR_OK) {
-
-          $tmp = $_FILES['img_nom']['tmp_name'][$key];
-          $name = basename($_FILES['img_nom']['name'][$key]);
-          if (move_uploaded_file($tmp, "assets/$uuid_$name")) {
-            return "assets/$uuid_$name";
-          } else {
-            return false;
-          }
-        }
-        */
-
-
-      } // fin if (!empty($_POST))
-    } // fin handleForm
-
-
+    }
+  }
 
 
 
