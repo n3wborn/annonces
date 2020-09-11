@@ -315,6 +315,7 @@ class Annonces extends Database
       $courriel = (empty($_POST['courriel'])) ? die('courriel manquant') : trim($_POST['courriel']);
       $telephone = (empty($_POST['telephone'])) ? die('telephone manquant') : trim($_POST['telephone']);
       $description = (empty($_POST['description'])) ? die('description manquant') : trim($_POST['description']);
+      $categorie = (empty($_POST['categorie'])) ? die('$categorie manquante') : trim($_POST['categorie']);
 
 
       // Gestion de l'utilisateur
