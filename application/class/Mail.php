@@ -59,7 +59,12 @@ class Mail
                 $mail->Subject = 'Votre annonce a été publiée';
                 $mail->Body ='<h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"> POPY</a></h1><br><br><p>Bonjour '.$prenom.' !</p><br>
                 <p>êtes-vous sûr(e) de bien vouloir supprimer votre annonce ? Celle-ci ne pourra pas être récupérer ultérieurement.</p><br><a href="'.$url .'">Cliquez sur ce lien pour supprimer votre annonce.</a>';
-            } else {
+            } elseif ($type === 'modifier') {
+                $url = $path . 'modifier-annonce' . '/' . $courriel . '/' . $uuid . '/' . $hash;
+                $mail->Subject = 'Voulez - vous modifier votre annonnce ?';
+                $mail->Body ='<h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"> POPY</a></h1><br><br><p>Bonjour '.$prenom.' !</p><br>
+                <p>Il vous est possible de modifier votre annonce, une seule fois.</p><br><a href="'.$url .'">Cliquez sur ce lien pour modifier votre annonce.</a>';
+             } else {
                 echo 'Wrong Type Parameter';
                 return;
             }
