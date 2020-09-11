@@ -42,7 +42,7 @@
           <p class="h1">Bonjour !</p>
 
           <!-- FORM -->
-        <form name="myForm" class="form-horizontal" method="post" action="/formulaire-ajout" enctype="multipart/form-data" onkeydown="validateForm()" onsubmit="return submitUserForm();">
+        <form id="myForm" class="form-horizontal" method="post" action="/formulaire-ajout" enctype="multipart/form-data" onkeydown="validateForm()" onsubmit="return submitUserForm();">
           <!--NOM-->
           <div class="row">
             <div class="col-md-6 p-2">
@@ -101,11 +101,12 @@
 
         <!--IMAGE-->
           <div class="form-group p-2 mt-4 col-md-6">
-            <div class="custom-file">
-              <label class="custom-file-label" for="img_nom" >Sélectionner le fichier </label>
-              <input type="file" class="custom-file-input" id="customFileLang" lang="fr" name="img_nom" value="">
-            </div>
-          </div>
+            <input type="file" name="img_name" id="file" class="input-file" value="">
+            <label for="file" class="btn btn-tertiary js-labelFile">
+              <i class="icon fa fa-check"></i>
+              <span class="js-fileName">Sélectionner une image...</span>
+            </label>
+        </div>
         </div>
 
 
