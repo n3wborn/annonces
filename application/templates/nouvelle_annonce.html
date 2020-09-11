@@ -42,7 +42,7 @@
           <p class="h1">Bonjour !</p>
 
           <!-- FORM -->
-        <form name="myForm" class="form-horizontal" method="post" action="/formulaire-ajout" enctype="multipart/form-data" onkeydown="validateForm()">
+        <form name="myForm" class="form-horizontal" method="post" action="/formulaire-ajout" enctype="multipart/form-data" onkeydown="validateForm()" onsubmit="return submitUserForm();">
           <!--NOM-->
           <div class="row">
             <div class="col-md-6 p-2">
@@ -117,15 +117,15 @@
           </div>
 
           <!--reCAPTCHA-->
-          <div class="row p-4">
-          <div class="g-recaptcha" data-sitekey="6LcsqcUZAAAAAB2ybVOK-_XyJ3zbi25Yvdb2KeMq"></div>
-        </div>
+          <div class="g-recaptcha" data-sitekey="6LcsqcUZAAAAAB2ybVOK-_XyJ3zbi25Yvdb2KeMq" data-callback="verifyCaptcha"></div>
+          <div id="g-recaptcha-error"></div>
         <div class="form-row text-center">
             <div class="col-12">
-              <button id="formButton" type="submit" class="btn btn-primary">Déposer mon annonce</button>
+              <button id="formButton" type="submit" name="submit" class="btn btn-primary">Déposer mon annonce</button>
             </div>
           </div>
         </form>
+
       </div>
       </div>
 
@@ -142,15 +142,7 @@
   {% endblock footer %}
 
   {% block javascript %}
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  <script src="{{ basepath }}/js/top_button.js"></script>
-  <script src="{{ basepath }}/js/validate.js"></script>
-  <script src="{{basepath}}/js/modal.js"></script>
-  <script src="{{basepath}}/js/recaptcha.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-    async defer>
-</script>
+
+  {{ parent() }}
 
   {% endblock javascript %}

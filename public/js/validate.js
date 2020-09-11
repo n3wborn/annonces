@@ -24,7 +24,7 @@ function validateForm(){
     myForm.classList.add("invalid");
     //On demande de changer ce qui est écrit
     textNom.innerHTML ="Veuillez saisir un nom valide.";
-    textNom.style.color ="#9f1226";
+    textNom.style.color ="c";
    }
    if (nom == "")
        //Si c'est vide
@@ -136,7 +136,21 @@ function validateForm(){
                 textMess.style.color ="#85C630";
               }
 
-
   } 
+
+  function submitUserForm() {
+    var response = grecaptcha.getResponse();
+    console.log(response.length);
+    if(response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:#9f1226;">Veuillez cocher la case "Je ne suis pas un robot".</span>';
+        return false;
+    }
+    return true;
+}
+ 
+function verifyCaptcha() {
+  console.log('verified captcha');
+    document.getElementById('g-recaptcha-error').innerHTML = '';
+}
 
   
