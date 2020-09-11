@@ -27,7 +27,10 @@ $router->map( 'GET|POST', '/test', function() {\App\Homepage::testpage();});
 $router->map( 'GET', '/nouvelle-annonce', function() {\App\Homepage::nouvelle_annonce();});
 
 // Chargement de la page qui va gerer le formulaire d'ajout
-$router->map( 'POST', '/formulaire-ajout', function() {\App\Annonces::handleForm();});
+$router->map( 'POST', '/formulaire-ajout', function() {
+  $annonce = new \App\Annonces;
+  $annonce->handleForm();
+});
 
 // Chargement de la page modifer-annonce WIP
 $router->map( 'GET', '/modifier-annonce', function() {\App\Homepage::modifier_annonce();});
