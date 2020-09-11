@@ -6,9 +6,9 @@ use \App\Database as Database;
 use \App\Annonces as Annonces;
 
 
-class Homepage
+class Homepage extends Annonces
 {
-
+  
 
   public function __construct()
   {
