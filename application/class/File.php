@@ -17,6 +17,36 @@ class File extends Database
 
 
   /**
+   * @method checkMimeType() verifie que le type  Mime de $input soit autorisé
+   * @param string $input est le fichier temporaire uploadé sur le serveur
+   * (ex : $_FILES['file']['tmp_name'])
+   * @return bool true si autorisé, false sinon
+   */
+  public static function checkMimeType(string $file)
+  {
+    // type authorisés
+    $mime_types = array(
+      'image/png' => "png",
+      'image/jpeg'=> "jpeg",
+      'image/jpg'=> "jpg",
+      'image/gif' => "gif",
+      'image/bmp' => "bmp"
+    );
+
+    // on regarde le type mime du fichier
+    $image_mime = image_type_to_mime_type(exif_imagetype($file));
+
+    // on verifie que le type Mime fase pâsrtie de ceux autorisés
+    if (!array_key_exists($image_mime, $mime_types)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+
+
+  /**
    * @method uploadFile
    * @return str $nom
    *
