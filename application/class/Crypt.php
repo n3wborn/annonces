@@ -136,4 +136,28 @@ class Crypt
     return $infos;
   }
 
+
+
+  /**
+   * @method checkIntegrity() verifie si les resultats retournes
+   *  par explodeUrl() sont exacts.
+   *  Si oui, on retourne un tableau avec les infos dechiffrees
+   * @param array $infos
+   * @return bool
+   */
+  public static function checkIntegrity($infos)
+  {
+    $action = $infos['ciphered_uuid'];
+    $ciphered_uuid = $infos['ciphered_uuid'];
+    $ciphered_mail = $infos['ciphered_mail'];
+    $hash = $infos['hash'];
+
+    if (checkHash($ciphered_uuid, $ciphered_mail, $hash)) {
+      $uuid = decrypt($ciphered_uuid);
+      return $uuid;
+    } else {
+      return false;
+    }
+  }
+
 }
