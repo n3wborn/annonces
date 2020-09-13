@@ -117,12 +117,12 @@ class Crypt
 
 
   /**
-   * @method getInfosFromUrl() lit l'url et retrouve les infos sur
+   * @method explodeUrl() lit l'url et retrouve les infos sur
    * l'annonce correspondante
    * @param string $url
    * @return array
    */
-  public static function getInfosFromUrl($url)
+  public static function explodeUrl($url)
   {
     $parts = explode('/', $url);
 
