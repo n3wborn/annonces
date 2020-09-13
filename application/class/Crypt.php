@@ -93,12 +93,11 @@ class Crypt
    * @param string $str1, string $str2, string $hash, string $algo = 'sha256'
    * @return bool
    */
-  public function checkHash(string $str1 = '', string $str2 = '', string $hash = '', string $algo = 'sha256') : bool
+  public static function checkHash(string $str1 = '', string $str2 = '', string $hash = '', string $algo = 'sha256') : bool
   {
-    $this->algo  = $algo;
     $hash_ok = hash($algo, $str1 . $str2);
-    echo "$algo";
-    var_dump($hash_ok);
+    //echo "$algo";
+    //var_dump($hash_ok);
     return $hash_ok === $hash;
   }
 
@@ -152,8 +151,8 @@ class Crypt
     $ciphered_mail = $infos['ciphered_mail'];
     $hash = $infos['hash'];
 
-    if (checkHash($ciphered_uuid, $ciphered_mail, $hash)) {
-      $uuid = decrypt($ciphered_uuid);
+    if (Crypt::checkHash($ciphered_uuid, $ciphered_mail, $hash)) {
+      $uuid = Crypt::decrypt($ciphered_uuid);
       return $uuid;
     } else {
       return false;
