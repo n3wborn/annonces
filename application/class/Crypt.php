@@ -42,7 +42,7 @@ class Crypt
     // genere le chiffré
     $cipher_text = openssl_encrypt($clear_text, self::$cipher, self::$encryption_key, self::$options, $iv);
 
-    return $iv.$cipher_text;
+    return base64_encode($iv.$cipher_text);
   }
 
 
@@ -64,6 +64,7 @@ class Crypt
   public static function decrypt($cipher_text) : string
   {
 
+    $cipher_text = base64_decode($cipher_text);
     $ivlen = openssl_cipher_iv_length(self::$cipher);
     $iv = substr($cipher_text, 0, $ivlen);
     $cipher_raw = substr($cipher_text, $ivlen);
