@@ -4,11 +4,12 @@ namespace App;
 
 use \App\Database as Database;
 use \App\Annonces as Annonces;
+use \App\Crypt as Crypt;
 
 
 class Homepage extends Annonces
 {
-  
+
 
   public function __construct()
   {
@@ -86,12 +87,20 @@ class Homepage extends Annonces
   {
     $template = new Twig('supprimer_annonce.html');
 
-    // Twig - variables test
-    $test = "SUPPRIMER ANNONCE OK";
+    // WIP url de test
+    $url = 'http://supprimer-annonce/REVTc0dXS0hYRnFEdEh4WWI0TWx3dUl0QklmYlljQVc2OTJCYzRHaTZQT2MvdmpoQTVqbWd2SEJXa2JpTzIwanhFc0UwY2s3NDBqcnVoblo=/RUFoaUthaElWTkpIdUFVSGtIcmpyS1EyVmJXa3drM0ZWL2cxVUE9PQ==/7a48008c438d9f8bfac445e203029a4077d5cc6aa0eaa4fd5cb40cfd0b691903';
+
+    // url definitive
+    // $_SERVER['REQUEST_URI'];
+
+    // Verifie l'url et genere le lien de suppression
+    $infos = Crypt::explodeUrl($url);
+    $uuid = Crypt::checkIntegrity($infos);
+
 
     // Twig - Rendu du template et des variables
     echo $template->render([
-      'test' => $test,
+      'uuid' => $uuid,
       'basepath' => SERVER_URI
     ]);
   }
