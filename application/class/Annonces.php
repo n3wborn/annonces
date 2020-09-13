@@ -262,6 +262,26 @@ class Annonces extends Database
 
 
 
+    /**
+   * @method delete()
+   * @param string uuid
+   * @return bool
+   *
+   * delete() sert à supprimer une annonce.
+   * Si tout se passe comme prevu, il renvoie true, false sinon
+   */
+  public function delete(string $uuid)
+  {
+    $dbh = $this->getPdo();
+    $sql = "DELETE FROM `annonces` WHERE `annonces`.`id` = :uuid";
+    $sth = $dbh->prepare($sql);
+    $sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
+
+    return($sth->execute());
+  }
+
+
+
   /**
    * @method DateConfirmed() renvoie la date a laquelle l'annonce a ete confirmee
    * @param int $annonce_id
