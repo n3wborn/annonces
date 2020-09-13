@@ -87,13 +87,7 @@ Pour l’envoi de courriel vous pouvez utiliser la fonction mail() de PHP, mais 
 Les Liens uniques et aléatoire doivent être sous la forme :
 
 ```
-http://supprimer/($email)-($id)
-```
-
-ou
-
-```
-http://supprimer/(sha1($email)-($id))
+http://supprimer/($uuid_chiffre)/($courriel_chiffre)/(hash(uuid_chiffre + courriel_chiffre))
 ```
 
 
