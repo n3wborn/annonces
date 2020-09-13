@@ -114,4 +114,25 @@ class Crypt
   }
 
 
+
+  /**
+   * @method getInfosFromUrl() lit l'url et retrouve les infos sur
+   * l'annonce correspondante
+   * @param string $url
+   * @return array
+   */
+  public static function getInfosFromUrl($url)
+  {
+    $parts = explode('/', $url);
+
+    $infos = [
+    'action' => $parts[2],
+    'ciphered_uuid' => $parts[3],
+    'ciphered_mail' => $parts[4],
+    'hash' => $parts[5]
+    ];
+
+    return $infos;
+  }
+
 }
