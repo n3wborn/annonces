@@ -81,6 +81,8 @@ class File extends Annonces
         if (move_uploaded_file($tmp, "assets/$nom")) {
           return $nom;
         }
+      } else {
+        return $nom = 'noimage.png';
       }
     }
   }

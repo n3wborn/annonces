@@ -331,15 +331,13 @@ class Annonces extends Database
       // on genere l'uuid
       $uuid = Crypt::getRandStr();
 
-      // gere l'upload de l'image
+      // si un fichier est transmis
       if (isset($_FILES) && !empty($_FILES)) {
+        // on l'upload et recupere son nom
         $img_nom = File::uploadFile();
-      } else {
-        $img_nom = "noimage.png";
       }
 
-      // assets/nom_si_ok
-      // assets/noimage.png si pas d image
+      // construit l'url a partir du nom du fichier
       $img_url = "assets/" . $img_nom;
 
 
@@ -361,7 +359,7 @@ class Annonces extends Database
       if ($sth->execute()) {
         $id_annonce = $dbh->lastInsertId();
         var_dump($id_annonce);
-        return;
+        return($id_annonce);;
       } else {
         var_dump($dbh->errorInfo());
       }
