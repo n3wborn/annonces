@@ -32,6 +32,11 @@ $redBanner :#9f1226;
     .btn{
         border-radius: 1.25rem;
         padding: 0.575rem 3.75rem;
+    }
+
+    .btn-outline-secondary{
+        border-radius: 1.25rem;
+        padding: 0.575rem 3.75rem;
         background-color: $gumMetal;
         color: white;
 
@@ -63,6 +68,7 @@ $redBanner :#9f1226;
         background-color: $coffee;
         border-color: $coffee;
         box-shadow: none;
+
     }
 }
 
@@ -188,6 +194,10 @@ main{
         }      
     }
 
+    #delete a {
+        color: white;
+    }
+
        
     
 // MODAL
@@ -271,6 +281,8 @@ main{
       }
     }
   }
+
+
 
 // FOOTER
 .page-footer {
