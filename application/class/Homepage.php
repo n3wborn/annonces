@@ -110,10 +110,11 @@ class Homepage extends Annonces
 	public static function suppression($uuid)
   {
 		// on recupere notre pdo
-		$dbh = $this->getPdo();
+		$dbh = new Database();
+		$uuid = self::$uuid;
 
 		// prepare et execute la suppression
-		$sql = 'DELETE FROM `annonces` WHERE `annonces`.`uuid` = :uuid';
+		$sql = 'DELETE FROM `annonces` WHERE `uuid` = :uuid';
 		$sth = $dbh->prepare($sql);
 		$sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
 

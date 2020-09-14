@@ -124,7 +124,6 @@ class Crypt
   public static function explodeUrl($url)
   {
     $parts = explode('/', $url);
-    var_dump($parts);
     $infos = [
     'action' => $parts[1],
     'ciphered_uuid' => $parts[2],
