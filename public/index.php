@@ -38,6 +38,13 @@ $router->map( 'GET', '/modifier-annonce', function() {\App\Homepage::modifier_an
 // Chargement de la page supprimer-annonce WIP
 $router->map( 'GET', '/supprimer-annonce', function() {\App\Homepage::supprimer_annonce();});
 
+
+// Chargement de la page de suppression apres confirmation
+$router->map( 'GET|POST', '/suppression', function() {
+
+  \App\Homepage::suppression();
+});
+
 // Chargement de la page supprimer-annonce WIP
 $router->map( 'GET', '/confirmer-annonce', function() {\App\Homepage::confirmer_annonce();});
 
