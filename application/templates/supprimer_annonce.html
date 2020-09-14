@@ -37,6 +37,15 @@
 
   {% block content %}
     <main>
+<!-- modal -->
+<div id="modal" class="hidden">
+  <div id="modal_dialog" class="rounded border">
+    <img src="https://img.icons8.com/officel/80/000000/approval.png"/>
+            <p class="modal_text"> Votre annonce a bien été supprimée.<br>
+            Vous allez être rédirigé vers la page d'accueil. </p>
+  </div>
+</div>
+
       <div class="container text-center p-5">
         <div class="container-fluid bk-c">
             <svg  width="30%" height="10em" viewBox="0 0 17 16" class="bi bi-exclamation-triangle-fill" fill="#E70739" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +55,7 @@
              Il vous sera impossible de la récupérer. </p>
               <div class="p-4">
               <button class="btn btn-light">Annuler</button>
-              <button id="delete" class="btn btn-danger"><a href="/delete?uuid={{ uuid }}">Supprimer</a></button>
+              <button id="delete" class="btn btn-danger btn_delete"><a href="/delete?uuid={{ uuid }}">Supprimer</a></button>
             </div>
         </div>
       </div>
