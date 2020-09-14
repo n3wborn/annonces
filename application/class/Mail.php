@@ -20,11 +20,13 @@ class Mail
 
         $annonces = new Annonces();
         $annonces = $annonces->sendInfo($id);
-        //var_dump($annonces);
-        $path = "http://annonces/";
+
+        $path = SERVER_URI;
+
         $courrielChiffre = Crypt::encrypt($courriel);
         $uuidChiffre = Crypt::encrypt($uuid);
         $hash = Crypt::hashStr($courrielChiffre, $uuidChiffre);
+
         // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
 
