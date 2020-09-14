@@ -29,7 +29,19 @@ $router->map( 'GET', '/nouvelle-annonce', function() {\App\Homepage::nouvelle_an
 // Chargement de la page qui va gerer le formulaire d'ajout
 $router->map( 'POST', '/formulaire-ajout', function() {
   $annonce = new \App\Annonces;
-  $annonce->handleForm();
+  if ($id = $annonce->handleForm()) {
+    $infos = $annonce->sendInfo($id);
+    $courriel = $infos['courriel'];
+    $id = $infos['id'];
+    $mail = new Mail($courriel, $id);
+    echo "Mail généré";
+    header('Location: ' . SERVER_URI . '/');
+  } else {
+    echo "Erreur de l ajout. Vous allez etre redirigé vers la page d accueil";
+    sleep(2);
+    header('Location: ' . SERVER_URI . '/');
+  }
+
 });
 
 // Chargement de la page modifer-annonce WIP
@@ -37,6 +49,11 @@ $router->map( 'GET', '/modifier-annonce', function() {\App\Homepage::modifier_an
 
 // Chargement de la page supprimer-annonce WIP
 $router->map( 'GET', '/supprimer-annonce', function() {\App\Homepage::supprimer_annonce();});
+
+// Chargement de la fonction de suppression une fois confirmee
+$router->map( 'GET', '/delete/[*:uuid]', function($uuid) {
+  \App\Homepage::suppression($uuid);
+});
 
 // Chargement de la page supprimer-annonce WIP
 $router->map( 'GET', '/confirmer-annonce', function() {\App\Homepage::confirmer_annonce();});
