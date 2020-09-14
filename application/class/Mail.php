@@ -13,14 +13,12 @@ use App\Annonces;
 class Mail
 {
 
-    public function __construct($mailto, $id)
+    public function __construct($courriel, $uuid)
     {
         $annonces = new Annonces();
         $annonces = $annonces->sendInfo($id);
-        var_dump($annonces);
+        //var_dump($annonces);
         $path = "http://annonces/";
-        $courriel =$annonces['courriel'];
-        $uuid = $annonces['uuid'];
         $courrielChiffre = Crypt::encrypt($courriel);
         $uuidChiffre = Crypt::encrypt($uuid);
         $hash = Crypt::hashStr($courrielChiffre, $uuidChiffre);
@@ -42,7 +40,7 @@ class Mail
 
             //Recipients
             $mail->setFrom('lea.zervini@mail.com', 'ELEPHADS');
-            $mail->addAddress($mailto);
+            $mail->addAddress($courriel);
 
             // Content
             $mail->isHTML(true);     // Set email format to HTML
