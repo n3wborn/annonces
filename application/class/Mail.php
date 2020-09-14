@@ -15,6 +15,9 @@ class Mail
 
     public function __construct($courriel, $uuid)
     {
+        $this->courriel = $courriel;
+        $this->uuid = $uuid;
+
         $annonces = new Annonces();
         $annonces = $annonces->sendInfo($id);
         //var_dump($annonces);
