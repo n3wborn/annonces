@@ -32,8 +32,8 @@ $router->map( 'POST', '/formulaire-ajout', function() {
   if ($id = $annonce->handleForm()) {
     $infos = $annonce->sendInfo($id);
     $courriel = $infos['courriel'];
-    $id = $infos['id'];
-    $mail = new Mail($courriel, $id);
+    $uuid = $infos['uuid'];
+    $mail = new Mail($courriel, $uuid);
     echo "Mail généré";
     header('Location: ' . SERVER_URI . '/');
   } else {
