@@ -20,6 +20,6 @@ for (deleteLink of deleteLinks){
     const modal = document.getElementById('modal');
 	modal.classList.remove('hidden');
 	
-	window.setTimeout("location=('/');",2500);
+	window.setTimeout("location=('/');",2000);
 });
 }
