@@ -33,7 +33,7 @@ $router->map( 'POST', '/formulaire-ajout', function() {
     $infos = $annonce->sendInfo($id);
     $courriel = $infos['courriel'];
     $uuid = $infos['uuid'];
-    $mail = new Mail($courriel, $uuid);
+    $mail = new \App\Mail($courriel, $uuid);
     echo "Mail généré";
     header('Location: ' . SERVER_URI . '/');
   } else {
