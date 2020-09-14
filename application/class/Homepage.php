@@ -105,4 +105,30 @@ class Homepage extends Annonces
     ]);
   }
 
+
+  /**
+   * @method suppression() supprime une annonce une fois sa suppression confirmee
+   * @return void si ok (redirige a la page d'accueil), false sinon
+   */
+	public static function suppression()
+  {
+		// on recupere l'uuid
+		$uuid = $_GET['uuid'];
+
+		// on recupere notre pdo
+		$dbh = $this->getPdo();
+
+		// prepare et execute la suppression
+		$sql = 'DELETE FROM `annonces` WHERE `annonces`.`uiid` = :uuid';
+		$sth = $dbh->prepare($sql);
+		$sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
+
+		// si l'execution se passe bien, on affiche le message de confirmation
+		if ($sth->execute()) {
+			header('Location: /')
+		} else {
+		  return false;
+		}
+  }
+
 }
