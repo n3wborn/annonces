@@ -401,7 +401,11 @@ class Annonces extends Database
   }
 
 
-
+  /**
+   * @method sendInfo() renvoie l'uuid et le courriel associe à l'annonce $id
+   * @param int $id annonce
+   * @return array
+   */
   public function sendInfo($id)
   {
     $dbh = $this->getPdo();
