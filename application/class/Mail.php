@@ -39,7 +39,7 @@ class Mail
             $mail->Host       = 'smtp.mail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $mail->Username   = 'lea.zervini@mail.com';                     // SMTP username
-            $mail->Password   = '**';                               // SMTP password
+            $mail->Password   = 'hY5HJ7QzqXR4f6r';                               // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
             $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
@@ -51,9 +51,9 @@ class Mail
             $mail->isHTML(true);     // Set email format to HTML
 
             // on construit nos url
-            $url_confirmer = $path . 'confirmer-annonce' . '/' . $uuidChiffre . '/' . $courrielChiffre . '/' . $hash;
-            $url_supprimer = $path . 'supprimer-annonce' . '/' . $uuidChiffre . '/' . $courrielChiffre . '/' . $hash;
-            $url_modifier = $path . 'modifier-annonce' . '/' . $uuidChiffre . '/' . $courrielChiffre . '/' . $hash;
+            $url_confirmer = $path . '/confirmer-annonce' . '/' . $uuidChiffre . '/' . $courrielChiffre . '/' . $hash;
+            $url_supprimer = $path . '/supprimer-annonce' . '/' . $uuidChiffre . '/' . $courrielChiffre . '/' . $hash;
+            $url_modifier = $path . '/modifier-annonce' . '/' . $uuidChiffre . '/' . $courrielChiffre . '/' . $hash;
 
             // on remplit notre mail
             $mail->Subject = 'Liens de votre annonce';
