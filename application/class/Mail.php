@@ -57,8 +57,8 @@ class Mail
 
             // on remplit notre mail
             $mail->Subject = 'Liens de votre annonce';
-            $mail->Body ='<h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"></a></h1><br><br>
-            <p>Bonjour !</p><br><p>Nous vous remercions de votre dépôt d\'annonce.</p></br>
+            $mail->Body ='<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><h1><a href="http:/annonces/"><img src="../../public/assets/logo.png" alt="Logo du site ELEPHADS"></a></h1><br><br>
+            <p>Bonjour !</p><br><p>Nous vous remercions d\'avoir ajouter une annonce sur notre site web.''.</p></br>
             <a href="'. $url_confirmer .'">Cliquez sur ce lien pour confirmer votre annonce.</a>
             <br><br>
             <a href="'. $url_modifier .'">Cliquez sur ce lien pour modifier votre annonce.</a>
