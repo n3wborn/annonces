@@ -17,13 +17,10 @@ $router = new AltoRouter();
 // Chargement de la page d'accueil
 $router->map( 'GET', '/', function() {\App\Homepage::homepage();});
 
-// Chargement de la page /user (exemple pour les prochaines pages)
-$router->map( 'GET', '/user', function() {\App\Homepage::user();});
-
 // Chargement de la page /test
 $router->map( 'GET|POST', '/test', function() {\App\Homepage::testpage();});
 
-// Chargement de la page nouvelle-annonce WIP
+// Chargement de la page /nouvelle-annonce
 $router->map( 'GET', '/nouvelle-annonce', function() {\App\Homepage::nouvelle_annonce();});
 
 // Chargement de la page qui va gerer le formulaire d'ajout
@@ -44,23 +41,27 @@ $router->map( 'POST', '/formulaire-ajout', function() {
 
 });
 
-// Chargement de la page modifer-annonce WIP
-$router->map( 'GET', '/modifier-annonce', function() {\App\Homepage::modifier_annonce();});
+// Chargement de la page de modification
+$router->map( 'GET', '/modifier-annonce/[*:uuid]/[*:courriel]/[*:hash]', function() {\App\Homepage::modifier_annonce();});
 
-// Chargement de la page supprimer-annonce WIP
-$router->map( 'GET', '/supprimer-annonce', function() {\App\Homepage::supprimer_annonce();});
 
-// Chargement de la fonction de suppression une fois confirmee
+// Chargement de la page de suppression
+$router->map( 'GET', '/supprimer-annonce/[*:uuid]/[*:courriel]/[*:hash]', function() {\App\Homepage::supprimer_annonce();});
+
+
+// Chargement de la page de suppression une fois confirmee
 $router->map( 'GET', '/delete/[*:uuid]', function($uuid) {
   \App\Homepage::suppression($uuid);
 });
 
-// Chargement de la page supprimer-annonce WIP
-$router->map( 'GET', '/confirmer-annonce', function() {\App\Homepage::confirmer_annonce();});
+
+// Chargement de la page de confirmation
+$router->map( 'GET', '/confirmer-annonce[*:uuid]/[*:courriel]/[*:hash]', function() {\App\Homepage::confirmer_annonce();});
 
 
 // On verifie si ça match
 $match = $router->match();
+
 
 // Action si match est true/false
 if( is_array($match) && is_callable( $match['target'] ) ) {
