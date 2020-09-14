@@ -240,7 +240,7 @@ main{
         left:0;
         width:100vw;
         height:100vh;
-        background-color: rgb(0,0,0, 0.45);
+        background-color: rgba(0, 0, 0, 0.733);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -258,7 +258,7 @@ main{
 }
 
 // FILE BUTTON
-.btn-tertiary {
+    .btn-tertiary {
     color: #555;
     padding: 0;
     line-height: 40px;
@@ -269,7 +269,7 @@ main{
    
   }
 
-  label.btn {
+    label.btn {
       color: $gumMetal;
       background-color:white;
       &:hover{
@@ -280,7 +280,7 @@ main{
   
   /* input file style */
   
-  .input-file {
+    .input-file {
       width: 0.1px;
       height: 0.1px;
       opacity: 0;
@@ -310,14 +310,14 @@ main{
 
 
 // FOOTER
-.page-footer {
+    .page-footer {
     background-color:#202c3ca4;
-}
+    }
 
-.footer-copyright{
+    .footer-copyright{
     background-color: $gumMetal;
     color: $magnolia;
-}
+    }
 
 
 /* MEDIA QUERIES */
