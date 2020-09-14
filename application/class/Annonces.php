@@ -320,7 +320,10 @@ class Annonces extends Database
 
 
 
-  // gestion du formulaire
+  /**
+   * @method handleForm() gere le formulaire d'ajout
+   * @return int $id si true, false sinon
+   */
   public function handleForm()
   {
 
@@ -378,10 +381,10 @@ class Annonces extends Database
       // execute la requete et retourne l'id de l'annonce
       if ($sth->execute()) {
         $id_annonce = $dbh->lastInsertId();
-        var_dump($id_annonce);
-        return($id_annonce);;
+        // var_dump($id_annonce);
+        return($id_annonce);
       } else {
-        var_dump($dbh->errorInfo());
+        return false;
       }
     }
   }
