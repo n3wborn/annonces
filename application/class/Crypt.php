@@ -131,6 +131,7 @@ class Crypt
     'hash' => $parts[4]
     ];
 
+    var_dump($infos);
     return $infos;
   }
 
@@ -145,13 +146,15 @@ class Crypt
    */
   public static function checkIntegrity($infos)
   {
-    $action = $infos['ciphered_uuid'];
+    $action = $infos['action'];
     $ciphered_uuid = $infos['ciphered_uuid'];
     $ciphered_mail = $infos['ciphered_mail'];
     $hash = $infos['hash'];
 
     if (Crypt::checkHash($ciphered_uuid, $ciphered_mail, $hash)) {
       $uuid = Crypt::decrypt($ciphered_uuid);
+      echo "Dans checkIntegrity" . "<br>";
+      var_dump($uuid);
       return $uuid;
     } else {
       return false;
