@@ -22,10 +22,20 @@ class Homepage extends Annonces
     $template = new Twig('index.html');
     $annonce = new Annonces();
     $results = $annonce->GetConfirmed();
-
-
+    $users=[];
+    foreach($results as $key=>$value){
+      if($key= 'id_user'){
+        array_push($users, $value['id_utilisateur']);
+      }
+    }
+    var_dump($users);
+    foreach($users as $id){
+      $userDatas = $annonce->FromAnnonces_GetUserInfos($id);
+    }
+var_dump($userDatas);
     echo $template->render([
       'results' => $results,
+      'userDatas' => $userDatas,
       'basepath' => SERVER_URI
     ]);
   }
