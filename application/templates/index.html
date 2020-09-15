@@ -16,10 +16,10 @@
         </div>
         <div class="modal-body">
             <div id="myModal">
-                
+
                     <div class="d-flex">
                         <div class="text-center">
-                            <img src="https://picsum.photos/200" alt="image d'illustration" class="pb-3">
+                            <img src="{{ annonce.img_url }}" class="pb-3" alt="image de l annonce">
                                 <p>{{result.prix}}</p>
                                 <a href="" target="_blank" class="download"> <i class="fas fa-download"></i>Télécharger l'annonce</a>
                         </div>
@@ -37,269 +37,36 @@
   </div>
     </div>
 </div>
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
-<div class="card-deck">
-    <div class="row row-cols-1 row-cols-md-3">
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <div class="card-deck">
+        <div class="row row-cols-1 row-cols-md-3">
+
+
+        {% for annonce in results %}
         <div class="col mb-5">
-           <div class="card bannerHidden">
-                <span href="#" class="price">{{ result.prix }} €</span>
-                <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="Paysage Canadien">
-                <div class="card-body">
-                    <p class="card-title text-center">{{ result.titre }}</p>
-                        <p class="card-text"> {{ result.description }}</p>
-                        <br>
-                        <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                           <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                         </a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card  bannerHidden">
-                 <span href="#" class="price">{{ result.prix }}€</span>
-                 <img src="{{ basepath }}/assets/noimage.png" class="card-img-top" alt="Pas d'image">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card  bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-           <div class="card  bannerHidden">
-                <span href="#" class="price">{{ result.prix }} €</span>
-                <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-title text-center"> {{ result.titre }}</p>
-                        <p class="card-text"> {{ result.description }}</p>
-                        <br>
-                        <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                         </a>
-                </div>
-            </div>
-        </div>            
-        <div class="col mb-5">
-           <div class="card  bannerHidden">
-                <span href="#" class="price">{{ result.prix }} €</span>
-                <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-title text-center"> {{ result.titre }}</p>
-                        <p class="card-text"> {{ result.description }}</p>
-                        <br>
-                        <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                         </a>
-                </div>
-            </div>
-        </div>            
-        <div class="col mb-5">
-            <div class="card  bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card  bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
             <div class="card bannerHidden">
                  <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
+                 <img src="{{ annonce.img_url }}" class="card-img-top" alt="image de l annonce">
                  <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
+                     <p class="card-title text-center">{{ result.titre }}</p>
                          <p class="card-text"> {{ result.description }}</p>
                          <br>
                          <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>            
-         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title text-center"> {{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                          <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
+                            <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
                           </a>
                  </div>
              </div>
          </div>
-    </div>
+        {% endfor %}
+
+        </div>
 </div>
 </main>
   {% endblock content %}
 
 
   {% block javascript %}
-  
+
   {{parent()}}
 
   {% endblock javascript %}
