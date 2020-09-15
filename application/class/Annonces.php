@@ -432,7 +432,7 @@ class Annonces extends Database
   public function getUserInfosFromUuid($uuid)
   {
     $dbh = $this->getPdo();
-    $sql = 'SELECT `utilisateur.nom`, `utilisateur.prenom`, `utilisateur.courriel`, `utilisateur.telephone`, `annonces.titre`, `annonces.description`, `annonces.prix`  FROM annonces INNER JOIN utilisateur ON annonces.id_utilisateur = utilisateur.id WHERE annonces.uuid = :uuid';
+    $sql = 'SELECT `utilisateur.nom`, `utilisateur.prenom`, `utilisateur.courriel`, `utilisateur.telephone`, `annonces.titre`, `annonces.description`, `annonces.prix`, `annonces.id_categorie`  FROM annonces INNER JOIN utilisateur ON annonces.id_utilisateur = utilisateur.id WHERE annonces.uuid = :uuid';
 
     $sth = $dbh->prepare($sql);
     $sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
