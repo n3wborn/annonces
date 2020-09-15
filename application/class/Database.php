@@ -6,10 +6,11 @@ use \PDO;
 class Database
 {
 
-	const DB_HOST = "localhost";
-	const DB_NAME = "annonces";
-	const DB_USER = "root";
-	const DB_PWD = "";
+  const DB_HOST = "91a34cb0396a";
+  const DB_NAME = "annonces";
+  const DB_USER = "root";
+  const DB_PWD = "mariadb";
+
 
   private $pdo;
 
