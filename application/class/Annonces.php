@@ -339,6 +339,9 @@ class Annonces extends Database
       $telephone = (empty($_POST['telephone'])) ? die('telephone manquant') : trim($_POST['telephone']);
       $description = (empty($_POST['description'])) ? die('description manquant') : trim($_POST['description']);
       $categorie = (empty($_POST['categorie'])) ? die('$categorie manquante') : trim($_POST['categorie']);
+      $titre = (empty($_POST['titre'])) ? die('$titre manquant') : trim($_POST['titre']);
+      $prix = (empty($_POST['prix'])) ? die('$prix manquant') : trim($_POST['prix']);
+
 
 
       // Gestion de l'utilisateur
@@ -365,12 +368,14 @@ class Annonces extends Database
 
 
       // Gestion de l'annonce
-      $sql = 'INSERT INTO annonces(`uuid`, `description`, `est_validee`, `date_ecriture`, `id_utilisateur`, `id_categorie`, `img_nom`, `img_url`) VALUES(:uuid, :description, 0, :date_ecriture, :id_utilisateur, :id_categorie, :img_nom, :img_url)';
+      $sql = 'INSERT INTO annonces(`uuid`, `prix`, `titre`, `description`, `est_validee`, `date_ecriture`, `id_utilisateur`, `id_categorie`, `img_nom`, `img_url`) VALUES(:uuid, :prix, :titre, :description, 0, :date_ecriture, :id_utilisateur, :id_categorie, :img_nom, :img_url)';
       $sth = $dbh->prepare($sql);
 
 
       // bind params/values
       $sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
+      $sth->bindParam(':prix', $prix ,PDO::PARAM_INT);
+      $sth->bindParam(':titre', $titre ,PDO::PARAM_STR);
       $sth->bindParam(':description', $description ,PDO::PARAM_STR);
       $sth->bindValue(':date_ecriture', date("Y-m-d"), PDO::PARAM_STR);
       $sth->bindParam(':id_utilisateur', $user_id, PDO::PARAM_INT);
