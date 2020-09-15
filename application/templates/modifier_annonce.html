@@ -7,7 +7,10 @@
       <div class="container pt-5">
         <div class="container-fluid bk-c p-4 mb-5">
           <p class="h1">Re-bonjour !</p>
-          <p>Vous venez de déposer une annonce, vous pouvez choisir de la laisser telle qu'elle est, ou, de la modifier via le formulaire ci-dessous :</p>
+          <p class="w-50 border rounded p-1">Vous venez de déposer une annonce. </br>
+            Vous pouvez choisir de la laisser telle qu'elle est, ou,
+            de la modifier via le formulaire ci-dessous :
+          </p>
 
           <!-- FORM -->
         <form class="form-horizontal">
@@ -18,6 +21,7 @@
               <input type="text" class="form-control" name="nom" value=" {{ result.nom }} " >
             </div>
           </div>
+          <i class="fas fa-edit fa-10x absolute"></i>
           
           <!--PRENOM-->
             <div class="row">
@@ -27,69 +31,93 @@
               </div>
             </div>
             
-            <!--GROUPE EMAIL + CATEGORIES-->
+          <!--GROUPE EMAIL + IMAGE-->
             <div class="row">
-              <!--EMAIL-->
+                <!--EMAIL-->
+                <div class="col p-2">
+                  <label for="courriel">Email</label>
+                      <input id="courriel" type="email" class="form-control" name="courriel" value="{{ result.courriel }}" placeholder="" required>
+                        <span id="textEmail"></span>
+                </div>
+              
+              <!--IMAGE-->
+                <div class="form-group p-2 mt-4 col-md-6">
+                  <input type="file" name="img_nom" id="file" class="input-file" value="{{ result.img_name }}">
+                    <label for="file" class="btn btn-tertiary js-labelFile">
+                      <i class="icon fa fa-check"></i>
+                      <span class="js-fileName">Sélectionner une image...</span>
+                    </label>
+                </div>  
+            </div>
+              
+          <!-- GROUPE TEL + CATEGORIES-->
+          <div class="row">
+            <!--TEL-->
+            <div class="col-md-6 p-2">
+              <label for ="telephone">Téléphone</label>
+              <input id="telephone" type="tel" class="form-control" name="telephone" value="{{ result.telephone }}" placeholder="" required>
+              <span id="textTel"></span>
+            </div>
+  
+              <!--CATEGORIES-->
               <div class="col p-2">
-                <label for="courriel">Email</label>
-                <input type="email" class="form-control" name="courriel" value="{{ result.courriel }}" >
-              </div>
-
-            <!--CATEGORIES-->
-            <div class="col p-2">
-              <label for="inputCat">Catégories</label>
-              <select class="form-control" name="categorie" value="{{ result.id_categorie}}">
-                <option value =" {{ result.id_categorie }}" disabled selected="{{ result.id_categorie }}">Choisissez...</option>
-                <option value ="1">Affaires professionnelles</option>
-                <option value ="2">Animaux</option>
-                <option value ="3">Auto-Moto</option>
-                <option value ="4">Emploi</option>
-                <option value ="5">Immobilier</option>
-                <option value ="6">Services</option>
-                <option value ="7">Vacances</option>
-                <option value ="-1">Autres ...</option>
-                </select>
-            </div>           
+                <label for="inputCat">Catégories</label>
+                <select class="form-control" name="categorie" value="{{ result.id_categorie}}">
+                  <option value =" {{ result.id_categorie }}" disabled selected="{{ result.id_categorie }}">Choisissez...</option>
+                  <option value ="1">Affaires professionnelles</option>
+                  <option value ="2">Animaux</option>
+                  <option value ="3">Auto-Moto</option>
+                  <option value ="4">Emploi</option>
+                  <option value ="5">Immobilier</option>
+                  <option value ="6">Services</option>
+                  <option value ="7">Vacances</option>
+                  <option value ="-1">Autres ...</option>
+                  </select>
+              </div>    
+  
           </div>
-
-        <!-- GROUPE TEL + IMAGE-->
-        <div class="row">
-          <!--TEL-->
+              
+          <!-- TITRE + PRIX -->
+          <div class="row">
+            <!--TITRE-->
+            <div class="col-md-6 p-2">
+              <label for ="titre">Titre de l'annonce</label>
+              <input id="titre" type="text" class="form-control" name="titre" value=" {{result.titre }}" placeholder="" required>
+              <span id="textTitre"></span>
+            </div>
+              
+          <!--PRIX-->
           <div class="col-md-6 p-2">
-            <label for ="telephone">Téléphone</label>
-            <input type="tel" class="form-control" name="telephone" value=" {{ result.telephone }}"  >        
+            <label for ="prix">Prix en euros (€)</label>
+            <input id="prix" type="text" class="form-control" name="prix" value=" {{ result.prix }}" placeholder=" " >
+            <span id="textPrix"></span>
           </div>
-
-        <!--IMAGE-->
-          <div class="form-group p-3 m-3 ">
-            <div class="value">
-              <div class="input-group js-input-file">
-                <input class="input-file" type="file" name="img_name" value="{{ result.img_name }}" name="file_cv" >
+          </div>
+              
+            <!--MESSAGE-->
+            <div class="row">
+  
+               <div class=" form-group col p-2">
+                   <label for="description">Texte de l'annonce</label>
+                  <textarea class="form-control" rows="5" name="description" value=" {{result.description }}" id="description" required ></textarea>
+                  <span id="textMess"></span>
+               </div>
+            </div>
+              
+              <!--reCAPTCHA-->
+              <div class="g-recaptcha" data-sitekey="6LcsqcUZAAAAAB2ybVOK-_XyJ3zbi25Yvdb2KeMq" data-callback="verifyCaptcha"></div>
+              <div id="g-recaptcha-error"></div>
+                <div class="form-row text-center">
+                <div class="col-12">
+                    <button id="formButton" type="submit" name="submit" class="btn btn-primary">Déposer mon annonce</button>
+                  </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-      
-          <!--MESSAGE-->
-          <div class=" form-group col p-1">
-              <label for="description">Texte de l'annonce</label>
-              <textarea class="form-control" rows="5" name="description" value=" {{result.description }}" ></textarea>
-          </div> 
-          
-          <!--reCAPTCHA-->
-          <div class="row p-4">
-          <div class="g-recaptcha" data-sitekey="6LcsqcUZAAAAAB2ybVOK-_XyJ3zbi25Yvdb2KeMq"></div>
-        </div>
-        <div class="form-row text-center">
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Modifier mon annonce</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      </div>
-  </main>
+            </form>
+              
+                    </div>
+                    </div>
+              
+                  </main>
   {% endblock content %}
 
 
