@@ -340,7 +340,7 @@ class Annonces extends Database
       $description = (empty($_POST['description'])) ? die('description manquant') : trim($_POST['description']);
       $categorie = (empty($_POST['categorie'])) ? die('$categorie manquante') : trim($_POST['categorie']);
       $titre = (empty($_POST['titre'])) ? die('$titre manquant') : trim($_POST['titre']);
-      $prix = (empty($_POST['prix'])) ? die('$prix manquant') : trim($_POST['prix']);
+      $prix = ($_POST['prix']);
 
 
 
