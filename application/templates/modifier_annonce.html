@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-md-6 p-2">
               <label for ="nom">Nom</label>
-              <input type="text" class="form-control" name="nom" value=" {{ datas.nom }} " >
+              <input type="text" class="form-control" name="nom" value=" {{ result.nom }} " >
             </div>
           </div>
           
@@ -23,7 +23,7 @@
             <div class="row">
               <div class="col-md-6 p-2">
                 <label for="prenom">Prénom</label>
-                <input type="text" class="form-control" name="prenom" value ="{{ datas.prenom }}" >
+                <input type="text" class="form-control" name="prenom" value ="{{ result.prenom }}" >
               </div>
             </div>
             
@@ -32,14 +32,14 @@
               <!--EMAIL-->
               <div class="col p-2">
                 <label for="courriel">Email</label>
-                <input type="email" class="form-control" name="courriel" value="{{ datas.courriel }}" >
+                <input type="email" class="form-control" name="courriel" value="{{ result.courriel }}" >
               </div>
 
             <!--CATEGORIES-->
             <div class="col p-2">
               <label for="inputCat">Catégories</label>
-              <select class="form-control" name="categorie" value="{{ datas.id_categorie}}">
-                <option value =" {{ datas.id_categorie }}" disabled selected="{{ datas.id_categorie }}">Choisissez...</option>
+              <select class="form-control" name="categorie" value="{{ result.id_categorie}}">
+                <option value =" {{ result.id_categorie }}" disabled selected="{{ result.id_categorie }}">Choisissez...</option>
                 <option value ="1">Affaires professionnelles</option>
                 <option value ="2">Animaux</option>
                 <option value ="3">Auto-Moto</option>
@@ -57,14 +57,14 @@
           <!--TEL-->
           <div class="col-md-6 p-2">
             <label for ="telephone">Téléphone</label>
-            <input type="tel" class="form-control" name="telephone" value=" {{ datas.telephone }}"  >        
+            <input type="tel" class="form-control" name="telephone" value=" {{ result.telephone }}"  >        
           </div>
 
         <!--IMAGE-->
           <div class="form-group p-3 m-3 ">
             <div class="value">
               <div class="input-group js-input-file">
-                <input class="input-file" type="file" name="img_name" value="{{ datas.img_name }}" name="file_cv" >
+                <input class="input-file" type="file" name="img_name" value="{{ result.img_name }}" name="file_cv" >
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@
           <!--MESSAGE-->
           <div class=" form-group col p-1">
               <label for="description">Texte de l'annonce</label>
-              <textarea class="form-control" rows="5" name="description" value=" {{datas.description }}" ></textarea>
+              <textarea class="form-control" rows="5" name="description" value=" {{result.description }}" ></textarea>
           </div> 
           
           <!--reCAPTCHA-->
