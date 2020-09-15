@@ -114,6 +114,7 @@ main{
         max-width: 330px;
         max-height: 195px;
         padding: 0.5em;
+        object-fit: contain;
 
     }
 
@@ -180,6 +181,12 @@ main{
         top: 332px;
         left: 1125px;
         }
+
+
+    .fa-edit{
+        color: $gumMetal;
+
+    }
 
     .fa-cart-arrow-down{
         color: $gumMetal;

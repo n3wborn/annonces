@@ -368,7 +368,7 @@ class Annonces extends Database
 
 
       // Gestion de l'annonce
-      $sql = 'INSERT INTO annonces(`uuid`, `prix`, `titre`, `description`, `est_validee`, `date_ecriture`, `id_utilisateur`, `id_categorie`, `img_nom`, `img_url`) VALUES(:uuid, :prix, :titre, :description, 0, :date_ecriture, :id_utilisateur, :id_categorie, :img_nom, :img_url)';
+      $sql = 'INSERT INTO annonces(`uuid`, `prix`, `titre`, `description`, `est_validee`, `date_ecriture`, `id_utilisateur`, `id_categorie`, `img_nom`, `img_url`) VALUES(:uuid, :prix, :titre, :description, 1, :date_ecriture, :id_utilisateur, :id_categorie, :img_nom, :img_url)';
       $sth = $dbh->prepare($sql);
 
 
