@@ -20,6 +20,10 @@ $router->map( 'GET', '/', function() {\App\Homepage::homepage();});
 // Chargement de la page /test
 $router->map( 'GET|POST', '/test', function() {\App\Homepage::testpage();});
 
+//Chargement de la page détail
+$router->map( 'GET|POST', '/details', function() {\App\Homepage::details();});
+
+
 // Chargement de la page /nouvelle-annonce
 $router->map( 'GET', '/nouvelle-annonce', function() {\App\Homepage::nouvelle_annonce();});
 
