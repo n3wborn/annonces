@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
-{% block title %}<title>Site de petites annonces</title>{% endblock title %}
+{% block title %}<title>Détails de l'annonce</title>{% endblock title %}
 
-  {% block content %}
+{% block content %}
   <main >
     <div class="container pt-5">
         <!-- Modal -->
@@ -36,31 +36,7 @@
       </div>
     </div>
   </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-    <div class="card-deck">
-        <div class="row row-cols-1 row-cols-md-3">
 
-
-        {% for result in results %}
-        <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ result.img_url }}" class="card-img-top" alt="image de l annonce">
-                 <div class="card-body">
-                     <p class="card-title text-center">{{ result.titre }}</p>
-                         <p class="card-text"> {{ result.description }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                            <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>
-        {% endfor %}
-
-        </div>
-</div>
-</main>
   {% endblock content %}
 
 
