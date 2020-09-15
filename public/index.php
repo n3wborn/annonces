@@ -42,7 +42,9 @@ $router->map( 'POST', '/formulaire-ajout', function() {
 });
 
 // Chargement de la page de modification
-$router->map( 'GET', '/modifier-annonce/[*:uuid]/[*:courriel]/[*:hash]', function() {\App\Homepage::modifier_annonce();});
+$router->map( 'GET', '/modifier-annonce/[*:uuid]/[*:courriel]/[*:hash]', function($uuid_chiffre, $courriel_chiffre, $hash) {
+  \App\Homepage::modifier_annonce($uuid_chiffre, $courriel_chiffre, $hash);
+});
 
 
 // Chargement de la page de suppression
