@@ -42,10 +42,10 @@
     <div class="row row-cols-1 row-cols-md-3">
         <div class="col mb-5">
            <div class="card bannerHidden">
-                <span href="#" class="price">A partir de 700€ !</span>
+                <span href="#" class="price">{{ result.prix }}</span>
                 <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="Paysage Canadien">
                 <div class="card-body">
-                    <p class="card-title text-center">Voyage au Canada !</p>
+                    <p class="card-title text-center">{{ result.titre }}</p>
                         <p class="card-text"> {{ result.description }}</p>
                         <br>
                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
