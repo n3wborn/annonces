@@ -68,20 +68,26 @@ class Homepage extends Annonces
 
 
 
-  // WIP Test static routes
-  public static function modifier_annonce()
+  // Modifier les annonces
+  public static function modifier_annonce($uuid_chiffre, $courriel_chiffre, $hash)
   {
+  	// dechiffre l'uuid
+    $uuid = Crypt::decrypt($uuid_chiffre);
+
+    // recupere les infos necessaires
+    $annonce = new Annonces();
+    $infos = $annonce->getUserInfosFromUuid($uuid);
+
+
+    // Envoi les infos necessaires à Twig
     $template = new Twig('modifier_annonce.html');
-
-    // Twig - variables test
-    $test = "MODIFIER ANNONCE OK";
-
-    // Twig - Rendu du template et des variables
     echo $template->render([
-      'datas' => $test,
+    	'uuid' => $uuid,
+    	'infos' => $infos,
       'basepath' => SERVER_URI
     ]);
   }
+
 
 
   // WIP Test static routes
