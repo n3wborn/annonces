@@ -429,7 +429,7 @@ class Annonces extends Database
    * @param int $uuid annonce
    * @return array
    */
-  public function sendInfo($uuid)
+  public function getUserInfosFromUuid($uuid)
   {
     $dbh = $this->getPdo();
     $sql = 'SELECT `utilisateur.nom`, `utilisateur.prenom`, `utilisateur.courriel`, `utilisateur.telephone`, `annonces.titre`, `annonces.description`, `annonces.prix`  FROM annonces INNER JOIN utilisateur ON annonces.id_utilisateur = utilisateur.id WHERE annonces.uuid = :uuid';
