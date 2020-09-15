@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 09 sep. 2020 à 09:50
+-- Généré le :  mar. 15 sep. 2020 à 07:33
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.4.0
 
@@ -32,7 +32,8 @@ DROP TABLE IF EXISTS `annonces`;
 CREATE TABLE IF NOT EXISTS `annonces` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uuid` varchar(36) DEFAULT NULL,
-  `prix` int(11) NOT NULL,
+  `prix` int(11) DEFAULT NULL,
+  `titre` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `img_url` varchar(255) DEFAULT NULL,
   `img_nom` varchar(255) DEFAULT NULL,
@@ -45,21 +46,15 @@ CREATE TABLE IF NOT EXISTS `annonces` (
   UNIQUE KEY `uuid` (`uuid`),
   KEY `id_utilisateur` (`id_utilisateur`),
   KEY `id_categorie` (`id_categorie`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `annonces`
 --
 
-INSERT INTO `annonces` (`id`, `uuid`, `prix`, `description`, `img_url`, `img_nom`, `est_validee`, `date_ecriture`, `date_validation`, `id_utilisateur`, `id_categorie`) VALUES
-(1, 'acd7b69f-f27e-11ea-ac75-68f7289097ce', 56, 'description de l\'annonce', '/public/assets/image.png', 'image.png', 0, '2020-09-02', NULL, 1, 2),
-(2, 'acd7bbb8-f27e-11ea-ac75-68f7289097ce', 34, 'Four micro-onde', '/public/assets/four.jpg', 'four.jpg', 0, '2020-09-02', NULL, 2, 6),
-(4, 'acd7bcfc-f27e-11ea-ac75-68f7289097ce', 23, 'tes test etst', '/public/assets/image.jpg', 'image.jpg', 1, '2020-09-04', '2020-09-05', 3, 4),
-(5, 'acd7be31-f27e-11ea-ac75-68f7289097ce', 12, 'description de l annonce', '/public/assets/image.jpg', 'image.jpg', 0, '2020-09-07', NULL, 4, 7),
-(6, 'acd7bf30-f27e-11ea-ac75-68f7289097ce', 65, 'description de l\'annonce', '/public/assets/image.png', 'image.png', 0, '2020-09-02', NULL, 1, 2),
-(7, 'acd7bfe7-f27e-11ea-ac75-68f7289097ce', 47, 'Four micro-onde', '/public/assets/four.jpg', 'four.jpg', 0, '2020-09-02', NULL, 2, 6),
-(8, 'acd7c0b0-f27e-11ea-ac75-68f7289097ce', 57, 'tes test etst', '/public/assets/image.jpg', 'image.jpg', 1, '2020-09-04', '2020-09-05', 3, 4),
-(9, 'acd7c16c-f27e-11ea-ac75-68f7289097ce', 12, 'description de l annonce', '/public/assets/image.jpg', 'image.jpg', 0, '2020-09-07', NULL, 4, 7);
+INSERT INTO `annonces` (`id`, `uuid`, `prix`, `titre`, `description`, `img_url`, `img_nom`, `est_validee`, `date_ecriture`, `date_validation`, `id_utilisateur`, `id_categorie`) VALUES
+(4, 'acd7bcfc-f27e-11ea-ac75-68f7289097ce', 23, NULL, 'tes test etst', '/public/assets/image.jpg', 'image.jpg', 1, '2020-09-04', '2020-09-05', 3, 4),
+(8, 'acd7c0b0-f27e-11ea-ac75-68f7289097ce', 57, NULL, 'tes test etst', '/public/assets/image.jpg', 'image.jpg', 1, '2020-09-04', '2020-09-05', 3, 4);
 
 -- --------------------------------------------------------
 
@@ -72,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `categorie`
@@ -85,7 +80,8 @@ INSERT INTO `categorie` (`id`, `libelle`) VALUES
 (4, 'Emploi'),
 (5, 'Immobilier'),
 (6, 'Services'),
-(7, 'Vacances');
+(7, 'Vacances'),
+(8, 'Autres');
 
 -- --------------------------------------------------------
 
@@ -101,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `prenom` varchar(255) DEFAULT NULL,
   `telephone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -111,7 +107,8 @@ INSERT INTO `utilisateur` (`id`, `courriel`, `nom`, `prenom`, `telephone`) VALUE
 (1, 'JohnDoe@domain.com', 'Doe', 'John', '06 06 06 06 06'),
 (2, 'test@domain.org', 'bidule', 'machine', '06 06 06 07 07'),
 (3, 'courriel@gmail.com', 'alachaussurenoir', 'Legrandblond', '07 07 07 07 07'),
-(4, 'mail@maildomain.com', 'noname', 'nonick', '03 44 55 99 77');
+(4, 'mail@maildomain.com', 'noname', 'nonick', '03 44 55 99 77'),
+(6, 'lezervinia@gmail.com', 'Zervini', 'Léa', '0567846354');
 
 --
 -- Contraintes pour les tables déchargées
