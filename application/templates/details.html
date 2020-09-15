@@ -5,25 +5,17 @@
   <main >
     <div class="container pt-5">
       <div class="container-fluid bk-c p-4 mb-5">
-        <p class="h1">Re-bonjour !</p>
-        <p class="w-50 border rounded p-1">Vous venez de déposer une annonce. </br>
-          Vous pouvez choisir de la laisser telle qu'elle est, ou,
-          de la modifier via le formulaire ci-dessous :
-        </p>
-            <!--NOM-->
+        <p class="h1">Détails de l'annonce</p>
           <div class="row">
             <div class="col-md-6 p-2">
-              <label for ="nom">Nom</label>
-              <input type="text" class="form-control" name="nom" value="{{ infos.nom }}" >
+              <p>Nom :</p>
             </div>
           </div>
-          <img src="{{ infos.img_nom }}" class="absolute" alt="image de l annonce">
   
           <!--PRENOM-->
           <div class="row">
             <div class="col-md-6 p-2">
-              <label for="prenom">Prénom</label>
-              <input type="text" class="form-control" name="prenom" value ="{{ infos.prenom }}" >
+              <p> Prenom :</p>            
             </div>
           </div>
   
@@ -31,18 +23,12 @@
           <div class="row">
             <!--EMAIL-->
             <div class="col p-2">
-              <label for="courriel">Email</label>
-              <input id="courriel" type="email" class="form-control" name="courriel" value="{{ infos.courriel }}" placeholder="" required>
-              <span id="textEmail"></span>
+              <p>Email : </p>
             </div>
   
             <!--IMAGE-->
             <div class="form-group p-2 mt-4 col-md-6">
-              <input type="file" name="img_nom" id="file" class="input-file" value="{{ infos.img_nom }}">
-              <label for="file" class="btn btn-tertiary js-labelFile">
-                <i class="icon fa fa-check"></i>
-                <span class="js-fileName">Sélectionner une image...</span>
-              </label>
+              <img src="{{ result.img_url }}" class="pb-3" alt="image de l annonce">
             </div>
           </div>
   
@@ -50,25 +36,12 @@
           <div class="row">
             <!--TEL-->
             <div class="col-md-6 p-2">
-              <label for ="telephone">Téléphone</label>
-              <input id="telephone" type="tel" class="form-control" name="telephone" value="{{ infos.telephone }}" placeholder="" required>
-              <span id="textTel"></span>
+            <P>Téléphone : </P>
             </div>
   
             <!--CATEGORIES-->
             <div class="col p-2">
-              <label for="inputCat">Catégories</label>
-              <select class="form-control" name="categorie" value="{{ infos.id_categorie}}">
-                <option value ="{{ infos.id_categorie}}" disabled selected="{{ infos.id_categorie}}">Choisissez...</option>
-                <option value ="1">Affaires professionnelles</option>
-                <option value ="2">Animaux</option>
-                <option value ="3">Auto-Moto</option>
-                <option value ="4">Emploi</option>
-                <option value ="5">Immobilier</option>
-                <option value ="6">Services</option>
-                <option value ="7">Vacances</option>
-                <option value ="8">Autres ...</option>
-              </select>
+              <p>Catégorie : </p>
             </div>
   
           </div>
@@ -77,38 +50,17 @@
           <div class="row">
             <!--TITRE-->
             <div class="col-md-6 p-2">
-              <label for ="titre">Titre</label>
-              <input id="titre" type="text" class="form-control" name="titre" value="{{ infos.titre }}" placeholder="" required>
-              <span id="textTitre"></span>
+              <p>Titre et description de l'annonce</p> <br>
+              <p>{{ result.titre }}</p>
+              <p> {{ result.description }}</p>
             </div>
   
             <!--PRIX-->
             <div class="col-md-6 p-2">
-              <label for ="prix">Prix en euros (€)</label>
-              <input id="prix" type="text" class="form-control" name="prix" value=" {{ infos.prix }}" placeholder=" " >
-              <span id="textPrix"></span>
+              <p>Prix : </p>
             </div>
           </div>
-  
-          <!--MESSAGE-->
-          <div class="row">
-  
-           <div class=" form-group col p-2">
-             <label for="description">Texte de l'annonce</label>
-             <textarea class="form-control" rows="5" name="description" value="{{ infos.description }}" id="description" required >{{ infos.description }}</textarea>
-             <span id="textMess"></span>
-           </div>
-         </div>
-  
-         <!--reCAPTCHA-->
-         <div class="g-recaptcha" data-sitekey="6LcsqcUZAAAAAB2ybVOK-_XyJ3zbi25Yvdb2KeMq" data-callback="verifyCaptcha"></div>
-         <div id="g-recaptcha-error"></div>
-         <div class="form-row text-center">
-          <div class="col-12">
-            <button id="formButton" type="submit" name="submit" class="btn btn-primary">Déposer mon annonce</button>
-          </div>
-        </div>  
-    </div>
+      </div>
   </div>
   
   </main>
