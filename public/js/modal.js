@@ -1,10 +1,11 @@
-$(document).ready(function(){
-	$(".launch-modal").click(function(){
-		$("#myModal").modal({
-			backdrop: 'static'
-		});
-	}); 
-});
+// DETAIL MODAL
+// $(document).ready(function(){
+// 	$(".launch-modal").click(function(){
+// 		$("#myModal").modal({
+// 			backdrop: 'static'
+// 		});
+// 	}); 
+// });
 
 // DELETE BUTTON
 
