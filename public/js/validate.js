@@ -121,6 +121,7 @@ function validateForm(){
                textTel.style.color ="#9f1226";
               }
 
+        //DESCRIPTION
               if (description == "")
               //Si c'est vide
               {
@@ -135,6 +136,23 @@ function validateForm(){
                 myForm.classList.remove("invalid");
                 textMess.innerHTML ="Description completée.";
                 textMess.style.color ="#85C630";
+              }
+        
+              //TITRE
+              if (titre == "")
+              
+              {
+               myForm.classList.remove("valid");
+               myForm.classList.remove("invalid");
+               
+               textTitre.innerHTML ="Veuillez compléter ce champ.";
+               textTitre.style.color ="#9f1226";
+              }else        
+              {
+                myForm.classList.add("valid");
+                myForm.classList.remove("invalid");
+                textTitre.innerHTML ="Titre completée.";
+                textTitre.style.color ="#85C630";
               }
 
   } 
