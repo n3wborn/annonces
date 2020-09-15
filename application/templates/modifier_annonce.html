@@ -22,7 +22,7 @@
             <input type="text" class="form-control" name="nom" value="{{ infos.nom }}" >
           </div>
         </div>
-        <i class="fas fa-edit fa-10x absolute"></i>
+        <img src="{{ infos.img_nom }}" class="absolute" alt="image de l annonce">
 
         <!--PRENOM-->
         <div class="row">
@@ -43,7 +43,7 @@
 
           <!--IMAGE-->
           <div class="form-group p-2 mt-4 col-md-6">
-            <input type="file" name="img_nom" id="file" class="input-file" value="{{ result.img_name }}">
+            <input type="file" name="img_nom" id="file" class="input-file" value="{{ infos.img_nom }}">
             <label for="file" class="btn btn-tertiary js-labelFile">
               <i class="icon fa fa-check"></i>
               <span class="js-fileName">Sélectionner une image...</span>
