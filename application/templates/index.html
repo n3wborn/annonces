@@ -16,7 +16,7 @@
         </div>
         <div class="modal-body">
             <div id="myModal">
-                
+
                     <div class="d-flex">
                         <div class="text-center">
                             <img src="https://picsum.photos/200" alt="image d'illustration" class="pb-3">
@@ -36,280 +36,21 @@
   </div>
     </div>
 </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div class="card-deck">
         <div class="row row-cols-1 row-cols-md-3">
-            <div class="col mb-5">
-               <!-- <div class="card bannerHidden"> -->
-                <div class="card">
-                    <!-- <span href="#" class="price">A partir de 700€ !</span> -->
-                    <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="Paysage Canadien">
-                    <div class="card-body">
-                        <p class="card-title text-center">Voyage au Canada !</p>
-                            <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                            <br>
-                            <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                               <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                             </a>
-                    </div>
-                </div>
-            </div>
+
+
+        {% for annonce in results %}
             <div class="col mb-5">
                 <!-- <div class="card  bannerHidden"> -->
                     <div class="card">
 
                      <!-- <span href="#" class="price">{{ result.prix }}€</span> -->
-                     <img src="{{ basepath }}/assets/noimage.png" class="card-img-top" alt="Pas d'image">
+                     <img src="{{ annonce.img_url }}" class="card-img-top" alt="image de l annonce">
                      <div class="card-body">
-                         <p class="card-title text-center">Promenade de chien</p>
-                             <p class="card-text">Vous partez en weekend, en vacances, vous avez besoin de quelqu’un pour sortir votre chien de temps en temps pendant la journée ?</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card  bannerHidden"> -->
-                    <div class="card">
-
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-               <!-- <div class="card  bannerHidden"> -->
-                <div class="card">
-
-                    <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                    <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title text-center">Voyage au Canada !</p>
-                            <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                            <br>
-                            <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                             </a>
-                    </div>
-                </div>
-            </div>            
-            <div class="col mb-5">
-               <!-- <div class="card  bannerHidden"> -->
-                <div class="card">
-
-                    <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                    <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title text-center">Voyage au Canada !</p>
-                            <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                            <br>
-                            <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                             </a>
-                    </div>
-                </div>
-            </div>            
-            <div class="col mb-5">
-                <!-- <div class="card  bannerHidden"> -->
-                    <div class="card">
-
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card  bannerHidden"> -->
-                    <div class="card">
-
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-                     <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-                        <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                    <div class="card">
-                        <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                 <div class="card">
-                    <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
-                             <br>
-                             <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                              </a>
-                     </div>
-                 </div>
-             </div>            
-             <div class="col mb-5">
-                <!-- <div class="card bannerHidden"> -->
-                 <div class="card">
-                    <!-- <span href="#" class="price">{{ result.prix }} €</span> -->
-                     <img src="{{ basepath }}/assets/canada.jpg" class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <p class="card-title text-center">Voyage au Canada !</p>
-                             <p class="card-text">Vivez le Canada, en famille des chutes du Niagara aux baleines du Saint Laurent, en hôtels trendy à Toronto ou chalet nature aux portes de Montréal...</p>
+                         <!-- <p class="card-title text-center">Promenade de chien</p> -->
+                             <p class="card-text">{{ annonce.description }}</p>
                              <br>
                              <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
                               <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
@@ -317,6 +58,8 @@
                      </div>
                  </div>
              </div>
+        {% endfor %}
+
         </div>
     </div>
   </main>
@@ -324,7 +67,7 @@
 
 
   {% block javascript %}
-  
+
   {{parent()}}
 
   {% endblock javascript %}

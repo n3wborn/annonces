@@ -18,13 +18,14 @@ class Homepage extends Annonces
 
   public static function homepage()
   {
-    $template = new Twig('index.html');
-    // Twig - variables test
-    $test = "TEST HOMEPAGE OK";
 
-    // Twig - Rendu du template et des variables
+    $template = new Twig('index.html');
+    $annonce = new Annonces();
+    $results = $annonce->GetConfirmed();
+
+
     echo $template->render([
-      'test' => $test,
+      'results' => $results,
       'basepath' => SERVER_URI
     ]);
   }
@@ -34,14 +35,15 @@ class Homepage extends Annonces
   public static function testpage()
   {
     $template = new Twig('test.html');
-    // Twig - variables test
+    $annonce = new Annonces();
+    $results = $annonce->GetConfirmed();
 
 
 
     // Twig - Rendu du template et des variables
     echo $template->render([
       //'test' => $resultats[0]->id,
-      'test' => $resultat,
+      'results' => $results,
       'basepath' => SERVER_URI
     ]);
   }
