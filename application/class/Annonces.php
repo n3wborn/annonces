@@ -273,11 +273,12 @@ class Annonces extends Database
   public function delete(string $uuid)
   {
     $dbh = $this->getPdo();
-    $sql = "DELETE FROM `annonces` WHERE `annonces`.`id` = :uuid";
+
+    // supprime pour de bon
+    $sql = 'DELETE FROM annonces WHERE uuid = :uuid';
     $sth = $dbh->prepare($sql);
     $sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
-
-    return($sth->execute());
+    $resultat = $sth->execute();
   }
 
 
