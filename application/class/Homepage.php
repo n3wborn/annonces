@@ -29,6 +29,20 @@ class Homepage extends Annonces
     ]);
   }
 
+  public static function details()
+  {
+
+    $template = new Twig('details.html');
+    $annonce = new Annonces();
+    $results = $annonce->GetConfirmed();
+
+    echo $template->render([
+      'results' => $results,
+
+      'basepath' => SERVER_URI
+    ]);
+  }
+
 
 
   public static function testpage()
@@ -46,6 +60,8 @@ class Homepage extends Annonces
       'basepath' => SERVER_URI
     ]);
   }
+
+  
 
 
 
