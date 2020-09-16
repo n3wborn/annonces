@@ -48,7 +48,9 @@ $router->map( 'GET', '/modifier-annonce/[*:uuid]/[*:courriel]/[*:hash]', functio
 
 
 // Chargement de la page de suppression
-$router->map( 'GET', '/supprimer-annonce/[*:uuid]/[*:courriel]/[*:hash]', function() {\App\Homepage::supprimer_annonce();});
+$router->map( 'GET', '/supprimer-annonce/[*:uuid]/[*:courriel]/[*:hash]', function($uuid) {
+  \App\Homepage::supprimer_annonce($uuid);
+});
 
 
 // Chargement de la page de suppression une fois confirmee
