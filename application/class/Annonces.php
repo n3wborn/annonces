@@ -403,7 +403,7 @@ class Annonces extends Database
    */
 
   public function myParentSays() {
-    return $this->getPdo();
+    return Database::getPdo();
   }
 
 
