@@ -25,7 +25,6 @@ class Homepage extends Annonces
 
     echo $template->render([
       'results' => $results,
-
       'basepath' => SERVER_URI
     ]);
   }
@@ -107,21 +106,15 @@ class Homepage extends Annonces
 
 
   // WIP Test static routes
-  public static function supprimer_annonce()
+  public static function supprimer_annonce($uuid)
   {
-    $template = new Twig('supprimer_annonce.html');
 
-    // URL
-    $url = $_SERVER['REQUEST_URI'];
-
-    // Verifie l'url et genere le lien de suppression
-    $infos = Crypt::explodeUrl($url);
-    $uuid = Crypt::checkIntegrity($infos);
-
+    $uuid_cleartext = Crypt::decrypt($uuid);
 
     // Twig - Rendu du template et des variables
+    $template = new Twig('supprimer_annonce.html');
     echo $template->render([
-      'uuid' => $uuid,
+      'uuid' => $uuid_cleartext,
       'basepath' => SERVER_URI
     ]);
   }
@@ -133,21 +126,13 @@ class Homepage extends Annonces
    */
 	public static function suppression($uuid)
   {
-		// on recupere notre pdo
-		$dbh = new Database();
-		$uuid = self::$uuid;
-
-		// prepare et execute la suppression
-		$sql = 'DELETE FROM `annonces` WHERE `uuid` = :uuid';
-		$sth = $dbh->prepare($sql);
-		$sth->bindParam(':uuid', $uuid, PDO::PARAM_STR);
-
-		// si l'execution se passe bien, on affiche le message de confirmation
-		if ($sth->execute()) {
-			header('Location: ' . SERVER_URI . '/');
-		} else {
-		  return false;
-		}
+  	$annonces = new Annonces();
+  	if ($annonces->delete($uuid)) {
+  		header('Location: ' . SERVER_URI . '/');
+  	} else {
+  		// TODO gestion des erreurs
+  		header('Location: ' . SERVER_URI . '/');
+  	}
   }
 
 }
