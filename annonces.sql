@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 15 sep. 2020 à 07:33
+-- Généré le :  ven. 09 oct. 2020 à 11:42
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.4.0
 
@@ -32,12 +32,12 @@ DROP TABLE IF EXISTS `annonces`;
 CREATE TABLE IF NOT EXISTS `annonces` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uuid` varchar(36) DEFAULT NULL,
-  `prix` int(11) DEFAULT NULL,
+  `prix` int(11) DEFAULT 0,
   `titre` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `img_url` varchar(255) DEFAULT NULL,
   `img_nom` varchar(255) DEFAULT NULL,
-  `est_validee` tinyint(1) DEFAULT 0,
+  `est_validee` tinyint(1) DEFAULT 1,
   `date_ecriture` date DEFAULT NULL,
   `date_validation` date DEFAULT NULL,
   `id_utilisateur` int(11) DEFAULT NULL,
@@ -46,15 +46,17 @@ CREATE TABLE IF NOT EXISTS `annonces` (
   UNIQUE KEY `uuid` (`uuid`),
   KEY `id_utilisateur` (`id_utilisateur`),
   KEY `id_categorie` (`id_categorie`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `annonces`
 --
 
 INSERT INTO `annonces` (`id`, `uuid`, `prix`, `titre`, `description`, `img_url`, `img_nom`, `est_validee`, `date_ecriture`, `date_validation`, `id_utilisateur`, `id_categorie`) VALUES
-(4, 'acd7bcfc-f27e-11ea-ac75-68f7289097ce', 23, NULL, 'tes test etst', '/public/assets/image.jpg', 'image.jpg', 1, '2020-09-04', '2020-09-05', 3, 4),
-(8, 'acd7c0b0-f27e-11ea-ac75-68f7289097ce', 57, NULL, 'tes test etst', '/public/assets/image.jpg', 'image.jpg', 1, '2020-09-04', '2020-09-05', 3, 4);
+(29, '6778d54ae8dde161e6ae1a2efdab68ce7412', 0, 'Girafe', 'Donne girafe, trop grande pour mon petit appartement.', 'assets/549b4157b5girafe.jpg', '549b4157b5girafe.jpg', 1, '2020-09-15', '2020-09-16', 6, 2),
+(30, '566f6b630ecf9024afa0d88d8918c642594b', 0, 'Cabane', 'Séjour dans les bois', 'assets/d4113dffb5Cocoon-Etoilée-carré-mise-en-avant-divi-500x355.jpg', 'd4113dffb5Cocoon-Etoilée-carré-mise-en-avant-divi-500x355.jpg', 1, '2020-09-15', '2020-09-16', 6, 7),
+(32, 'd76e4da5e5815d06543b9480710eb5f10eaf', 5, 'Chaussette Banane', 'Vend chaussette Banane', 'assets/fe61f414e861ujONMm9XL._AC_UX385_.jpg', 'fe61f414e861ujONMm9XL._AC_UX385_.jpg', 1, '2020-09-15', NULL, 6, 8),
+(33, '1831f5ecbfb5174d4a8b8fc8a1bc5fa0e786', 876, 'Bali', 'Voyage a Bali', 'assets/f9fd74705b222790006.jpg', 'f9fd74705b222790006.jpg', 1, '2020-09-15', NULL, 7, 7);
 
 -- --------------------------------------------------------
 
@@ -97,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `prenom` varchar(255) DEFAULT NULL,
   `telephone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -108,7 +110,8 @@ INSERT INTO `utilisateur` (`id`, `courriel`, `nom`, `prenom`, `telephone`) VALUE
 (2, 'test@domain.org', 'bidule', 'machine', '06 06 06 07 07'),
 (3, 'courriel@gmail.com', 'alachaussurenoir', 'Legrandblond', '07 07 07 07 07'),
 (4, 'mail@maildomain.com', 'noname', 'nonick', '03 44 55 99 77'),
-(6, 'lezervinia@gmail.com', 'Zervini', 'Léa', '0567846354');
+(6, 'lezervinia@gmail.com', 'Zervini', 'Léa', '0567846354'),
+(7, 'lucian@ptiglo.com', 'Ptiglo', 'lucien', '0567846354');
 
 --
 -- Contraintes pour les tables déchargées
