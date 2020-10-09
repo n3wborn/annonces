@@ -75,6 +75,8 @@ $redBanner :#9f1226;
 
 body{
     background-color: $magnolia;
+    
+    
 
 }
 
@@ -92,9 +94,18 @@ nav{
         border-radius: 1.25rem;
     }
 
+    .selectpicker {
+        -webkit-appearance: none;
+        border: none;
+       }
+       
+
+
     @include button;
 
 }
+
+
 
 main{
     .card{
