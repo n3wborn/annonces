@@ -20,78 +20,74 @@
 <body>
 
     {% block header %}
-    <header>
-        <nav >
-            <div class="navbar navbar-light">
-              <a class="navbar-brand d-flex" href="/">
-                <img src="{{ basepath }}/assets/logo.png"  width="250" height="125" class=" align-top" alt="" loading="lazy">
-              </a>
-      
-              <div class="input-group mb-5 mx-auto col-md-7">
-                <form class="form-inline mr-auto mb-4">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Que recherchez-vous ?" aria-label="Search">
-                  <button class="btn btn-outline-secondary btn-rounded my-0" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-            <div class="d-flex justify-content-center mt-n3 pb-4">
-              <a class="btn btn-primary btn-rounded" href="{{ basepath }}/nouvelle-annonce" role="button">Déposer une annonce</a>
-            </div>
-          </nav>
-    </header>
+        <header>
+            <nav >
+                <div class="navbar navbar-light">
+                  <a class="navbar-brand d-flex" href="/">
+                    <img src="{{ basepath }}/assets/logo.png"  width="250" height="125" class=" align-top" alt="" loading="lazy">
+                  </a>
+
+                  <div class="input-group mb-5 mx-auto col-md-7">
+                    <form class="form-inline mr-auto mb-4">
+                      <input class="form-control mr-sm-2" type="text" placeholder="Que recherchez-vous ?" aria-label="Search">
+                      <button id="searchBtn" class="btn btn-outline-secondary btn-rounded my-0" type="submit">Search</button>
+                    </form>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center mt-n3 pb-4">
+                  <a class="btn btn-primary btn-rounded" href="{{ basepath }}/nouvelle-annonce" role="button">Déposer une annonce</a>
+                </div>
+              </nav>
+        </header>
     {% endblock header %}
 
-    {% block content %}
-    <main>
-</main>
-    {% endblock content %}
-    {% block footer %}
-    <!-- Footer -->
-<footer class="page-footer">
 
-    <!-- Footer Elements -->
-    <div class="container d-flex justify-content-around py-3 text-center">
-  
-            <div>
-                <p class="font-weight-bold">BACK END</p>
-                <img src="https://img.icons8.com/fluent/48/000000/maintenance.png"/>
-                <p>PLUCHART Stéphane</p>
+    {% block content %}<main></main>{% endblock content %}
+
+
+    {% block footer %}
+        <!-- Footer -->
+        <footer class="page-footer">
+
+
+            <!-- Footer Elements -->
+            <div class="container d-flex justify-content-around py-3 text-center">
+
+                <div>
+                    <p class="font-weight-bold">BACK END</p>
+                    <img src="{{ basepath }}/assets/back.png"/>
+                    <p>PLUCHART Stéphane</p>
+                </div>
+
+                <div>
+                    <p class="font-weight-bold">FRONT END</p>
+                    <img src="{{ basepath }}/assets/front.png"/>
+                    <p>ZERVINI Léa</p>
+                </div>
             </div>
-            <!-- Twitter -->
-            <div>
-                <p class="font-weight-bold">FRONT END</p>
-                <img src="https://img.icons8.com/fluent/48/000000/paint-3d.png"/>
-                                <p>ZERVINI Léa</p>
-            </div>
-    </div>
-    <!-- Footer Elements -->
-  
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright: Projet ACS - Besançon
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
+
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright: Projet ACS - Besançon</div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
     {% endblock footer %}
 
 
     {% block javascript %}
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="{{ basepath }}/js/select.js"></script>
-    <script src="{{ basepath }}/js/buttons.js"></script>
-    <script src="{{ basepath }}/js/validate.js"></script>
-    <script src="{{basepath}}/js/modal.js"></script>
-    <script src="{{basepath}}/js/recaptcha.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-      async defer>
-  </script>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-
-
-
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="{{ basepath }}/js/select.js"></script>
+        <script src="{{ basepath }}/js/buttons.js"></script>
+        <script src="{{ basepath }}/js/validate.js"></script>
+        <script src="{{ basepath }}/js/modal.js"></script>
+        <script src="{{ basepath }}/js/recaptcha.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     {% endblock  %}
+
 </body>
 </html>
