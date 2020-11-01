@@ -2,46 +2,45 @@ version: "3.7"
 
 services:
 
+  mariadb:
+    image: mariadb:10.4
+    container_name: annonces-db
+    ports:
+      - 3306:3306
+    volumes:
+      - annonces-db-vol:/var/lib/mysql:z
+    environment:
+      - MYSQL_ROOT_PASSWORD=mariadb
+    restart: unless-stopped
+
   php-apache:
     image: webdevops/php-apache
-    links:
-      - "mariadb"
+    container_name: annonces-srv
     ports:
       - 8080:80
     volumes:
       - "./:/app:z"
     environment:
-      - PMA_ARBITRARY=1
       - PHP_DISPLAY_ERRORS=On
       - WEB_DOCUMENT_ROOT=/app/public
-    restart: always
-
-  mariadb:
-    image: mariadb:10.4
-    ports:
-      - 3306:3306
-    volumes:
-      - mariadb-vol:/var/lib/mysql:z
-    environment:
-      - MYSQL_ROOT_PASSWORD=mariadb
-    restart: always
+    depends_on:
+      - mariadb
+    restart: unless-stopped
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    links:
-      - "mariadb"
+    container_name: annonces-pma
     ports:
       - 8081:80
     volumes:
-      - pma-vol:/var/lib/mysql:z
+      - annonces-pma-vol:/var/lib/mysql:z
     environment:
-      - PMA_ARBITRARY=1
-      - MYSQL_USERNAME=root
       - MYSQL_ROOT_PASSWORD=mariadb
-    restart: always
-
+    depends_on:
+      - mariadb
+    restart: unless-stopped
 
 
 volumes:
-  mariadb-vol:
-  pma-vol:
+  annonces-db-vol:
+  annonces-pma-vol:
