@@ -1,5 +1,7 @@
-let selectCat = document.getElementById('selectCat')
+let searchBtn = document.getElementById('searchBtn')
 
-selectCat.addEventListener('click', function(e){
-    
-}
+searchBtn.addEventListener('click', function(e) {
+  // TODO: handle search field
+  e.preventDefault;
+  //console.log(e)
+})
