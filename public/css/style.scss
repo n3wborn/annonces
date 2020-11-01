@@ -41,7 +41,7 @@ $redBanner :#9f1226;
         color: white;
 
     }
-    
+
     .btn-primary{
         background-color: $coffee;
         border-color: $coffee;
@@ -103,6 +103,7 @@ main{
         box-shadow: 2px 4px 10px 2px rgba(119, 119, 119, 0.75);
         -moz-box-shadow: 2px 4px 10px 2px rgba(119, 119, 119, 0.75);
         -webkit-box-shadow: 2px 4px 10px 2px rgba(119, 119, 119, 0.75);
+        height: 465px;
 
     }
 
@@ -122,7 +123,7 @@ main{
     padding: 0.5em;
     overflow: hidden;
     }
-    
+
     .price {
     position: absolute;
     top:7%;
@@ -143,20 +144,20 @@ main{
 
 
     #myBtn {
-    display: none; 
+    display: none;
     position: fixed;
-    bottom: 20px; 
-    right: 30px; 
-    z-index: 99; 
-    border: none; 
-    outline: none; 
-    background-color: #91695396; 
-    color: white; 
-    cursor: pointer; 
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #91695396;
+    color: white;
+    cursor: pointer;
     padding: 15px;
-    border-radius: 50%; 
-    font-size: 18px; 
-    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);	
+    border-radius: 50%;
+    font-size: 18px;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
     &:hover{
 
         box-shadow: 0px 0px 10px 4px rgba(162, 128, 128, 0.75);
@@ -170,7 +171,7 @@ main{
         background-color: #fff;
         -webkit-border-radius: 20px 20px 20px 20px;
         -moz-border-radius: 20px 20px 20px 20px;
-        border-radius: 20px 20px 20px 20px;    
+        border-radius: 20px 20px 20px 20px;
         box-shadow: 0px 7px 10px 4px rgba(202, 193, 213, 0.75);
         -moz-box-shadow: 0px 7px 10px 4px rgba(202, 193, 213, 0.75);
         -webkit-box-shadow: 0px 7px 10px 4px rgba(202, 193, 213, 0.75);
@@ -198,15 +199,15 @@ main{
         &:hover{
             color: $gumMetal;
             text-decoration: none;
-        }      
+        }
     }
 
     #delete a {
         color: white;
     }
 
-       
-    
+
+
 // MODAL
     .modal-header{
         background-color: $indigoDye;
@@ -253,7 +254,7 @@ main{
         align-items: center;
         text-align: center;
     }
-    
+
     #modal_dialog{
         width:70%;
         max-width: 640px;
@@ -273,7 +274,7 @@ main{
     margin: auto;
     display: block;
     border-color: lighten(#555, 20%);
-   
+
   }
 
     label.btn {
@@ -284,9 +285,9 @@ main{
 
     }
     }
-  
+
   /* input file style */
-  
+
     .input-file {
       width: 0.1px;
       height: 0.1px;
@@ -340,7 +341,7 @@ main{
     main .absolute {
       left: 655px;
     }
-  
+
     main .fa-10x{
       font-size: 9em;
     }
@@ -348,7 +349,7 @@ main{
 
 
   @media only screen and (max-device-width : 768px){
-  
+
     main .absolute {
         left: 460px;
       }
@@ -363,15 +364,15 @@ main{
         max-width: 720px;
     }
   }
-  
-  
-  
+
+
+
   @media only screen and (max-device-width : 480px){
 
     nav .btn{
       padding:0.4em;
     }
-  
+
     i{
       position: absolute;
       clip: rect(1px 1px 1px 1px); /* syntaxe pour IE6 & IE7 */
@@ -404,7 +405,7 @@ main{
         main .card-img-top {
         max-width: none;
         }
-       
+
     // MODAL
     .d-flex {
         display:flex!important;
@@ -414,9 +415,8 @@ main{
        div.text-center {
         margin-bottom: 15px;
        }
-       
+
 
 
     }
-  
-    
+
