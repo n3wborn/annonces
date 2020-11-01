@@ -23,12 +23,12 @@
                     <a href="" target="_blank" class="download"> <i class="fas fa-download"></i>Télécharger l'annonce</a>
                 </div>
                   <div class="m-2 container-fluid modalBc text-left">
-                    <p class="p-1">Nom : {{result.nom}}</p>
-                    <p class="p-1">Prénom : {{result.prenom}}</p>
-                    <p class="p-1">Adresse mail : {{ result.courriel}}</p>
+                    <p class="p-1">Nom : {{ result.nom }}</p>
+                    <p class="p-1">Prénom : {{ result.prenom }}</p>
+                    <p class="p-1">Adresse mail : {{ result.courriel }}</p>
                     <p class="p-1">Téléphone : {{ result.telephone }}</p>
                     <p class="p-1">Titre : {{ result.titre }}</p>
-                    <p class="p-1">Description de l'annonce : {{result.message}} </p>
+                    <p class="p-1">Description de l'annonce : {{ result.message }} </p>
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@
                  <img src="{{ result.img_url }}" class="card-img-top" alt="image de l annonce">
                  <div class="card-body">
                      <p class="card-title text-center">{{ result.titre }}</p>
-                         <p class="card-text text-center"> {{ result.description }}</p>
+                         <p class="card-text text-center"> {{ result.description|length < 100 ? result.description : result.description|slice(0, 100) ~ '...' }}</p>
                          <br>
                          <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
                             <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
