@@ -29,18 +29,20 @@ class Homepage extends Annonces
     ]);
   }
 
-  public static function details()
+
+  public static function details($uuid)
   {
-
-    $template = new Twig('details.html');
+    // recupere les infos necessaires
     $annonce = new Annonces();
-    $results = $annonce->GetConfirmed();
+    $infos = $annonce->getUserInfosFromUuid($uuid);
 
+    // Envoi les infos necessaires à Twig
+    $template = new Twig('modifier_annonce.html');
     echo $template->render([
-      'results' => $results,
-
+      'infos' => $infos,
       'basepath' => SERVER_URI
     ]);
+
   }
 
 
@@ -61,7 +63,7 @@ class Homepage extends Annonces
     ]);
   }
 
-  
+
 
 
 
