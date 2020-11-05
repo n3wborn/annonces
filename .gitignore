@@ -2,3 +2,4 @@ vendor
 composer.lock
 style.css.map
 style.css
+public/assets/
