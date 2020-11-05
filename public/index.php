@@ -21,7 +21,9 @@ $router->map( 'GET', '/', function() {\App\Homepage::homepage();});
 $router->map( 'GET|POST', '/test', function() {\App\Homepage::testpage();});
 
 //Chargement de la page détail
-$router->map( 'GET|POST', '/details', function() {\App\Homepage::details();});
+$router->map( 'GET', '/details/[*:uuid]', function($uuid) {
+  \App\Homepage::details($uuid);
+});
 
 
 // Chargement de la page /nouvelle-annonce
