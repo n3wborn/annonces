@@ -5,10 +5,13 @@ mybutton = document.getElementById("myBtn");
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
+  // avoid errors if mybutton is missing
+  if (mybutton) {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
   }
 }
 
@@ -16,18 +19,18 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-} 
+}
 
 
 (function() {
-  
+
   'use strict';
 
   $('.input-file').each(function() {
     var $input = $(this),
         $label = $input.next('.js-labelFile'),
         labelVal = $label.html();
-    
+
    $input.on('change', function(element) {
       var fileName = '';
       if (element.target.value) fileName = element.target.value.split('\\').pop();
