@@ -1,13 +1,13 @@
 {% extends "base.html.twig" %}
 {% block title %}<title>Site de petites annonces</title>{% endblock title %}
 
-  {% block content %}
-  <main >
-    <div class="container pt-5">
-        <!-- Modal -->
-  <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content">
+{% block content %}
+<main>
+  <div class="container pt-5">
+    <!-- Modal -->
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" >Aperçu de l'annonce</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -18,54 +18,59 @@
             <div id="myModal">
               <div class="d-flex">
                 <div class="text-center col-md-4">
-                    <img src="{{ annonce.img_url }}" class="pb-3" alt="image de l annonce">
-                    <p>{{ result.prix }}</p>
-                    <a href="" target="_blank" class="download"> <i class="fas fa-download mt-3"></i>Télécharger en pdf</a>
+                  <img src="{{ annonce.img_url }}" class="pb-3" alt="image de l annonce">
+                  <p>{{ result.prix }}</p>
+                  <a href="" target="_blank" class="download"> <i class="fas fa-download mt-3"></i>Télécharger en pdf</a>
                 </div>
-                  <div class="m-2 container-fluid modalBc text-left">
-                    <p class="p-1">Nom : {{ result.nom }}</p>
-                    <p class="p-1">Prénom : {{ result.prenom }}</p>
-                    <p class="p-1">Adresse mail : {{ result.courriel }}</p>
-                    <p class="p-1">Téléphone : {{ result.telephone }}</p>
-                    <p class="p-1">Titre : {{ result.titre }}</p>
-                    <p class="p-1">Description de l'annonce : {{ result.message }} </p>
+                <div class="m-2 container-fluid modalBc text-left">
+                  <p class="p-1">Nom : {{ result.nom }}</p>
+                  <p class="p-1">Prénom : {{ result.prenom }}</p>
+                  <p class="p-1">Adresse mail : {{ result.courriel }}</p>
+                  <p class="p-1">Téléphone : {{ result.telephone }}</p>
+                  <p class="p-1">Titre : {{ result.titre }}</p>
+                  <p class="p-1">Description de l'annonce : {{ result.message }} </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
-  </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!-- cards -->
     <div class="card-deck">
-        <div class="row row-cols-1 row-cols-md-3">
+      <div class="row row-cols-1 row-cols-md-3">
 
 
         {% for result in results %}
         <div class="col mb-5">
-            <div class="card bannerHidden">
-                 <span href="#" class="price">{{ result.prix }} €</span>
-                 <img src="{{ result.img_url }}" class="card-img-top" alt="image de l annonce">
-                 <div class="card-body">
-                     <p class="card-title text-center">{{ result.titre }}</p>
-                         <p class="card-text text-center"> {{ result.description|length < 100 ? result.description : result.description|slice(0, 100) ~ '...' }}</p>
-                         <br>
-                         <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
-                            <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
-                          </a>
-                 </div>
-             </div>
-         </div>
+          <div class="card bannerHidden">
+            <span class="price">{{ result.prix }} €</span>
+            <img src="{{ result.img_url }}" class="card-img-top" alt="image de l annonce">
+
+            <div class="card-body">
+              <p class="card-title text-center">{{ result.titre }}</p>
+              <p class="card-text text-center"> {{ result.description|length < 100 ? result.description : result.description|slice(0, 100) ~ '...' }}</p>
+              <br>
+              <a href="" role="button" data-toggle="modal" data-target="#Modal" class="black-text d-flex justify-content-end">
+              <h5>En savoir plus  <i class="fas fa-angle-double-right"></i></h5>
+              </a>
+            </div>
+
+          </div>
+        </div>
         {% endfor %}
 
-        </div>
-</div>
+      </div>
+    </div>
+  </div>
 </main>
-  {% endblock content %}
+{% endblock content %}
 
 
-  {% block javascript %}
+{% block javascript %}
 
-  {{parent()}}
+{{parent()}}
 
-  {% endblock javascript %}
+{% endblock javascript %}
