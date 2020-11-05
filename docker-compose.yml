@@ -36,6 +36,7 @@ services:
       - annonces-pma-vol:/var/lib/mysql:z
     environment:
       - MYSQL_ROOT_PASSWORD=mariadb
+      - PMA_HOST=mariadb
     depends_on:
       - mariadb
     restart: unless-stopped
