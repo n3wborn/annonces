@@ -1,10 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block title %}<title>Déposer une annonce</title>{% endblock title %}
+
 {% block header %}
-  <body>
+
   <header>
-    <nav >
+    <nav>
       <div class="navbar navbar-light">
         <a class="navbar-brand d-flex" href="/">
           <img src="{{ basepath }}/assets/logo.png"  width="250" height="125" class=" align-top" alt="" loading="lazy">
@@ -13,56 +14,69 @@
         <div class="input-group mb-3 mx-auto col-md-7">
           <div class="input-group-prepend">
             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégories</button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Affaires pro</a>
-            <a class="dropdown-item" href="#">Animaux</a>
-            <a class="dropdown-item" href="#">Auto-Moto</a>
-            <a class="dropdown-item" href="#">Emploi</a>
-            <a class="dropdown-item" href="#">Immobilier</a>
-            <a class="dropdown-item" href="#">Services</a>
-            <a class="dropdown-item" href="#">Vacances</a>
-            <a class="dropdown-item" href="#">Autres..</a>
+
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Affaires pro</a>
+              <a class="dropdown-item" href="#">Animaux</a>
+              <a class="dropdown-item" href="#">Auto-Moto</a>
+              <a class="dropdown-item" href="#">Emploi</a>
+              <a class="dropdown-item" href="#">Immobilier</a>
+              <a class="dropdown-item" href="#">Services</a>
+              <a class="dropdown-item" href="#">Vacances</a>
+              <a class="dropdown-item" href="#">Autres..</a>
+            </div>
           </div>
-          </div>
+
           <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Que recherchez-vous ?">
+
         </div>
       </div>
+
       <div class="d-flex justify-content-center mt-n3 pb-4">
         <button type="button" class="btn btn-primary btn-rounded">Déposer une annonce</button>
       </div>
+
     </nav>
   </header>
+
   {% endblock header %}
 
 
   {% block content %}
-    <main>
-<!-- modal -->
-<div id="modal" class="hidden">
-  <div id="modal_dialog" class="rounded border">
-    <img src="https://img.icons8.com/officel/80/000000/approval.png"/>
-            <p class="modal_text"> Votre annonce a bien été supprimée.<br>
-            Vous allez être rédirigé vers la page d'accueil dans quelques secondes. </p>
-  </div>
-</div>
+  <main>
 
-      <div class="container text-center p-5">
-        <div class="container-fluid bk-c">
-            <svg  width="30%" height="10em" viewBox="0 0 17 16" class="bi bi-exclamation-triangle-fill" fill="#E70739" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-            </svg>        <h1>Êtes-vous sur(e) ?</h1>
-              <p class="p-1"> Voulez vous vraiment supprimer cette annonce ? <br>
-             Il vous sera impossible de la récupérer. </p>
-              <div class="p-4">
-              <button class="btn btn-light">Annuler</button>
-              <button id="delete" class="btn btn-danger">
-                <a href="{{ basepath }}/delete/{{ uuid }}">Supprimer</a>
-                </button>
-              </div>
+    <!-- modal -->
+    <div id="modal" class="hidden">
+      <div id="modal_dialog" class="rounded border">
+
+        <img src="https://img.icons8.com/officel/80/000000/approval.png"/>
+        <p class="modal_text"> Votre annonce a bien été supprimée.<br>
+          Vous allez être rédirigé vers la page d'accueil dans quelques secondes.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="container text-center p-5">
+      <div class="container-fluid bk-c">
+        <svg  width="30%" height="10em" viewBox="0 0 17 16" class="bi bi-exclamation-triangle-fill" fill="#E70739" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+        </svg>
+
+        <h1>Êtes-vous sur(e) ?</h1>
+        <p class="p-1"> Voulez vous vraiment supprimer cette annonce ? <br>
+          Il vous sera impossible de la récupérer.
+        </p>
+
+        <div class="p-4">
+          <button class="btn btn-light">Annuler</button>
+          <button id="delete" class="btn btn-danger">
+            <a href="{{ basepath }}/delete/{{ uuid }}">Supprimer</a>
+          </button>
         </div>
       </div>
-
-</div>    </main>
+    </div>
+  </main>
 
   {% endblock content %}
 
@@ -73,9 +87,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="{{ basepath }}/js/top_button.js"></script>
   <script src="{{ basepath }}/js/validate.js"></script>
-  <script src="{{basepath}}/js/modal.js"></script>
-  <script src="{{basepath}}/js/recaptcha.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-    async defer>
-</script>
+  <script src="{{ basepath }}/js/modal.js"></script>
+  <script src="{{ basepath }}/js/recaptcha.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
   {% endblock javascript %}

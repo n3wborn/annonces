@@ -17,10 +17,10 @@
           <div class="modal-body">
             <div id="myModal">
               <div class="d-flex">
-                <div class="text-center">
+                <div class="text-center col-md-4">
                     <img src="{{ annonce.img_url }}" class="pb-3" alt="image de l annonce">
-                    <p>{{result.prix}}</p>
-                    <a href="" target="_blank" class="download"> <i class="fas fa-download"></i>Télécharger l'annonce</a>
+                    <p>{{ result.prix }}</p>
+                    <a href="" target="_blank" class="download"> <i class="fas fa-download mt-3"></i>Télécharger en pdf</a>
                 </div>
                   <div class="m-2 container-fluid modalBc text-left">
                     <p class="p-1">Nom : {{ result.nom }}</p>
