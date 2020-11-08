@@ -192,6 +192,28 @@ class Annonces extends Database
 
 
   /**
+   * @method getCatNameFromCatId()
+   * @param int $cat_id
+   * @return string
+   */
+  public function getCatNameFromCatId(int $cat_id) : string
+  {
+    //connection à la bdd
+    $dbh = $this->getPdo();
+
+    // prepare & bind parameters
+    $sql = "SELECT libelle FROM categorie WHERE categorie.id = :cat_id";
+    $sth = $dbh->prepare($sql);
+    $sth->bindParam(':cat_id', $cat_id, PDO::PARAM_INT);
+    $sth->execute();
+    $result = $sth->fetch();
+    $cat_name = $result['libelle'];
+    return $cat_name;
+  }
+
+
+
+  /**
    * @method FromAnnonces_GetUserInfos()
    * @param int $id_utilisateur
    * @return array

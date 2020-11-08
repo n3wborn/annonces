@@ -3,62 +3,65 @@
 
 {% block content %}
 <main >
-  <div class="container pt-5">
-    <div class="container-fluid bk-c p-4 mb-5">
-      <p class="h1">Détails de l'annonce</p>
+    <div class="container pt-5">
+  <div class="container-fluid bk-c p-4 mb-5">
+
+      <h1 class="h1">Détails de l'annonce</h1>
+
       <div class="row">
-        <div class="col-md-6 p-2">
-          <p>Nom :</p>
-        </div>
-      </div>
 
-      <!--PRENOM-->
-      <div class="row">
-        <div class="col-md-6 p-2">
-          <p> Prenom :</p>
-        </div>
-      </div>
+        <!-- Premiere colonne  -->
+        <div class="col-6">
 
-      <!--GROUPE EMAIL + IMAGE-->
-      <div class="row">
-        <!--EMAIL-->
-        <div class="col p-2">
-          <p>Email : </p>
-        </div>
+          <div class="w-100 p-2">
+            <p><b>Nom</b> : {{ infos.nom }}</p>
+          </div>
 
-        <!--IMAGE-->
-        <div class="form-group p-2 mt-4 col-md-6">
-          <img src="{{ result.img_url }}" class="pb-3" alt="image de l annonce">
-        </div>
-      </div>
+          <!--PRENOM-->
+          <div class="w-100 p-2">
+            <p><b> Prenom</b> : {{ infos.prenom }}</p>
+          </div>
 
-      <!-- GROUPE TEL + CATEGORIES-->
-      <div class="row">
-        <!--TEL-->
-        <div class="col-md-6 p-2">
-          <P>Téléphone : </P>
-        </div>
+          <!--EMAIL-->
+          <div class="w-100 p-2">
+            <p><b>Email</b> : {{ infos.courriel }}</p>
+          </div>
 
-        <!--CATEGORIES-->
-        <div class="col p-2">
-          <p>Catégorie : </p>
-        </div>
+          <!--TEL-->
+          <div class="p-2">
+            <P><b>Téléphone</b> : {{ infos.telephone }}</P>
+          </div>
 
-      </div>
+          <!--CATEGORIES-->
+          <div class="p-2">
+            <p><b>Catégorie</b> : {{ categorie }}</p>
+          </div>
 
-      <!-- TITRE + PRIX -->
-      <div class="row">
-        <!--TITRE-->
-        <div class="col-md-6 p-2">
-          <p>Titre et description de l'annonce</p> <br>
-          <p>{{ result.titre }}</p>
-          <p> {{ result.description }}</p>
+          <!--TITRE-->
+          <div class="p-2">
+            <p><b>Titre et description de l'annonce</b></p> <br>
+            <p>{{ infos.titre }}</p>
+            <p> {{ infos.description }}</p>
+          </div>
+
+          <!--PRIX-->
+          <div class="p-2">
+            <p><b>Prix</b> : {{ infos.prix }} €</p>
+          </div>
+
         </div>
 
-        <!--PRIX-->
-        <div class="col-md-6 p-2">
-          <p>Prix : </p>
+
+        <!-- 2e Colonne -->
+        <div class="col-6">
+
+          <!--IMAGE-->
+          <div class="d-flex justify-content-center align-items-center p-2">
+            <img src="{{ basepath }}/{{ infos.img_url }}" id="img-annonce" class="pb-3" alt="image de l annonce">
+          </div>
+
         </div>
+
       </div>
     </div>
   </div>

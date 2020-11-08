@@ -48,13 +48,13 @@ $router->map( 'POST', '/formulaire-ajout', function() {
 });
 
 // Chargement de la page de modification
-$router->map( 'GET', '/modifier-annonce/[*:uuid]/[*:courriel]/[*:hash]', function($uuid_chiffre, $courriel_chiffre, $hash) {
-  \App\Homepage::modifier_annonce($uuid_chiffre, $courriel_chiffre, $hash);
+$router->map( 'GET', '/modifier-annonce/[*:uuid]', function($uuid_chiffre) {
+  \App\Homepage::modifier_annonce($uuid_chiffre);
 });
 
 
 // Chargement de la page de suppression
-$router->map( 'GET', '/supprimer-annonce/[*:uuid]/[*:courriel]/[*:hash]', function($uuid) {
+$router->map( 'GET', '/supprimer-annonce/[*:uuid]', function($uuid) {
   \App\Homepage::supprimer_annonce($uuid);
 });
 

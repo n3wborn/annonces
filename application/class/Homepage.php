@@ -35,11 +35,13 @@ class Homepage extends Annonces
     // recupere les infos necessaires
     $annonce = new Annonces();
     $infos = $annonce->getUserInfosFromUuid($uuid);
+    $categorie = $annonce->getCatNameFromCatId(intval($infos['id_categorie']));
 
     // Envoi les infos necessaires à Twig
-    $template = new Twig('modifier_annonce.html');
+    $template = new Twig('details.html');
     echo $template->render([
       'infos' => $infos,
+      'categorie' => $categorie,
       'basepath' => SERVER_URI
     ]);
 
