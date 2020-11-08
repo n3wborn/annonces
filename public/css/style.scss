@@ -75,8 +75,8 @@ $redBanner :#9f1226;
 
 body{
     background-color: $magnolia;
-    
-    
+
+
 
 }
 
@@ -98,7 +98,7 @@ nav{
         -webkit-appearance: none;
         border: none;
        }
-       
+
 
 
     @include button;
@@ -326,7 +326,10 @@ main{
     }
   }
 
-
+// ANNONCE IMAGE
+#img-annonce {
+    max-width: 90%;
+}
 
 // FOOTER
     .page-footer {
